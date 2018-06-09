@@ -1,0 +1,34 @@
+<include file="public/header" />
+<!-- content -->
+<div class="m_ctr">
+	<include file="public/left" />
+	
+	<!--文章内容-->
+	<div class="m_ctt">
+		<div class="newsshow_title">{$title}</div>
+		<div class="newsshow_sm">日期：{$time|date='Y-m-d H:i:s',###} 人气：<script type="text/javascript" src="{:U(MODULE_NAME.'/Article/getclick',array('id'=>$sid))}"></script></div>
+		<div class="picScroll">
+			<div class="bd">
+				<ul class="picList">
+				<li><div class="pic"><a href="javascript:;" target="_blank"><img src="{$p}" /></a></div></li>
+				<foreach name='img' item='v'>
+				<li><div class="pic"><a href="javascript:;" target="_blank"><img src="{$v.pic}" /></a></div></li>					
+				</foreach>				
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">jQuery(".picScroll").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:1,trigger:"click"});</script>
+		<div class="newsshow_ctt">
+			{$content}
+		</div>
+		<div class="page">
+			<div>{$prev}</div>
+			<div>{$next}</div>
+		</div>
+	</div>
+	<!--文章内容 end-->
+ </div>
+ <!-- content end -->
+<include file="public/bottom" />
+</body>
+</html>

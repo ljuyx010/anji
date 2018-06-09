@@ -1,0 +1,31 @@
+<include file="public/header" />
+<include file="public/top" />
+{:W('Comm/banner')}
+<div class="kmain">
+ 	<div class="main">
+<include file="public/left" />
+ 	<div class="right">
+ 		<ul class="breadcrumb">
+ 		<span>当前位置:</span>
+		<li><a href='/'>首页</a></li><crumb id="$cid"/>
+		</ul>
+		<div class="piclist">
+			<form action="{:U(MODULE_NAME.'/Pay/doalipay')}" method="post">
+			<div class="fl"><img src="{$p.pic}" /></div><div class="fr"><input type="hidden" name="pname" value="{$p.title}" />{$p.title}</div>
+			<div class="fl">购买数量:{$v.num}</div><div class="fr">合计金额:{$v.sumprice}<input type="hidden" name="sumprice" value="{$v.sumprice}"/></div>
+			<div><input type="hidden" name="ordbody" value="{$p.description}"/><input type="hidden" name="order" value="{$v.order}"/><input type="hidden" name="ordshow_url" value="{:U(MODULE_NAME.'/details_'.$p['id'],'','',true)}"/>
+			{$p.description}</div>
+			<div class="fl">收件人姓名:</div><div class="fr"><input type="text" name="uname" value="{$u.realname}" /></div>
+			<div class="fl">收件人电话:</div><div class="fr"><input type="text" name="tel" value="{$u.tel}" /></div>
+			<div class="fl">收件人地址:</div><div class="fr"><input type="text" name="adress" value="{$u.address}" /></div>
+			<div class="fl">运费:</div><div class="fr"><input type="hidden" name="yf" value="10" />10</div>
+			<div class="fl">备注（特别说明）:</div><div class="fr"><textarea name="remark"></textarea></div>
+			</form>
+		</div>
+ 	</div>
+ 	<div class="clearfix"></div>
+ 	</div>
+ </div>
+<include file="public/bottom" />
+</body>
+</html>

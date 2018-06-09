@@ -1,0 +1,34 @@
+<script src="__PUBLIC__/ping/comments.js"></script>
+<script src="__PUBLIC__/ping/fenye.js"></script>
+<script src="__PUBLIC__/ping/setfenye.js"></script>
+<script src="__PUBLIC__/ping/addshop.js"></script>
+<script src="__PUBLIC__/ping/ping.css"></script>
+
+<div class="huiyuan23a"><span>图书评论<a href="#" name="1"></a></span></div>
+<div class="jiange10"></div>
+<if condition="session('memberid')">
+	<div class="panel-body">
+		<form id="ping" style="margin-bottom:20px;">
+		<input type="hidden" name="fz" value="{:CONTROLLER_NAME}_{$sid}" id="fz">
+		<div><textarea type="textarea" rows="3" placeholder="还可以输入140个字" class="form-control" id="nei"></textarea></div>
+		<span class="comment_tip" id="comment_tip" data-top="11" data-foot="36"></span>
+		<div style="margin-top: 7px;"><button type="button" class="btn ant-btn" onclick="subcomment()"><i class="glyphicon glyphicon-send"></i><span style="margin-left:10px;">发布评论</span></button></div>
+		</form>
+		<input type='hidden' id='current_page' />
+		<input type='hidden' id='show_per_page' />	
+	</div>
+<else />
+<div class="huiyuan24a">请先 <a href="/index.php/Index/member/index">登录</a> 后，再评论吧</div>
+</if>
+	<div id="content">
+	<foreach name="ping" item="v" key="k">
+	<div class="huiyuan24"><span>会员名：<font color="#3EAF4B">{$v.username}</font><span style="PADDING-left:20px;"></span>评论时间：{$v.time|date='Y-m-d H:i:s',###}<br></span>{$v.neir}
+		<foreach name="v.hf" item="h">
+		<p class="story_hf">
+		<span>回复：</span>{$h.neir}</p>
+		</foreach>
+	</div>
+	<div class="jiange10"></div>
+	</foreach>
+	<div id="page_navigation"></div>
+	</div>

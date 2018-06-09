@@ -1,0 +1,23 @@
+<include file="public/header" />
+<!-- content -->
+<div class="m_ctr">
+	<include file="public/left" />
+	
+	<!--文章内容-->
+	<div class="m_ctt">
+		<div class="newsshow_title">{$title}</div>
+		<div class="newsshow_sm">日期：{$time|date='Y-m-d',###}  人气：<script type="text/javascript" src="{:U(MODULE_NAME.'/Article/getclick',array('id'=>$sid))}"></script></div>
+		<div class="newsshow_ctt">
+			{$content}
+		</div>
+		<div class="page">
+			<div>{$prev}</div>
+			<div>{$next}</div>
+		</div>
+	</div>
+	<!--文章内容 end-->
+ </div>
+ <!-- content end -->
+<include file="public/bottom" />
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div class="ld-left">
+<if condition="$cid gt 16">
+	<fav name="Cate" id="$fid">
+	<if condition="$id eq $cid">
+	<a href="{$url}">
+	<div class="renwu current">
+	<h2 class="danqian"><span class="strong">{$name}</span></h2>
+	</div>
+	</a>
+	<else />
+	<a href="{$url}">
+	<div class="renwu">
+	<h2><span class="strong">{$name}</span></h2>
+	</div>
+	</a>
+	</if>
+	</fav>
+<else />
+	<fav name="Cate" id="$cid">
+	<if condition="$id eq $cid">
+	<a href="{$url}">
+	<div class="renwu current">
+	<h2 class="danqian"><span class="strong">{$name}</span></h2>
+	</div>
+	</a>
+	<else />
+	<a href="{$url}">
+	<div class="renwu">
+	<h2><span class="strong">{$name}</span></h2>
+	</div>
+	</a>
+	</if>
+	</fav>
+</if>    
+</div>
+<!--end left-->

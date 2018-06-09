@@ -1,0 +1,33 @@
+<include file="public/header" />
+<div class="main" style="margin-top:50px;margin-bottom:60px;">
+    <div class="readcon">
+      <div class="sjg"><div class="title">搜索“{$str}”的结果</div><a class="goback" href="javascript:" onclick="history.back(); "></a>
+	  <div class="clearfix"></div>
+	  </div>
+	  <div class="content">
+      <if condition="$search">
+        <ul class="zixun-list1">
+        <foreach name="search" item="v">
+        <li>
+			<a href="{:U('/'.MODULE_NAME.'/ashow_'.$v['id'])}">
+				<dl>
+					<dt><h4>{$v.title|msubstr=###,0,15,'utf-8',false}</h4></dt>
+					<dd>
+						<div class="list-b clearfix"><div class="come-from">来源：本站</div><div class="zx-time">{$v.time|date='Y-m-d',###}</div></div>
+					</dd>
+				</dl>
+			</a>
+		</li>
+        </foreach>
+        </ul>
+        <div class="page">{$page}</div>
+      <else />
+        暂无搜索结果！
+      </if>
+        </div>
+	</div>
+</div>
+<!--main end-->
+<include file="public/bottom" />
+</body>
+</html>

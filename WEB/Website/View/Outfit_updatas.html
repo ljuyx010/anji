@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设备管理</title>
+	<link href="__PUBLIC__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{$car}的设备</h5> 
+                        <div class="gohome">
+                        <a class="animated bounceInUp" href="{:U('Outfit/car')}" title="返回"><i class="fa fa-mail-reply-all"></i></a>
+                        </div>                 
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>设备名称</th>
+                                    <th>购入日期</th>
+                                    <th>过期日期</th>
+                                    <th>分配/遗失日期</th>
+                                    <th>配备数量</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                            <foreach name="list" item="l">
+                                <tr <if condition="$l['loss']">class="alert-danger"</if>>
+                                    <td>{$l.name}</td>
+                                    <td>{$l.time|date='Y-m-d',###}</td>
+                                    <td><if condition="$l['dtime'] gt 0 and $l['dtime'] lt time()">已过期<elseif condition="$l['dtime']"/>{$l.dtime|date='Y-m-d',###}<else />永久有效</if></td>
+                                    <td>{$l.atime|date='Y-m-d',###}</td>
+                                    <td>{$l.num}</td>
+                                    <td><a onclick="return confirm('确定要删除吗？')" href="{:U('Outfit/deletes',array('id'=>$l['id'],'carnum'=>$car))}" class="btn btn-warning btn-sm"><i class="fa fa-trash"></i> 删除</a></td>
+                                </tr>
+                            </foreach>
+                            </tbody>
+                        </table>
+                    </div>                   
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>添加设备/遗失登记</h5>               
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" onsubmit="return false" id="form1" class="form-horizontal">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">操作类型</label>
+                                    <div class="col-sm-4">
+                                        <div class="radio">
+                                            <label class="checkbox-inline"><input type="radio" checked="checked" value="0" name="loss">添加设备</label>
+                                            <label class="checkbox-inline"><input type="radio" id="loss" value="1" name="loss">遗失登记</label>
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">选择设备</label>
+                                <div class="col-sm-4">                                
+                                    <select class="form-control m-b" name="sid">
+                                        <foreach name="sb" item="v">
+                                        <option value="{$v.id}">{$v.name}({$v.times}购入)</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">设备数量</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="num" value="">
+                                    <input type="hidden" name="carnum" value="{$car}"></input>
+                                </div>                                
+                            </div> 
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" id="rq">发放日期</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="time"  id="time" value="{$v.time|default=time()|date='Y-m-d',###}">
+                                    <input type="hidden" name="carnum" value="{$car}"></input>
+                                </div>                                
+                            </div>                            
+                            <div class="hr-line-dashed"></div>                                                                                            
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" onclick="add()">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__PUBLIC__/js/plugins/iCheck/icheck.min.js"></script>
+	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script>
+    laydate({elem:"#time",event:"focus"});
+    $(document).ready(function() {
+        $('input[type=radio][name=loss]').change(function() {
+            if (this.value == '1') {
+                $('#rq').html("遗失日期");
+            }else{
+                $('#rq').html("发放日期");
+            }
+        });
+    });
+    function add() {
+            $.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:U('Outfit/adds')}" ,//url
+                data: $('#form1').serialize(),
+                success: function (result) {
+                    console.log(result);//打印服务端返回的数据(调试用)
+                    if (result.cod == 200) {
+                        window.location.reload();
+                    }else{
+                        alert(result.msg);
+                    }
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

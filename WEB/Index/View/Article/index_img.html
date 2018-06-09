@@ -1,0 +1,30 @@
+<include file="public/header" />
+<include file="public/top" />
+<div class="main">
+    <ul class="crub">
+		<li>当前位置:</li>
+		<li><a href='/index.php'>首页</a></li><crumb id="$cid"/>
+    </ul>
+<include file="public/left" />
+    <!--end right-->
+ <div class="ld-right">
+    <div class="lanm">
+        <h2>{$title}</h2>
+            <ul class="pic">
+            <foreach name="article" item="v">
+            <li><a href="{:U('/'.MODULE_NAME.'/ashow_'.$v['id'])}" title="{$v.title}" target="_blank">
+			<if condition='$v[pic]'><img src="{$v.pic}" title="{$v.title}"><else /><img src="__PUBLIC__/images/nopic.jpg"></if>
+            <p>{$v.title}</p></a></li>
+            </foreach>
+            <div class="clear"></div>
+    		</ul>
+        <div class="page">{$page}</div>
+    </div>
+</div>
+<div class="clear"></div>
+<!--left end -->
+</div>
+<!--end main-->
+<include file="public/bottom" />
+</body>
+</html>

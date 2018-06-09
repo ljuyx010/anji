@@ -1,0 +1,53 @@
+<include file="public/header" />
+<script type="text/javascript">
+	var verifyUrl = '/index.php/Index/Gbook/verify';
+	function change_code(obj){
+	$("#code").attr("src",verifyUrl+'/'+Math.random());
+	return false;
+    }
+</script>
+<!-- inner -->
+<div class="m_ctr">
+	<include file="public/left" />
+	
+	<!--在线留言-->
+	<div class="m_ctt">
+		<div class="newsshow_title">{$title}</div>
+		<div class="newsshow_sm2"> </div>
+		<div class="newsshow_ctt">
+			<form id="contact" method="post" name="GBookAdd" action="/index.php/wap/gbookDo" target="_self">
+				<label id="name_label">您的姓名　<span style="color:red;">*</span></label>
+				<input type="text" name="username" size="30" value="" class="text-input" />
+			
+				<label id="name_label">您的手机　<span style="color:red;">*</span></label>
+				<input type="text" name="tel" size="30" value="" class="text-input" />
+				
+				<label id="name_label">邮递住址  <span style="color:red;">*</span></label>
+				<input type="text" name="address"  size="30" value="" class="text-input" />
+
+				<label id="name_label">联系邮箱　<span style="color:red;">*</span></label>
+				<input type="text" name="email" size="30" value="" class="text-input" />			
+				
+				<label id="contact_label">留言标题</label>
+				<input type="text" name="title"  size="30" value="" class="text-input" />
+				
+				<label id="message_label">留言内容</label>
+				<textarea  name="content" id="GBook_Content" class="text-input"></textarea>
+				
+				<label id="message_label">验证码</label>
+				<input type="text" class="text-input" id="yzm" name="code"/> <a href="javascript:void(change_code(this));"><img src="/index.php/Index/Gbook/verify" id="code"/></a>
+				<div class="clear"></div>
+				
+				<p class="contact-button-house">
+					<input type="hidden" name="cid" value="{$cid}" />
+					<input type="submit" name="submit" class="full-screen-button contactButton button black" id="submit" value="提 交"/>
+				</p>
+			</form>
+		</div>
+	</div>
+	<!--在线留言 end-->
+ </div>
+ <!-- inner end -->
+<include file="public/bottom" />
+</body>
+</html>

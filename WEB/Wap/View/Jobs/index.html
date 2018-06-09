@@ -1,0 +1,25 @@
+<include file="public/header" />
+<!-- content -->
+<div class="m_ctr">
+	<include file="public/left" />
+	
+	<!--招聘列表-->
+	<div class="m_ctt">
+	<foreach name="jobs" item="v">
+		<div class="newslist_ctr" style="height:auto;">
+			<h3>{$v.title}</h3>
+			<p>{$v.jobname}({$v.time|date='Y-m-d',###})</p>
+			<p>有效期：<if condition="$v['useful'] eq 0">永久有效<else />{$v.useful}个月</if></p>
+			<p>招聘人数：{$v.qty}人</p>
+			<p>工作地点：{$v.jobadd}</p>
+			<p>招聘要求：{$v.jobrequire}</p>
+		</div>
+	</foreach>
+	<div class="pages">{$page}</div>
+	</div>
+	<!--招聘列表 end-->
+ </div>
+ <!-- content end -->
+<include file="public/bottom" />
+</body>
+</html>

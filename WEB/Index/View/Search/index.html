@@ -1,0 +1,35 @@
+<include file="public/header" />
+<include file="public/top" />
+<div class="main">
+
+  <ul class="crub"><li>当前位置：</li>
+  <li><a href='/'>首页</a>&gt;&gt;</li><li>搜索结果</li>
+  </ul>
+    <div class="readcon">
+      <div class="title">搜索“{$str}”的结果如下</div>
+      <i>&nbsp;</i>
+	  <div class="content">
+      <if condition="$search">
+        <ul class="list-group">
+        <foreach name="search" item="v">
+        <li class="list-group-item"><span class="pull-left"><a href="{:U('/'.MODULE_NAME.'/ashow_'.$v['id'])}">{$v.title}</a></span><span class="label label-info pull-right">{$v.time|date='Y-m-d H:i',###}</span>
+        <div class="clearfix"></div>
+        </li>
+        </foreach>
+        </ul>
+        <div class="page">{$page}</div>
+      <else />
+        <div class="show_c">暂无搜索结果！</div>
+      </if>
+        </div>
+	</div>
+</div>
+<!--main end-->
+<include file="public/bottom" />
+<script type="text/javascript">
+　　$('.num,.next,.prev').each(function(i){
+　　　　this.href = this.href+'/str/{$str}';
+　　});
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<div class="bottom">
+<a id="gotop" title="返回顶部" href="javascript:scroll(0,0)"></a>
+	<div class="foot">
+	<ul class="dh">
+	<navi limit="30" order="id ASC">
+		<if condition='$child'>
+		<li id="d_{$id}"><a href="{$url}">{$name}</a>
+		   <div class="child">
+			 <foreach name="child" item="v">
+				<p><switch name='v["model"]'>
+                        <case value="Article"><a href="{:U('/'.MODULE_NAME.'/alist_'.$v['id'])}"></case>
+                        <case value="Info"><a href="{:U('/'.MODULE_NAME.'/info_'.$v['id'])}"></case>
+                        <case value="Atlas"><a href="{:U('/'.MODULE_NAME.'/plist_'.$v['id'])}"></case>
+                        <case value="Gbook"><a href="{:U('/'.MODULE_NAME.'/gbook_'.$v['id'])}"></case>
+                        <case value="Slink"><a href="{$v.link}"></case>
+                        <case value="Jobs"><a href="{:U('/'.MODULE_NAME.'/jobs_'.$v['id'])}"></case>
+                        </switch>
+                        {$v.name}</a></p>
+			 </foreach>
+			</div>
+		</li>
+		<else />
+		<li id="d_{$id}"><a href="{$url}">{$name}</a></li>
+		</if>
+	</navi>
+	</ul>
+	<div class="ewm">
+	<div class="wx">
+	<img src="__PUBLIC__/images/wx.jpg" />
+	<p>官方微信</p>
+	</div>
+	<div class="wx">
+	<img src="__PUBLIC__/images/qr.png" />
+	<p>手机官网</p>
+	</div>
+	<div class="clear"></div>
+	<div class="tj"><if condition="!$cid">
+	网站统计:您是第<span><script type="text/javascript" src="__PUBLIC__/js/tongji.php"></script></span>位访问者</if>
+	</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<div class="last">
+<div class="copy">
+	<p class="fl">版权所有：<com name="corpy" /></p>	
+	<p class="fr">技术支持:<a href="http://www.dpwl.net" target="_blank">大鹏网络</a></p>
+</div></div>

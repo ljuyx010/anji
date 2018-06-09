@@ -1,0 +1,122 @@
+<include file="public/header" />
+<link href="__PUBLIC__/css/fdj.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fancybox.css" />
+<script src="__PUBLIC__/js/fdj.js"></script>
+<script src="__PUBLIC__/js/check.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.fancybox-1.3.1.pack.js"></script>
+<style type="text/css">
+.showpage {width: 300px;}
+.basic{width:200px;margin:1px;}
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+	  var showproduct = {
+		  "boxid":"showbox",
+		  "sumid":"showsum",
+		  "boxw":300,//宽度,该版本中请把宽高填写成一样
+		  "boxh":300,//高度,该版本中请把宽高填写成一样
+		  "sumw":60,//列表每个宽度,该版本中请把宽高填写成一样
+		  "sumh":60,//列表每个高度,该版本中请把宽高填写成一样
+		  "sumi":7,//列表间隔
+		  "sums":5,//列表显示个数
+		  "sumsel":"sel",
+		  "sumborder":1,//列表边框，没有边框填写0，边框在css中修改
+		  "lastid":"showlast",
+		  "nextid":"shownext"
+		  };//参数定义	  
+	 $.ljsGlasses.pcGlasses(showproduct);//方法调用，务必在加载完后执行
+  });
+
+$(function(){
+  $("#showdiv").fancybox({'centerOnScroll':true});
+  });
+</script>  
+<include file="public/left" />
+<div class="wrapper page">
+	<div class="poto">
+	<div id="showbox">
+	  <img src="{$timg}" width="249" height="185">	  
+	  <foreach name="img" item="v">
+	  <img src="{$v.img}" width="249" height="185"/>
+	  </foreach>
+	  <img src="{$timg}" width="249" height="185">
+	</div><!--展示图片盒子-->
+	<div id="showsum"></div><!--展示图片里边-->
+	<p class="showpage">
+	  <a href="javascript:void(0);" id="showlast"> < </a>
+	  <a href="javascript:void(0);" id="shownext"> > </a>
+	</p>	
+	</div>	
+	<div class="cans">
+	<div class="sku-name">{$title}</div>
+	<div class="price">
+	价&nbsp;&nbsp;格<div class="dt">￥<span>{$g.price}</span></div><br />	
+	促&nbsp;&nbsp;销<div class="dtt"><if condition="$g[isdis]"><em class="hl_red_bg">政府补贴</em>购买后可以到当地农机局申领补贴<else />暂无</if></div>
+	</div>
+	<p><span>类&nbsp;&nbsp;别:</span><strong>{$clas.classname}</strong></p>
+	<p><span>品&nbsp;&nbsp;牌:</span><strong>{$g.brand}</strong></p>
+	<p><span>重&nbsp;&nbsp;量:</span>{$g.weight}kg</p>
+	<p><span>库&nbsp;&nbsp;存:</span>{$g.stock}{$g.unit}</p>
+	<p><span>人&nbsp;&nbsp;气:</span><script type="text/javascript" src="{:U(MODULE_NAME.'/Goods/getclick',array('id'=>$sid))}"></script></p>
+	<div class="yuding"><a id="showdiv" href="#inline">在线预订</a></div>
+	</div>
+	<div class="clear"></div><!--form-->
+	<div style="display:none">
+     <div id="inline" style="width:220px; height:480px; overflow:auto">
+        <form class="basic" onsubmit="return checkForm();" action="{:U(MODULE_NAME.'/Goods/reser','','')}" method="post">
+		<h1>在线预订单<span>请认真填写所有的文本框.</span>
+		</h1>
+			<label>
+				<span>商品名称</span>
+			</label><label>
+				<input type="text" class="form-control" name="pname" id="pname" readonly value="{$title}">
+				<input type="hidden" class="form-control" name="pid" value="{$g.id}">
+			</label>
+			<label>
+				<span>姓名</span>
+			</label><label>
+				<input type="text" class="form-control" name="uname" id="isEmpty" placeholder="请输入姓名">
+				<input type="hidden" class="form-control" name="uid" value="0">
+			</label>
+			<label>
+				<span>联系地址</span>
+			</label><label>
+					 <input type="text" class="form-control" name="address" id="isLess"	placeholder="请输入家庭住址">
+			</label>
+			<label>
+				<span>联系电话</span>
+			</label><label>
+					 <input type="text" class="form-control" name="tel" id="isRange" placeholder="请输入联系电话">
+			</label>
+
+			<label>
+				<span>订购数量</span>
+			</label><label>
+					 <input type="text" class="form-control" name="num" id="isRangeNum" value="1">
+			</label>
+			<label>
+				<span>备注信息</span>
+			</label><label>
+				 <textarea class="form-control" name="remark" rows="3"></textarea>
+				 <input type="hidden" name="cid" value="13" >
+			</label>
+			<label>
+			<span>&nbsp;&nbsp;</span>
+				 <input type="submit" class="yuding" value="提交预订">
+		   </label>
+		</form>
+     </div>
+	</div><!--form-->
+	<div class="tab-main"><span>商品详细介绍</span><div class="clear"></div></div>
+        <div class="content">
+           {$content}
+           <p><br /><br /></p> 
+        <p>{$prev}</p>
+        <p>{$next}</p>
+        </div>
+        <!--end content-->
+</div>
+<!--end main-->
+<include file="public/bottom" />
+</body>
+</html>

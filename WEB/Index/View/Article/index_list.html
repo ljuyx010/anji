@@ -1,0 +1,23 @@
+<include file="public/header" />
+<include file="public/top" />
+<div class="main">
+    <ul class="crub">
+		<li>当前位置:</li>
+		<li><a href='/index.php'>首页</a></li><crumb id="$cid"/>
+    </ul>
+
+    <div class="lanm">
+        <h2>{$title}</h2>
+            <ul>
+            <foreach name="article" item="v">
+            <li><a href="{:U('/'.MODULE_NAME.'/ashow_'.$v['id'])}" title="{$v.title}" target="_blank">{$v.title}</a><span>{$v.time|date='Y-m-d H:i',###}</span></li>
+            </foreach>
+    		</ul>
+        <div class="page">{$page}</div>
+    </div>
+</div>
+<div class="clear"></div>
+<!--end main-->
+<include file="public/bottom" />
+</body>
+</html>

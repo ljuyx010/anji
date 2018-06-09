@@ -1,0 +1,20 @@
+<include file="public/header" />
+<!-- content -->
+<div class="m_ctr">
+	<include file="public/left" />
+
+	<!--新闻列表-->
+	<div class="m_ctt">
+	<foreach name="article" item="v">
+		<div class="newslist_ctr">
+			<a href="{:U('/'.MODULE_NAME.'/ashow_'.$v['id'])}"><div class="newslist_title"><img src="__PUBLIC__/wap/images/icon_title.png"/>{$v.title|msubstr=###,0,15,'utf-8',false}</div><div class="newslist_date">({$v.time|date='m-d',###})&nbsp;</div></a>
+		</div>
+	</foreach>
+        <div class="pages">{$page}</div>
+	</div>
+	<!--新闻列表 end-->
+ </div>
+ <!-- content end -->
+<include file="public/bottom" />
+</body>
+</html>

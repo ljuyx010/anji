@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加年审/保险</title>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="__PUBLIC__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{$action}年审/保险</h5> 
+                        <div class="gohome">
+                        <a class="animated bounceInUp" href="{:U('After/nianshen')}" title="返回"><i class="fa fa-mail-reply-all"></i></a>
+                        </div>                 
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{:U('After/runaddn')}" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">车牌号</label>
+                                <div class="col-sm-4">                                
+                                    <input type="text" class="form-control" name="carnum" id="name" value="{$v.carnum}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">类型</label>
+                                <div class="col-sm-4" >
+                                    <div class="radio">
+                                        <label class="checkbox-inline"><input type="radio" <if condition="$v['type'] eq 0">checked="checked"</if> value="0" name="type">保险</label>
+                                        <label class="checkbox-inline"><input type="radio" <if condition="$v['type'] eq 1">checked="checked"</if> value="1" name="type">营运证</label>
+                                        <label class="checkbox-inline"><input type="radio" <if condition="$v['type'] eq 2">checked="checked"</if> value="2" name="type">行车证</label>
+                                    </div>
+                                </div>
+                            </div> 
+                            </if>                           
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">金额</label>
+                                <div class="col-sm-4">
+                                   <div class="input-group">
+                                        <input type="text" class="form-control" name="money" value="{$v.money}">
+                                        <span class="input-group-addon">元</span>                                        
+                                    </div>
+                                    <span class="help-block m-b-none">不需交费的可不填</span>
+                                </div>
+                            </div>                            
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">办理日期</label>
+                                <div class="col-sm-4">                                
+                                    <input type="text" class="form-control" name="time" id="time" value="{$v.time|default=time()|date='Y-m-d',###}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">到期日期</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="dtime" id="dtime" value="{$v.dtime|default=time()|date='Y-m-d',###}">  
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注信息</label>
+                                <div class="col-sm-4">
+                                    <textarea class="textarea" name="mark">{$v.mark}</textarea>
+                                    <input type="hidden" name="id" value="{$v.id}"></input>
+                                </div>
+                            </div>                                                            
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__PUBLIC__/js/plugins/iCheck/icheck.min.js"></script>
+	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script>
+    laydate({elem:"#time",event:"focus"});
+    laydate({elem:"#dtime",event:"focus"});
+    </script>
+</body>
+</html>

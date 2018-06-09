@@ -1,0 +1,76 @@
+<include file="public/header" />
+<!--首页图片链接-->
+<div class="icons">	
+	<a href="/index.php/wap/"><li class="icon0">网站首页</li></a>
+	<navi limit="20" order="id ASC">
+	<a href="{$url}"><li class="icon{$id}">{$name}</li></a>
+	</navi>
+	<div class="clear"></div>
+</div>
+<!--首页图片链接 end-->
+
+<div class="clear home_depart"></div>
+
+<!--公司简介-->
+<div class="gsjj">
+	<div class="gsjj_title">
+		<i></i><h3>关于我们</h3><span>ABOUT US</span><a href="/index.php/wap/info_9.html">更多+</a>
+	</div>
+	<div class="gsjj_content">
+		<!-- banner2 -->
+		<img src="__PUBLIC__/wap/images/jj.jpg" >
+		<!-- banner2 end-->
+		<a href="/index.php/wap/info_9.html"><div><com name="spare" /></div></a>
+	</div>
+</div>
+<!--公司简介 end-->
+
+<div class="clear home_depart"></div>
+
+<!--新闻中心-->
+<div class="xwzx" id="xwzx">
+	<div class="gsjj_title">
+	<i></i><h3>新闻资讯</h3><span>NEWS</span><a href="/index.php/wap/alist_2.html">更多+</a>
+	</div>
+	<ul>
+		<list id='16,17' limit='6' order='time desc'>
+		<li><a href="{$url}" title="{$title}">{$title|msubstr=###,0,20,'utf-8',false}</a></li>
+		</list>
+		<div></div>
+	</ul>
+</div>
+<!--新闻中心 end-->
+
+<div class="clear home_depart"></div>
+
+<!--产品展示-->
+<div class="cpzs">
+	<div class="gsjj_title">
+		<i></i><h3>项目案例</h3><span>CASES</span><a href="/index.php/wap/plist_4.html">更多+</a>
+	</div>
+	<div class="cpzs_content">
+		<div class="bd">
+			<ul>
+				<list id='4' limit='12' flag='p' img='1' order='time desc'>
+				<li><a href="{$url}" title="{$title}"><img src="{$pic}"/><span>{$title|msubstr=###,0,30,'utf-8',false}</span></a></li>
+				</list>	
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+	<script language="javascript">
+		var width=$(".cpzs_content li img").width();
+		var height=width/4*3;
+		$(".cpzs_content li img").height(height);
+		jQuery(".cpzs_content").slide({mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:2,trigger:"click"});
+	</script>
+</div>
+<!--产品展示 end-->
+
+<div class="clear home_depart"></div>
+
+
+<div class="clear"></div>
+<include file="public/bottom" />
+</body>
+</html>

@@ -1,0 +1,40 @@
+/*图片上传按钮*/
+#filePicker{width:100%;height: 100%;}
+#filePicker div:nth-child(2){width:100%!important;height:100%!important;}
+
+/*编辑器*/
+.editor{width:100%; min-height:500px;}
+
+.ul_pics,.ul_pic{margin-top:8px;}
+.ul_pics dd,.ul_pic dd{float:left;width:104px;height:80px;border:1px solid #ddd;padding:2px;text-align: center;margin:0 5px 0 0;}
+.ul_pic dd{height: 100px;}
+.ul_pics dd .img,.ul_pic dd .img{width: 100px;height: 80px;display: table-cell;vertical-align: middle;}
+.ul_pics dd img,.ul_pic dd img{max-width: 100px;max-height: 80px;vertical-align: middle;}
+.del{
+	color:blue;
+	text-align: center;
+	cursor: pointer; 
+ }
+.progress{display:none;}
+
+.dis{display:none;}
+/*后台分页样式*/
+#page span,#page a{
+	background-color: #EFF2F7;
+    border: 1px solid #EFF2F7;
+    line-height: 1.42857;
+    margin-left: 1px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+    color: #535351;
+	display: inline;
+	}
+#page .current{
+	background-color: #65CEA7;
+    border-color: #65CEA7;
+    color: #fff;
+}
+
+.input-group .bingp{display: inline-block; width: 30%;}
+.textarea{width: 100%;min-height:100px;}

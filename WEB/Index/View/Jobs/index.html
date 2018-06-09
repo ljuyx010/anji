@@ -1,0 +1,84 @@
+<include file="public/header" />
+<include file="public/top" />
+<div class="main">
+    <ul class="crub">
+		<li>当前位置:</li>
+		<li><a href='/index.php'>首页</a></li><crumb id="$cid"/>
+    </ul>
+		<div class="readcon">
+			<div class="title">{$title}</div>
+			<i>&nbsp;</i>
+			<div class="content">
+			<ul class="job">
+		<foreach name="jobs" item="v">
+		   <li>
+				<p><span class="li_left"><b>{$v.title}</b></span></p><!--<div class="demo"><span class="li_butt"><a id="showdiv" href="#applyjob">申请该职位</a></span></div>--><p></p>
+				<div class="clear"></div>
+				<p><span class="li_efzy">招聘职位：{$v.jobname}</span>招聘人数：{$v.qty}人</p>
+				<p><span class="li_efzy">工资待遇：<if condition="!$v['salary']">面谈<else/>{$v.salary}元/月</if></span>工作地点：{$v.jobadd}</p>
+				<p><span class="li_efzy">发布时间：{$v.time|date='Y-m-d',###}</span>有效期：<if condition="$v['useful'] eq 0">永久有效<else />{$v.useful}个月</if></p>
+				<p>职位要求：</p>{$v.jobrequire}
+				<p>工作职责:</p>{$v.jobdut}
+			</li>
+		</foreach>
+		</ul>
+		<div class="page">{$page}</div>
+		
+		<!--<div style="display:none">
+		 <div id="applyjob" style="width:568px; height:660px; overflow:auto">
+			<form class="basic" role="form" action="{:U(MODULE_NAME.'/gbookDo','','')}" method="post">
+				<h1>在线给猎头留言
+				<span>请认真填写所有的文本框.</span>
+				</h1>
+					<label>
+						<span>姓名</span>			     
+						<input type="text" class="form-control" name="username" id="username" 
+								placeholder="请输入姓名">
+					</label>
+					<label>
+						<span>邮递住址</span>
+							 <input type="text" class="form-control" name="address" id="address" 
+								placeholder="请输入家庭住址">
+					</label>
+					<label>
+						<span>联系电话</span>
+							 <input type="text" class="form-control" name="tel" id="tel" 
+								placeholder="请输入联系电话">
+					</label>
+					<label>
+						<span>电子邮箱</span>
+							 <input type="text" class="form-control" name="email" id="email" 
+								placeholder="请输入电子邮箱">
+					</label>
+					<label>
+						<span>留言标题</span>
+							 <input type="text" class="form-control" name="title" id="title" 
+								placeholder="请输入留言标题">
+					</label>
+					<label>
+						<span>留言内容</span>
+						 <textarea class="form-control" name="content" rows="3"></textarea>
+						 <input type="hidden" name="cid" value="13" >
+					</label>
+					<label>
+					  <span>验证码</span>
+						 <input type="code" class="len250" name="code"/> <img src="{:U(MODULE_NAME.'/Gbook/verify','','')}" id="code"/> <a href="javascript:void(change_code(this));">看不清</a>
+				   <div class="clear"></div>
+				   </label>
+					<label>
+					<span>&nbsp;&nbsp;</span>
+						 <input type="submit" class="btn btn-default" value="提交留言">
+				   </label>
+				</form>
+			</div>
+		</div>-->
+
+			</div>
+			<!--end content-->
+		</div>
+	<div class="clear"></div>
+</div>
+<!--end main-->
+<include file="public/bottom" />
+</body>
+</html>
