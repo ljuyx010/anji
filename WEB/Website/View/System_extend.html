@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站扩展设置</title>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="__PUBLIC__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+	<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>网站扩展设置</h5>                 
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{:U('System/savextend')}" class="form-horizontal">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                        微信公众号设置
+                                    </div>
+                                    <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">公众号AppId</label>
+
+                                        <div class="col-sm-4">
+                                            <input type="text" name="AppId" class="form-control" value="{$v.AppId}">
+                                        </div>
+                                    </div>                            
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">AppSecret</label>
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control" name="AppSecret" value="{$v.AppSecret}">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">微信支付商户号</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" name="mhid" value="{$v.mhid}">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">微信支付Api密钥</label>
+
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control" name="apikey" value="{$v.apikey}">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">微信支付apiclient_cert.pem</label>
+
+                                        <div class="col-sm-6">
+                                            <textarea class="textarea" name="client_cert">{$v.client_cert}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">微信支付apiclient_key.pem</label>
+
+                                        <div class="col-sm-6">
+                                            <textarea class="textarea" name="client_key">{$v.client_key}</textarea>                                            
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                        阿里云设置
+                                    </div>
+                                    <div class="panel-body">
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">AccessKeyId</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" name="AccessKey" value="{$v.AccessKey}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">AccessKeySecret</label>
+
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control" name="AccessSecret" value="{$v.AccessSecret}">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">模板签名</label>
+                                        <div class="col-sm-4">                                
+                                            <input type="text" class="form-control" name="qm" value="{$v.qm}">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">模板id</label>
+                                        <div class="col-sm-4">                                
+                                            <input type="text" class="form-control" name="mbid" value="{$v.mbid}">
+                                            <input type="hidden" name="name" value="extend"></input>
+                                        </div>
+                                    </div>                                                    
+                                </div>    
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__PUBLIC__/js/plugins/iCheck/icheck.min.js"></script>
+	<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
+	<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* This file is created by MySQLReback 2018-06-09 11:11:57 */
+/* This file is created by MySQLReback 2018-06-10 17:05:07 */
  /* 创建表结构 `lj_admin` */
  DROP TABLE IF EXISTS `lj_admin`;/* MySQLReback Separation */ CREATE TABLE `lj_admin` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -58,6 +58,19 @@
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_bad` */
  INSERT INTO `lj_bad` VALUES ('1','鄂k8541zx','胡一刀','1','开车玩手机','1528214400');/* MySQLReback Separation */
+ /* 创建表结构 `lj_banner` */
+ DROP TABLE IF EXISTS `lj_banner`;/* MySQLReback Separation */ CREATE TABLE `lj_banner` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `pic` varchar(100) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `url` varchar(60) DEFAULT NULL,
+  `type` int(1) NOT NULL COMMENT '0pc 1wap',
+  `sort` int(3) DEFAULT '100' COMMENT '排序',
+  `time` int(10) DEFAULT NULL COMMENT '添加日期',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_banner` */
+ INSERT INTO `lj_banner` VALUES ('1','/Upload/image/2018-06-10/5b1ce953acbd0.jpg','轮播测试','','0','0','1528621403');/* MySQLReback Separation */
  /* 创建表结构 `lj_car` */
  DROP TABLE IF EXISTS `lj_car`;/* MySQLReback Separation */ CREATE TABLE `lj_car` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -192,7 +205,7 @@
   UNIQUE KEY `session_id` (`session_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_session` */
- INSERT INTO `lj_session` VALUES ('mr346m3cne4qsk5m3kij72p105','1528520064',''),('5mpueklj03fjiaq2r1f1ahf8o5','1528521113','');/* MySQLReback Separation */
+ INSERT INTO `lj_session` VALUES ('thoqaogsctvd0ikg0b8c8nq3o0','1528628704',''),('fv1qdfr7b4o6rfui2u56gcns27','1528627169','');/* MySQLReback Separation */
  /* 创建表结构 `lj_shen` */
  DROP TABLE IF EXISTS `lj_shen`;/* MySQLReback Separation */ CREATE TABLE `lj_shen` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -219,6 +232,15 @@
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_shigu` */
  INSERT INTO `lj_shigu` VALUES ('1','鄂k8541zx','胡一刀','1528214400','宜昌市交通大道','车子被其他车辆刮擦','对方赔偿补漆费用');/* MySQLReback Separation */
+ /* 创建表结构 `lj_site` */
+ DROP TABLE IF EXISTS `lj_site`;/* MySQLReback Separation */ CREATE TABLE `lj_site` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `value` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_site` */
+ INSERT INTO `lj_site` VALUES ('1','basic','a:9:{s:5:\"title\";s:24:\"安吉旅游客运公司\";s:8:\"keywords\";s:25:\"湖北安吉,安吉旅游\";s:11:\"description\";s:93:\"湖北安吉旅游客运公司是一家出租旅游大巴为主营业务的旅游客运公司\";s:3:\"tel\";s:0:\"\";s:6:\"adress\";s:0:\"\";s:4:\"mail\";s:0:\"\";s:2:\"QQ\";s:0:\"\";s:7:\"content\";s:0:\"\";s:2:\"js\";s:0:\"\";}'),('2','extend','a:10:{s:5:\"AppId\";s:18:\"wxf4b529aff196b633\";s:9:\"AppSecret\";s:32:\"bc39bb16b85d9fcd64e2c8bb0e5ce825\";s:4:\"mhid\";s:0:\"\";s:6:\"apikey\";s:0:\"\";s:11:\"client_cert\";s:0:\"\";s:10:\"client_key\";s:0:\"\";s:9:\"AccessKey\";s:0:\"\";s:12:\"AccessSecret\";s:0:\"\";s:2:\"qm\";s:0:\"\";s:4:\"mbid\";s:0:\"\";}');/* MySQLReback Separation */
  /* 创建表结构 `lj_spend` */
  DROP TABLE IF EXISTS `lj_spend`;/* MySQLReback Separation */ CREATE TABLE `lj_spend` (
   `id` int(10) NOT NULL AUTO_INCREMENT,

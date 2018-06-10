@@ -5,121 +5,130 @@ use Think\Controller;
 class SystemController extends CommonController{
     //系统设置首页视图
 	public function index (){
-        $this->data = F('Site','',APP_PATH.'/Data/');
+        $data=M('site')->field('value')->where(array('name'=>"basic"))->find();
+        $this->v=unserialize($data['value']);
         $this->display();
 	}
     //系统设置用F方法写入文件
-	public function updataSystem () {
+	public function save () {
 
-		F('Site',$_POST,APP_PATH.'/Data/');
+		$data=array(
+			'title'=>I('title'),
+			'keywords'=>I('keywords'),
+			'description'=>I('description'),
+			'tel'=>I('tel'),
+			'adress'=>I('adress'),
+			'mail'=>I('mail'),
+			'QQ'=>I('QQ'),
+			'content'=>I('content'),
+			'js'=>I('js')
+		);
 
-		if (F('Site','',APP_PATH.'/Data/')){
-          $this->success('修改成功',U(MODULE_NAME.'/System/index'));
+		$rs=M('site')->where(array('name'=>I('name')))->setField('value',serialize($data));
+
+		if ($rs){
+          $this->success('修改成功',U('System/index'));
 		}else{
-		  $this->error('修改失败,请修改'.APP_PATH.'/Data/'.'Site.php的权限');
+		  $this->error('修改失败');
 		}
 	}
 	//邮件与支付宝参数设置
-	public function meter (){	
-		$db=M('conf');
-		if($_POST){
-			$data=array('id' => 0,'confing' => serialize($_POST));
-			if($db->save($data)){
-				$this->success('修改成功',U(MODULE_NAME.'/System/meter'));
-			}else{
-				$this->error('修改失败!');
-			}
+	public function extend (){	
+		$data=M('site')->field('value')->where(array('name'=>"extend"))->find();
+        $this->v=unserialize($data['value']);
+        $this->display();	
+	}
+	public function savextend () {
+
+		$data=array(
+			'AppId'=>I('AppId'),
+			'AppSecret'=>I('AppSecret'),
+			'mhid'=>I('mhid'),
+			'apikey'=>I('apikey'),
+			'client_cert'=>I('client_cert'),
+			'client_key'=>I('client_key'),
+			'AccessKey'=>I('AccessKey'),
+			'AccessSecret'=>I('AccessSecret'),
+			'qm'=>I('qm'),
+			'mbid'=>I('mbid')
+		);
+
+		$rs=M('site')->where(array('name'=>I('name')))->setField('value',serialize($data));
+
+		if ($rs){
+          $this->success('修改成功',U('System/extend'));
 		}else{
-			$conf = $db->where(array('id' => 0))->getField('confing');
-			$this->data=unserialize($conf);
-            $this->display();
+		  $this->error('修改失败');
 		}
-		
 	}
 	//banner图首页
 	public function banner () {
-		$this->banner = M('banner')->order('sort ASC')->select();
+		$count = M('banner')->count();
+		$Page = new \Think\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数
+		$Page -> setConfig('header','共%TOTAL_ROW%条');
+		$Page -> setConfig('first','首页');
+		$Page -> setConfig('last','共%TOTAL_PAGE%页');
+		$Page -> setConfig('prev','上一页');
+		$Page -> setConfig('next','下一页');
+		$Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
+		$Page -> setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
+		$show = $Page->show();
+		$this->banner = M('banner')->order('sort ASC,id DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$this->page = $show;
 		$this->display();
 	}
-	//添加banner视图
-	public function addbanner () {
-		$this->display();
-	}
-	//添加banner表单操作
-	public function runAdd () {
-		$data = array(
-			'title' => $_POST['title'],
-			'img' => $_POST['img'],
-			'url' => $_POST['url'],
-			'type' => $_POST['type']
-			);
-		if (M('banner')->add($data)){
-			$this->success('添加成功',U(MODULE_NAME.'/System/banner'));
-		}else{
-			$this->error('添加失败');
-		}
-	} 
-	//banner图排序
-	public function sort () {
-		$db = M('banner');
+	/*添加*/
+    public function add () {
+    	$this->action="添加";    	
+    	$this->display();
+    }
 
-         foreach ($_POST as $id => $sort) {
-         	$db->where(array('id' => $id))->setField('sort',$sort);
-         }
-         $this->redirect(MODULE_NAME.'/System/banner');
-	}
-	//修改banner视图
-	public function updatabanner () {
-		$id = I('id','',intval);
-		$this->banner = M('banner')->where(array('id'=>$id))->select();
-		$this->display(addbanner);
-	}
-	//修改banner表单操作
-	public function runUpdata () {
-		$id = I('id','',intval);
-		$data = array(
-			'title' => $_POST['title'],
-			'img' => $_POST['img'],
-			'url' => $_POST['url'],
-			'type' => $_POST['type']
-			);
-		if (M('banner')->where(array('id'=>$id))->save($data)){
-			$this->success('修改成功',U(MODULE_NAME.'/System/banner'));
-		}else{
-			$this->error('修改失败或数据无更新');
+    /*添加表单处理*/
+    public function runadd () {
+    	$db = M("banner"); 		
+		$gz = array(//自动验证
+	     array('title','require','标题必填'), 
+	     array('pic','require','图片不能空')
+		);
+    	$data = array(
+    		'id' =>$_POST['id'],
+    		'title' => $_POST['title'],
+    		'url' =>$_POST['url'],
+			'type' =>$_POST['type'], 
+			'time' => time(),  		
+    		'sort' => (int) $_POST['sort'],
+    		'pic' => $_POST['pic']
+    		);
+		if (!$db->validate($gz)->create($data)){
+		     // 如果创建失败 表示验证没有通过 输出错误提示信息
+		     $this->error($db->getError());
 		}
-	}
+
+		if($_POST['id']){
+			if($db->save($data)) $this->success('保存成功！',U('System/banner'));
+		}else{
+			if($db->add($data)) $this->success('添加成功！',U('System/banner'));
+		}
+
+    }
+
+    //更新
+    public function edit () {
+    	$this->action="修改"; 
+    	$id= I('id');
+		$v=M('banner')->where('id='.$id)->find();
+		$this->v=$v;
+    	$this->display(add);
+    }
 	//删除banner图
-	public function delbanner () {
+	public function delete () {
 		$id = I('id','',intval);
 		if (M('banner')->where(array('id'=>$id))->delete()){
-			$this->success('删除成功',U(MODULE_NAME.'/System/banner'));
+			$this->success('删除成功',U('System/banner'));
 		}else{
 			$this->error('删除失败');
 		}
 	}
-	//修改用户密码
-	public function userpwd () {
-		$this->username = session('username');
-		$this->display();
-	}
-	//密码修改判断入库
-	public function updatapwd () {
-		$password = I('password');
-		$password2 = I('repassword');
 
-		if ($password == $password2){
-			$User = M('user');
-			$id = session('uid');
-			$password = md5($password);
-			if ($User->where(array('id' => $id))->setField('password',$password)){
-				$this->success('密码修改成功',U(MODULE_NAME.'/System/userpwd'));
-			}else{
-				$this->error('密码修改失败');
-			}
-		}else{
-			$this->error('两次输入的密码不一致，请检查后重新输入');
-		}
-	}
 }
 ?>
