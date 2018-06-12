@@ -6,7 +6,7 @@ Class AdminController extends CommonController{
 	
 	public function user()
 	{
-		$this->user=D('admin')->relation('auth_group')->field('password',true)->select();
+		$this->user=D('admin')->relation(true)->field('password',true)->select();
 		$this->groupname=M('auth_group')->field('id,title')->select();
 		$this->display();
 	}
@@ -64,6 +64,16 @@ Class AdminController extends CommonController{
 		$id=I('id');
 		$data=M('admin')->field('password',true)->where('id='.$id)->find();
 		$this->ajaxReturn($data);
+	}
+
+	public function deleteu(){
+		$id=I('id');
+		if(M('admin')->where(array('id'=>$id))->delete()){
+			M('auth_group_access')->where('uid='.$_POST['id'])->delete();
+			$this->success('删除成功！',U('Admin/rule'));
+		}else{
+			$this->error('删除失败！');
+		}
 	}
 
 	public function rule (){

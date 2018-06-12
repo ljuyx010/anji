@@ -1,21 +1,19 @@
 <?php
 namespace Website\Controller;
 use Think\Controller;
-use Org\Util\Rbac;
 
 class CommonController extends Controller {
 	/*这是自动运行程序
    public function _initialize (){
-   	if (!isset($_SESSION[C('USER_AUTH_KEY')])){
-
-   		$this->redirect(MODULE_NAME.'/Login/index');
-   	}
-    //不进行权限验证的控制器和方法
-   	$notAuth = in_array(MODULE_NAME,explode(',',C('NOT_AUTH_MODULE'))) || in_array(ACTION_NAME,explode(',',C('NOT_AUTH_ACTION')));
-
-   	if (C('USER_AUTH_ON') && !$notAuth){
-   	  Rbac::AccessDecision() || $this->error('没有权限');
-   	}
+   	if (!isset($_SESSION['user'])){
+      $this->error('未登录或登录超时，请重新登录', U('Login/index'));
+    }
+    $auth=new \Think\Auth();
+    $rule_name=CONTROLLER_NAME.'/'.ACTION_NAME;
+    $result=$auth->check($rule_name,$_SESSION['user']['id']);
+    if(!$result){
+      $this->error('您没有权限访问');
+    }
     
    }*/
 
