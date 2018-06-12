@@ -1,4 +1,4 @@
-/* This file is created by MySQLReback 2018-06-10 17:05:07 */
+/* This file is created by MySQLReback 2018-06-12 18:18:19 */
  /* 创建表结构 `lj_admin` */
  DROP TABLE IF EXISTS `lj_admin`;/* MySQLReback Separation */ CREATE TABLE `lj_admin` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -6,8 +6,11 @@
   `password` char(32) NOT NULL COMMENT '密码',
   `name` varchar(20) NOT NULL COMMENT '名称',
   `logintime` int(10) DEFAULT NULL,
+  `pic` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_admin` */
+ INSERT INTO `lj_admin` VALUES ('1','ljuyx','e10adc3949ba59abbe56e057f20f883e','李俊','1528786900',''),('2','testuser','e10adc3949ba59abbe56e057f20f883e','测试用户2','1528798637','');/* MySQLReback Separation */
  /* 创建表结构 `lj_article` */
  DROP TABLE IF EXISTS `lj_article`;/* MySQLReback Separation */ CREATE TABLE `lj_article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -33,19 +36,33 @@
   `rules` char(80) NOT NULL DEFAULT '',
   `describe` char(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_auth_group` */
+ INSERT INTO `lj_auth_group` VALUES ('1','超级管理员','1','',''),('2','办公室','1','1','');/* MySQLReback Separation */
+ /* 创建表结构 `lj_auth_group_access` */
+ DROP TABLE IF EXISTS `lj_auth_group_access`;/* MySQLReback Separation */ CREATE TABLE `lj_auth_group_access` (
+  `uid` mediumint(8) unsigned NOT NULL,
+  `group_id` mediumint(8) unsigned NOT NULL,
+  UNIQUE KEY `uid_group_id` (`uid`,`group_id`),
+  KEY `uid` (`uid`),
+  KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_auth_group_access` */
+ INSERT INTO `lj_auth_group_access` VALUES ('1','1'),('2','2');/* MySQLReback Separation */
  /* 创建表结构 `lj_auth_rule` */
  DROP TABLE IF EXISTS `lj_auth_rule`;/* MySQLReback Separation */ CREATE TABLE `lj_auth_rule` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `name` char(80) NOT NULL DEFAULT '',
-  `title` char(20) NOT NULL DEFAULT '',
-  `type` tinyint(1) NOT NULL DEFAULT '1',
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  `condition` char(100) NOT NULL DEFAULT '',
-  `mid` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `name` char(80) NOT NULL DEFAULT '' COMMENT '规则唯一标识',
+  `title` char(20) NOT NULL DEFAULT '' COMMENT '规则中文名称',
+  `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'level等级',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态：为1正常，为0禁用',
+  `condition` char(100) NOT NULL DEFAULT '' COMMENT '规则表达式，为空表示存在就验证，不为空表示按照条件验证',
+  `sort` varchar(30) NOT NULL DEFAULT '0' COMMENT '排序规则',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+ /* 插入数据 `lj_auth_rule` */
+ INSERT INTO `lj_auth_rule` VALUES ('1','Index/index','后台首页','1','1','','0'),('2','Index/welcom','欢迎页','2','1','','0,1');/* MySQLReback Separation */
  /* 创建表结构 `lj_bad` */
  DROP TABLE IF EXISTS `lj_bad`;/* MySQLReback Separation */ CREATE TABLE `lj_bad` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -205,7 +222,7 @@
   UNIQUE KEY `session_id` (`session_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_session` */
- INSERT INTO `lj_session` VALUES ('thoqaogsctvd0ikg0b8c8nq3o0','1528628704',''),('fv1qdfr7b4o6rfui2u56gcns27','1528627169','');/* MySQLReback Separation */
+ INSERT INTO `lj_session` VALUES ('giijis9kr1oa6ihtihn8mi7t81','1528805895','');/* MySQLReback Separation */
  /* 创建表结构 `lj_shen` */
  DROP TABLE IF EXISTS `lj_shen`;/* MySQLReback Separation */ CREATE TABLE `lj_shen` (
   `id` int(10) NOT NULL AUTO_INCREMENT,

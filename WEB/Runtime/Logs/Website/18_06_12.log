@@ -1,0 +1,858 @@
+[ 2018-06-12T17:20:12+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001283s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0066s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000217s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023257s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023347s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000831s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000900s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001253s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001341s ]
+
+[ 2018-06-12T17:20:17+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001114s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001223s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-06-12T17:20:36+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000703s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000923s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0064s ]
+NOTIC: [2] preg_match(): Delimiter must not be alphanumeric or backslash D:\WWW\anji\Core\Library\Think\Model.class.php 第 1117 行.
+
+[ 2018-06-12T17:21:52+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000638s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000761s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000833s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0069s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000123s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000208s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020429s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000719s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000788s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001123s ]
+
+[ 2018-06-12T17:21:57+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000794s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000879s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0066s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T17:22:09+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000678s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001363s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+
+[ 2018-06-12T17:22:41+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000815s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001006s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001088s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T17:22:59+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000944s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001114s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+NOTIC: [8] Undefined index: auto D:\WWW\anji\Core\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 37 行.
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='fcea920f7412b5da7be0cf42b8c93759',`password2`='1234567',`logintime`='1528795379' WHERE `id` = '2'
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='fcea920f7412b5da7be0cf42b8c93759',`password2`='1234567',`logintime`='1528795379' WHERE `id` = '2'
+
+[ 2018-06-12T17:24:31+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000685s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000784s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0066s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000215s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046471s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046601s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000826s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001450s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001542s ]
+
+[ 2018-06-12T17:24:35+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000670s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000935s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T17:24:49+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000859s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+NOTIC: [8] Undefined index: auto D:\WWW\anji\Core\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 37 行.
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='e10adc3949ba59abbe56e057f20f883e',`password2`='123456',`logintime`='1528795489' WHERE `id` = '2'
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='e10adc3949ba59abbe56e057f20f883e',`password2`='123456',`logintime`='1528795489' WHERE `id` = '2'
+
+[ 2018-06-12T17:25:00+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000899s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2018-06-12T17:25:03+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002476s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003735s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000984s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001073s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0062s ]
+NOTIC: [8] Undefined index: auto D:\WWW\anji\Core\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 37 行.
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='e10adc3949ba59abbe56e057f20f883e',`password2`='123456',`logintime`='1528795503' WHERE `id` = '2'
+ERR: 1054:Unknown column 'password2' in 'field list'
+ [ SQL语句 ] : UPDATE `lj_admin` SET `name`='测试用户',`account`='testuser',`password`='e10adc3949ba59abbe56e057f20f883e',`password2`='123456',`logintime`='1528795503' WHERE `id` = '2'
+
+[ 2018-06-12T17:30:31+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000883s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000914s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001007s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0077s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0084s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0067s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020765s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020860s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000799s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000869s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001040s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001120s ]
+
+[ 2018-06-12T17:30:36+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000683s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T17:30:55+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000632s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001346s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+NOTIC: [8] Undefined index: auto D:\WWW\anji\Core\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 37 行.
+SQL: UPDATE `lj_admin` SET `name`='测试用户1',`account`='testuser',`password`='e10adc3949ba59abbe56e057f20f883e',`logintime`='1528795855' WHERE `id` = '2' [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group_access` [ RunTime:0.0081s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\WWW\anji\Core\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `lj_auth_group_access` SET `group_id`='2' WHERE ( uid=2 ) [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: msg D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 50 行.
+
+[ 2018-06-12T17:30:57+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000639s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000805s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0064s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000130s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000222s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020219s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020313s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001287s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001380s ]
+
+[ 2018-06-12T17:31:08+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000714s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000938s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001040s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0064s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2018-06-12T18:00:44+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000758s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001134s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0076s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0061s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000161s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000241s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041074s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041160s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000787s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000855s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002004s ]
+
+[ 2018-06-12T18:00:54+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000662s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000800s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000880s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0067s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:01:04+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000634s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0065s ]
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 29 行.
+SQL: UPDATE `lj_admin` SET `name`='测试用户1',`account`='testuser',`logintime`='1528797664' WHERE `id` = '2' [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group_access` [ RunTime:0.0076s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\WWW\anji\Core\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `lj_auth_group_access` SET `group_id`='1' WHERE ( uid=2 ) [ RunTime:0.0008s ]
+NOTIC: [8] Undefined variable: cod D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 61 行.
+NOTIC: [8] Undefined variable: msg D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 61 行.
+
+[ 2018-06-12T18:03:35+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000685s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001443s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0061s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000119s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000193s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019903s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000621s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000829s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000890s ]
+
+[ 2018-06-12T18:03:49+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001049s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001459s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0060s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0021s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0077s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000166s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016818s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016888s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000438s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000487s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000738s ]
+
+[ 2018-06-12T18:04:37+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001169s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0072s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:07:10+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000869s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002941s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003097s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0066s ]
+ERR: 1054:Unknown column 'group_id' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND group_id='1' ) LIMIT 1  
+ERR: 1054:Unknown column 'group_id' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND group_id='1' ) LIMIT 1  
+
+[ 2018-06-12T18:08:15+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001298s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0087s ]
+ERR: 1054:Unknown column 'uid' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND uid='1' ) LIMIT 1  
+ERR: 1054:Unknown column 'uid' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND uid='1' ) LIMIT 1  
+
+[ 2018-06-12T18:08:35+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000680s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001439s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0337s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0067s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000217s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043151s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043239s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000793s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000862s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001342s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001472s ]
+
+[ 2018-06-12T18:11:24+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0098s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-06-12T18:12:18+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001535s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0068s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:12:49+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000813s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001003s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0071s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0069s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:12:51+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000733s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001066s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001177s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0068s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:12:51+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001705s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0063s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-06-12T18:14:13+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000893s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001700s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0063s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0064s ]
+ERR: 1054:Unknown column 'uid' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND uid='1' ) LIMIT 1  
+ERR: 1054:Unknown column 'uid' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND uid='1' ) LIMIT 1  
+
+[ 2018-06-12T18:14:59+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000768s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001471s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:15:33+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001380s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000982s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' )  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' )  [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:16:13+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001544s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001162s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0091s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0066s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-06-12T18:16:36+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000966s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001214s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0066s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000220s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043698s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000736s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001743s ]
+
+[ 2018-06-12T18:16:59+08:00 ] 127.0.0.1 /index.php/Website/Admin/updatau
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001034s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000958s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0066s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-06-12T18:17:17+08:00 ] 127.0.0.1 /index.php/Website/Admin/runaddu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000734s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001029s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0064s ]
+NOTIC: [8] Use of undefined constant md5 - assumed 'md5' D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 29 行.
+SQL: UPDATE `lj_admin` SET `name`='测试用户2',`account`='testuser',`logintime`='1528798637' WHERE `id` = '2' [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group_access` [ RunTime:0.0061s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\WWW\anji\Core\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `lj_auth_group_access` SET `group_id`='2' WHERE ( uid=2 ) [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: msg D:\WWW\anji\WEB\Website\Controller\AdminController.class.php 第 60 行.
+
+[ 2018-06-12T18:17:19+08:00 ] 127.0.0.1 /index.php/Website/Admin/user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000992s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001090s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001185s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_admin` [ RunTime:0.0066s ]
+SQL: SELECT `id`,`account`,`name`,`logintime`,`pic` FROM `lj_admin`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0065s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='1' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `lj_auth_group` WHERE ( 1=1 AND id='2' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_auth_group` [ RunTime:0.0062s ]
+SQL: SELECT `id`,`title` FROM `lj_auth_group`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000164s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000246s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043531s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043620s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001455s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001543s ]
+
+[ 2018-06-12T18:18:04+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000794s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015997s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016074s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000636s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000934s ]
+
+[ 2018-06-12T18:18:09+08:00 ] 127.0.0.1 /index.php/Website/Bak/index/Action/Del/File/anji_20180611175906_307385150.sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000728s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000997s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 20 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000185s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016974s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017058s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000735s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000795s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001056s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001122s ]
+
+[ 2018-06-12T18:18:11+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000664s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015313s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015394s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000864s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000924s ]
+
+[ 2018-06-12T18:18:14+08:00 ] 127.0.0.1 /index.php/Website/Bak/index/Action/Del/File/anji_20180610170507_229643995.sql
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000923s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001332s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 20 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016454s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016543s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000780s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000926s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000990s ]
+
+[ 2018-06-12T18:18:15+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000794s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000879s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015407s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015484s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000664s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000954s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001024s ]
+
+[ 2018-06-12T18:18:19+08:00 ] 127.0.0.1 /index.php/Website/Bak/index/Action/backup
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000684s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001111s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001225s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 20 行.
+NOTIC: [8192] Function mysql_list_tables() is deprecated D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 125 行.
+NOTIC: [8] Undefined variable: return D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+NOTIC: [8] Undefined variable: return D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+NOTIC: [8] Undefined variable: return D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000085s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015431s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000860s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000924s ]
+
+[ 2018-06-12T18:18:20+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000899s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015806s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015883s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000782s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000896s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001141s ]
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分配权限</title>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="__PUBLIC__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>为{$group.title}分配权限</h5> 
+                        <div class="gohome">
+                        <a class="animated bounceInUp" href="{:U('Admin/group')}" title="返回"><i class="fa fa-mail-reply-all"></i></a>
+                        </div>                 
+                    </div>
+                    <div class="ibox-content timeline">
+                        <form method="post" class="form-horizontal">
+                        <foreach name="rule" item="v" key="k">
+                        <if condition="$v['type'] eq 1 and $k eq 0">
+                            <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-xs-2 text-navy">
+                                <label class="checkbox-inline"><input type="checkbox" <if condition="in_array($v['id'],$group['rules'])">checked="checked"</if> value="{$v.id}" name="rule_ids[]" onclick="checkAll(this)"><h5>{$v.title}</h5></label>
+                                </div>
+                                <div class="col-xs-6 content">
+                        <elseif condition="$v['type'] eq 1" />
+                                </div>
+                            </div> 
+                            </div>
+                            <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-xs-2 text-navy">
+                                <label class="checkbox-inline"><input type="checkbox" <if condition="in_array($v['id'],$group['rules'])">checked="checked"</if> value="{$v.id}" name="rule_ids[]" onclick="checkAll(this)"><h5>{$v.title}</h5></label>
+                                </div>
+                                <div class="col-xs-6 content">
+                        <else />                            
+                                <label class="checkbox-inline"><input type="checkbox" <if condition="in_array($v['id'],$group['rules'])">checked="checked"</if> value="{$v.id}" name="rule_ids[]">{$v.title}</label>
+                            
+                        </if>
+                        </foreach>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <input name="id" type="hidden" value="{$group.id}" />
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__PUBLIC__/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__PUBLIC__/js/demo/peity-demo.min.js"></script>
+    <script>
+    function checkAll(obj){
+        $(obj).parents('.timeline-item').eq(0).find("input[type='checkbox']").prop('checked', $(obj).prop('checked'));
+    }
+    </script>
+</body>
+</html>
