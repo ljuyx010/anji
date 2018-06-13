@@ -110,14 +110,20 @@ class CarController extends CommonController {
 		$lei = array(//自动验证
 	     array('title','require','名称必填'), 
 	     array('classname','require','座位数必填'),
-	     array('canshu','require','收费参数必填')
+	     array('oilj','require','油价参数必填'),
+	     array('oilh','require','油耗参数必填'),
+	     array('glf','require','过路费参数必填'),
+	     array('lr','require','利润参数必填'),
 		);
 		$data = array(
 			'id' => $_POST['id'],
 			'title' => $_POST['title'],
 			'classname' => $_POST['classname'],
 			'sort' => I('sort','100',intval),
-			'canshu' => I('canshu'),
+			'oilj' => I('oilj'),
+			'oilh' => I('oilh'),
+			'glf' => I('glf'),
+			'lr' => I('lr'),
 			'pics' => implode("|",$_POST['pics']),
 			'content' => $_POST['content']
 		 );
