@@ -27,17 +27,15 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" width="64" src="__PUBLIC__/img/a10.jpg" /></span>
+                            <span><img alt="image" class="img-circle" width="64" <if condition="session('user.pic')">src="{$Think.session.user.pic}"<else />src="__PUBLIC__/img/a10.jpg"</if> /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                               <span class="block m-t-xs"><strong class="font-bold">{$Think.session.user.name}</strong></span>
+                                <span class="text-muted text-xs block">{$Think.session.user.group}<b class="caret"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="{:U('Admin/photo')}">修改头像</a>
-                                </li>
-                                <li><a class="J_menuItem" href="{:('Admin/mindfiy')}">修改密码</a>
+                                <li><a class="J_menuItem" href="{:U('Admin/account')}">账号设置</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li><a href="{:U('Login/loginout')}">安全退出</a>
@@ -162,9 +160,9 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" method="post" action="http://www.zi-han.net/theme/hplus/search_results.html">
+                        <form role="search" class="navbar-form-custom" method="post" action="{:U('Index/search')}">
                             <div class="form-group">
-                                <input type="text" placeholder="请输入车牌号…" class="form-control" name="top-search" id="top-search">
+                                <input type="text" placeholder="快速搜索" class="form-control" name="top-search" id="top-search">
                             </div>
                         </form>
                     </div>

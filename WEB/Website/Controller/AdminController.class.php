@@ -6,7 +6,7 @@ Class AdminController extends CommonController{
 	
 	public function user()
 	{
-		$this->user=D('admin')->relation(true)->field('password',true)->select();
+		$this->user=D('admin')->relation(true)->field('password',true)->where('id >1')->select();
 		$this->groupname=M('auth_group')->field('id,title')->select();
 		$this->display();
 	}
@@ -194,6 +194,20 @@ Class AdminController extends CommonController{
 		$this->group=$group;
 		$this->display();
 		}
+	}
+
+	public function modify (){
+		if($_POST['pic']){
+			$data['pic']=$_POST['pic'];
+		}else if($_POST['password'] && $_POST['password']==$_POST['password2']){
+			$data['password']=I('password','',md5);
+		}else if($_POST['password']!=$_POST['password2']){
+			$this->error('两次密码不一致');
+		}else{
+			$this->error('数据不能为空');
+		}
+		$rs=M('admin')->where('id='.session('user.id'))->save($data);
+		if($rs){$this->success('保存成功',U('Admin/account'));}else{$this->error('保存失败');}
 	}
 }
 ?>

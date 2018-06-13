@@ -1,3 +1,7 @@
+.white{color: #fff;}
+.code{width: 48%; color: #333; background: #fff;}
+#code{width: 48%;height: 34px;float: right;}
+
 /*图片上传按钮*/
 #filePicker{width:100%;height: 100%;}
 #filePicker div:nth-child(2){width:100%!important;height:100%!important;}

@@ -39,35 +39,27 @@ class LoginController extends Controller {
      */
     public function login(){
      if (!IS_POST) E('页面不存在！');
-
+     ob_clean();
      $verify = new \Think\Verify();
-     if(!$verify->check($_POST['verify'],1)){
+     if(!$verify->check($_POST['code'],1)){
      $this->error('验证码错误');
      }
-     $username = I('user');
+     $username = I('account');
      $password = I('password','',md5);
-     $user = M('user')->where('username = "'.$username.'"')->find();
+     $user = M('admin')->where(array('account' => $username))->find();
      if (!$user || $user['password'] != $password){
     	$this->error('账号或密码错误！');
      }
-     if ($user['lock']) $this->error('该账号已被锁定，请联系管理员');
      $data = array(
      	'id' => $user['id'],
-     	'logintime' => time(),
-     	'loginip' => get_client_ip(),
+     	'logintime' => time()
      );
-     M('user')->save($data);
-     session(C('USER_AUTH_KEY'),$user['id']);
-     session('username',$user['username']);
-	 session('name',$user['name']);
-     session('logintime',date('y-m-d H:i:s',$user['logintime']));
-     session('loginip',$user['loginip']);
-     //超级管理员识别
-     if ($user['username'] == C('RBAC_SUPERADMIN')){
-        session(C('ADMIN_AUTH_KEY'),true);
-     }
-     //读取用户权限
-     Rbac::saveAccessList();
+     M('admin')->save($data);
+     $rs=M('admin')->field("c.title")->alias('a')
+        ->join('LEFT JOIN lj_auth_group_access b ON a.id=b.uid')
+        ->join('LEFT JOIN lj_auth_group c ON b.group_id=c.id')->find();
+     $user['group']=$rs['title'];
+     session('user',$user);
 	$this->success ( "登录成功", U("Index/index" ) );
     }
 
