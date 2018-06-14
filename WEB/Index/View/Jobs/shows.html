@@ -1,0 +1,24 @@
+<include file="public/header" />
+<include file="public/top" />
+<div class="main">
+	<!--文章内容-->
+	<div class="m_ctt">
+		<div class="newsshow_title">{$v.title}</div>
+		<div class="newsshow_ctt">
+			<p><b style="font-size: 15px; color: #DE0808;">招聘职位：</b>{$v.jobname}</p>
+			<p><b style="font-size: 15px; color: #DE0808;">发布日期：</b>{$v.time|date='Y年m月d日',###}</p>
+			<p><b style="font-size: 15px; color: #DE0808;">有效日期：</b><if condition="$v['useful']">{$v.useful}个月<else />长期有效</if></p>
+			<p><b style="font-size: 15px; color: #DE0808;">招聘人数：</b><if condition="$v['qty']">{$v.qty}人<else />若干名</if></p>
+			<p><b style="font-size: 15px; color: #DE0808;">工作地点：</b>{$v.jobadd}</p>
+			<p><b style="font-size: 15px; color: #DE0808;">工资待遇：</b><if condition="$v['salary']">{$v.salary}<else />面谈</if></p>
+			<p><b style="font-size: 15px; color: #DE0808;">招聘要求：</b></p>
+			{$v.content}
+		</div>
+	</div>
+	<!--文章内容 end-->
+	<div class="clear"></div>
+</div>
+<!--end main-->
+<include file="public/bottom" />
+</body>
+</html>

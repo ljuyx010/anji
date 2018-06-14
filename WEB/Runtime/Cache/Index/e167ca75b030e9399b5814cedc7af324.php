@@ -16,28 +16,24 @@
 <script src="/Public/js/jquery.SuperSlide.2.1.1.js"></script>
 </head>
 <body>
-<?php echo W('bann/banner');?>
-<div class="gsjj">
-	<div class="menu"><h3>公司简介</h3><p>About us</p></div>
-	<img src="/Public/images/jj.jpg">
-	<?php
- $data = M('site')->field('value')->where(array('name'=>"basic"))->find(); echo unserialize($data['value'])['content']; ?>
+<div class="top"><img src="/Public/images/topbg.png" /></div>
+<div class="main">
+	<!--文章内容-->
+	<div class="m_ctt">
+		<div class="newsshow_title"><?php echo ($title); ?></div>
+		<div class="newsshow_sm">编辑：<?php echo ($author); ?>  |  日期：<?php echo (date('Y-m-d',$time)); ?>  |  人气：<script type="text/javascript" src="<?php echo U(MODULE_NAME.'/Article/getclick',array('id'=>$sid));?>"></script></div>
+		<div class="newsshow_ctt">
+			<?php echo ($content); ?>
+		</div>
+		<div class="page">
+			<div><?php echo ($prev); ?></div>
+			<div><?php echo ($next); ?></div>
+		</div>
+	</div>
+	<!--文章内容 end-->
 	<div class="clear"></div>
 </div>
-<div class="proudct">
-	<div class="menu"><h3>产品推荐</h3><p>Product recommendations</p></div>
-	<ul>
-	<?php $field=array("id","title","classname","pics");$_pist_news=M("class")->field($field)->where(array_merge(array('pics'=>array('neq','')),array('tj'=>1)))->limit("4")->order("id desc")->select();foreach ($_pist_news as $k=>$_pist_value) : extract($_pist_value);$url=U("/".MODULE_NAME."/details_".$id); ?><li><a href="<?php echo ($url); ?>"><div><img <?php if(strstr($pics,'|')): ?>src="<?php echo substr($pics,0,strpos($pics, '|'));?>" <?php else: ?>src="<?php echo ($pics); ?>"<?php endif; ?>></div><p><?php echo ($title); ?></p></a></li><?php endforeach; ?>	
-	</ul>
-	<a href="<?php echo U('Goods/index');?>" class="more">查看更多</a>
-</div>
-<div class="xwzx">
-	<div class="menu"><h3>资讯中心</h3><p>Information center</p></div>
-	<ul class="news">
-	<?php $field=array("id","title","description","pic","time","click");$_list_news=M("article")->where(array_merge(array('pic'=>array('neq','')),array('tj'=>1)))->field($field)->limit("6")->order("time desc")->select();foreach ($_list_news as $k=>$_list_value) : extract($_list_value);$url=U("/".MODULE_NAME."/ashow_".$id); ?><li><span class="time"><?php echo (date('Y-m-d',$time)); ?></span><a href="<?php echo ($url); ?>"><?php echo (msubstr($title,0,15,'utf-8',false)); ?></a></li><?php endforeach; ?>	
-	</ul>
-	<a href="<?php echo U('Article/index');?>" class="more">查看更多</a>
-</div>
+<!--end main-->
 <p class="corpyt">湖北安吉旅游客运集团版权所有<br>技术支持：<a href="http://www.dpwl.net" target="_blank">湖北大鹏网络科技</a></p>
 <div class="h75"></div>
 <!--footer-->
@@ -68,7 +64,7 @@
     wx.ready(function(){  
         var options = {  
             title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/index', // 分享链接，记得使用绝对路径，不能用document.URL
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/Index/ashow_1.html', // 分享链接，记得使用绝对路径，不能用document.URL
             imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/wap/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '<?php echo ($description); ?>', // 分享描述  
             success: function () {  

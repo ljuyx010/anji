@@ -6,87 +6,21 @@ use \Lib;
 class GoodsController extends Controller{
 	
 	public function index () {
-		$id = I('id','',intval);
-		$clas = I('clas','',intval);
-		$ch=M('cate')->where(array('pid'=>$id))->select();
 		
-		$class=M('class')->select();
-		$class = Lib\Category::unlimitedForLayer($class);
-		$this->clas=$class;
-		
-		if($ch){
-			$ids = array();
-			foreach ($ch as $value){
-			 $ids[]=$value['id'];
-			 }
-			$cids=implode(',', $ids);
-			$cate = Lib\Cate::catetkd($id);
-			$this->cid = $cate[0]['id'];
-			$this->fid = $cate[0]['pid'];
-			$this->title = $cate[0]['name'];
-			$this->keywords = $cate[0]['keywords'];
-			$this->description = $cate[0]['description'];
-			$this->pic = $cate[0]['pic'];
-			$this->model = $cate[0]['model'];
-			if ($cate[0]['model'] !== 'Goods'){
-				$this->error('页面不存在');
-			}
-			$field = array('del','keywords','content');
-			if($clas){
-				$where = "cid in (".$cids.") and del=0 and classid=".$clas;
-			}else{
-				$where = "cid in (".$cids.") and del=0";
-			}			
-			$count = M('goods')->where($where)->count();
-			$Page = new \Think\Page($count,C('PAGE_NUM'));// 实例化分页类 传入总记录数和每页显示的记录数
-			$Page -> setConfig('header','共%TOTAL_ROW%条');
-			$Page -> setConfig('first','首页');
-			$Page -> setConfig('last','共%TOTAL_PAGE%页');
-			$Page -> setConfig('prev','上一页');
-			$Page -> setConfig('next','下一页');
-			$Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
-			$Page -> setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
-			$show = $Page->show();
-			$this->goods = M('goods')->field($field,true)->where($where)->order('id DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
-			$this->page = $show;
-			$this->display(cateindex);
-		}else{
-			$cate = Lib\Cate::catetkd($id);
-			$this->cid = $cate[0]['id'];
-			$fid = $cate[0]['pid'];
-			$fcate = Lib\Cate::catetkd($fid);
-			$this->fid = $fid;
-			$this->fname = $fcate[0]['name'];
-			$this->title = $cate[0]['name'];
-			$this->keywords = $cate[0]['keywords'];
-			$this->description = $cate[0]['description'];
-			$this->pic = $cate[0]['pic'];
-			$this->model = $cate[0]['model'];
-			if ($cate[0]['model'] !== 'Goods'){
-				$this->error('页面不存在');
-			}
-			$field = array('del','keywords','content');
-			if($clas){
-				$where = array('cid' => $id,'classid'=> $clas,'del' => 0);
-			}else{
-				$where = array('cid' => $id,'del' => 0);
-			}			
-			$count = M('goods')->where($where)->count();
-			$Page = new \Think\Page($count,C('PAGE_NUM'));// 实例化分页类 传入总记录数和每页显示的记录数
-			$Page -> setConfig('header','共%TOTAL_ROW%条');
-			$Page -> setConfig('first','首页');
-			$Page -> setConfig('last','共%TOTAL_PAGE%页');
-			$Page -> setConfig('prev','上一页');
-			$Page -> setConfig('next','下一页');
-			$Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
-			$Page -> setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
-			$show = $Page->show();
-			$this->goods = M('goods')->field($field,true)->where($where)->order('id DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
-			$this->page = $show;			
-			$this->display();		
-			
-		}
-	
+		$field = array('id','classname','sort','title','pics');
+		$count = M('class')->count();
+		$Page = new \Think\Page($count,C('PAGE_NUM'));// 实例化分页类 传入总记录数和每页显示的记录数
+		$Page -> setConfig('header','共%TOTAL_ROW%条');
+		$Page -> setConfig('first','首页');
+		$Page -> setConfig('last','共%TOTAL_PAGE%页');
+		$Page -> setConfig('prev','上一页');
+		$Page -> setConfig('next','下一页');
+		$Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
+		$Page -> setConfig('theme','%FIRST% %UP_PAGE% %DOWN_PAGE% %HEADER%');
+		$show = $Page->show();
+		$this->goods = M('class')->field($field)->order('sort ASC,id DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$this->page = $show;			
+		$this->display();		
 	}
 
 	public function details () {

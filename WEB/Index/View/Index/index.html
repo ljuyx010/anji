@@ -11,8 +11,18 @@
 	<ul>
 	<pist img='1' tj='1' limit='4' order='id desc'>
 	<li><a href="{$url}"><div><img <if condition="strstr($pics,'|')" >src="{:substr($pics,0,strpos($pics, '|'))}" <else />src="{$pics}"</if>></div><p>{$title}</p></a></li>
-	</pist>
+	</pist>	
 	</ul>
+	<a href="{:U('Goods/index')}" class="more">查看更多</a>
+</div>
+<div class="xwzx">
+	<div class="menu"><h3>资讯中心</h3><p>Information center</p></div>
+	<ul class="news">
+	<list img='1' tj='1' limit='6' order='time desc'>
+	<li><span class="time">{$time|date='Y-m-d',###}</span><a href="{$url}">{$title|msubstr=###,0,15,'utf-8',false}</a></li>
+	</list>	
+	</ul>
+	<a href="{:U('Article/index')}" class="more">查看更多</a>
 </div>
 <include file="public/bottom" />
 </body>

@@ -5,7 +5,7 @@ use Think\Controller;
 /**
 * 会员登录控制器
 */
-class MemberController extends Controller{
+class UserController extends Controller{
 	
 	public function index () {
 		//会员登录视图

@@ -1,32 +1,16 @@
 <include file="public/header" />
 <include file="public/top" />
 <div class="main">
-    <ul class="crub">
-		<li>当前位置:</li>
-		<li><a href='/index.php'>首页</a></li><crumb id="$cid"/>
+   <div class="menu"><h3>在线订车</h3><p>Online ordering</p></div>
+    <ul>
+    <foreach name="goods" item="v">
+    <li><a href="{:U('/'.MODULE_NAME.'/details_'.$v['id'])}"><div><img <if condition="!$v['pics']">src="__PUBLIC__/images/nopic.png"<elseif condition="strstr($v['pics'],'|')" />src="{:substr($v['pics'],0,strpos($v['pics'], '|'))}" <else />src="{$v.pics}"</if>></div><p>{$v.title}</p>
+    <span class="zjzc"><strong>车型:</strong>{$v.classname}</span>
+    </a></li>
+    </foreach> 
     </ul>
-<include file="public/left" />
-    <!--end right-->
- <div class="ld-right">
-    <div class="lanm">
-        <h2>{$title}</h2>
-		<div class="samy">产品系列:<foreach name="clas" item="v"><a href="{:U('',array('id'=>$cid,'clas'=>$v['id']))}">{$v.classname}</a></foreach></div>
-	
-            <ul class="pic">
-            <foreach name="goods" item="v">
-            <li><a href="{:U('/'.MODULE_NAME.'/details_'.$v['id'])}" title="{$v.title}" target="_blank">
-			<if condition='$v[pic]'><img src="{$v.pic}" title="{$v.title}"><else /><img src="__PUBLIC__/images/nopic.jpg"></if>
-            <p>{$v.title}</p></a>
-			<span class="zjzc"><strong>品牌:</strong>{$v.brand}&nbsp;&nbsp;<strong>价格:</strong>{$v.price}元</span>
-			</li>
-            </foreach>
-            <div class="clear"></div>
-    		</ul>
-        <div class="page">{$page}</div>
-    </div>
-</div>
 <div class="clear"></div>
-<!--left end -->
+ <div class="pages">{$page}</div>
 </div>
 <!--end main-->
 <include file="public/bottom" />
