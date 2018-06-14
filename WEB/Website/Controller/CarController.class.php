@@ -120,6 +120,7 @@ class CarController extends CommonController {
 			'title' => $_POST['title'],
 			'classname' => $_POST['classname'],
 			'sort' => I('sort','100',intval),
+			'tj' => I('tj','0',intval),
 			'oilj' => I('oilj'),
 			'oilh' => I('oilh'),
 			'glf' => I('glf'),

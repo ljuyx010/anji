@@ -42,7 +42,30 @@
                                     <input type="text" class="form-control" name="classname" value="<?php echo ($v["classname"]); ?>">
                                     <span class="input-group-addon">例如:7座金杯</span>
                                 </div></div>
+                            </div>                            
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片</label>
+
+                                <div class="col-sm-10">
+                                    <a class="btn btn-primary upimgs" class="upimgs" id="bte">选择图片</a> 最大2M，支持jpg，gif，png格式。按CTRL多选(最多传10张)
+                                    <dl id="ul_pic" class="ul_pic clearfix">
+                                        <?php if(is_array($pics)): foreach($pics as $key=>$p): ?><dd><img src="<?php echo ($p); ?>"><p><a href="javascript:void(0);" onclick="deli(this);">删除</a></p>
+                                        <input name='pics[]' class='dis' value="<?php echo ($p); ?>">
+                                        </dd><?php endforeach; endif; ?>                                
+                                    </dl>
+                                </div>
                             </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">推荐</label>
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <label class="checkbox-inline"><input type="radio" <?php if($v['tj'] == 0): ?>checked="checked"<?php endif; ?> value="0" name="tj">否</label>
+                                        <label class="checkbox-inline"><input type="radio" <?php if($v['tj'] == 1): ?>checked="checked"<?php endif; ?> value="1" name="tj">是</label>
+                                    </div>
+                                </div>
+                            </div> 
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">定价标准：</label>
@@ -85,20 +108,7 @@
                                 <div class="col-sm-2">
                                     <input type="text" name="sort" class="form-control" value="<?php echo ($v["sort"]); ?>">
                                 </div>
-                            </div> 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">图片</label>
-
-                                <div class="col-sm-10">
-                                    <a class="btn btn-primary upimgs" class="upimgs" id="bte">选择图片</a> 最大2M，支持jpg，gif，png格式。按CTRL多选(最多传10张)
-                                    <dl id="ul_pic" class="ul_pic clearfix">
-                                        <?php if(is_array($pics)): foreach($pics as $key=>$p): ?><dd><img src="<?php echo ($p); ?>"><p><a href="javascript:void(0);" onclick="deli(this);">删除</a></p>
-                                        <input name='pics[]' class='dis' value="<?php echo ($p); ?>">
-                                        </dd><?php endforeach; endif; ?>                                
-                                    </dl>
-                                </div>
-                            </div>                         
+                            </div>                                                     
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">内容</label>

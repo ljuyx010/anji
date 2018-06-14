@@ -1,142 +1,19 @@
 <include file="public/header" />
-<include file="public/top" />             
-<div class="main">
-	<div class="one">
-	<div class="lanmu"><a class="more" title="更多" href="/index.php/Index/info_17.html"></a></div>
-	<div class="onel">
-	<div id='sliderPlay2' style='visibility: hidden;'>
-	  <list id='22' img='1' limit='5' order='id desc'>
-		<a href='{$url}'><img src='{$pic}' width="376" height="267" alt='{$title}'/></a>
-	  </list>
-	</div>
-	<script>
-	//----2----
-	$('#sliderPlay2').sliderPlay({
-		speed: 500, 		//动画效果持续时间
-		timeout: 4000,		//幻灯间隔时间
-		moveType: 'opacity',  // randomMove: 随机运动，moveTo: 切换运动 ，opacity: 淡入淡出
-		mouseEvent: 'mouseover', //事件类型，默认是 click ,mouseover
-		isShowTitle: false,	//是否开始标题,开启则采用img标签alt的文字
-		isShowBtn:  false    //是否显示按钮
-	});
-	</script>
-	</div>
-	<div class="onem">
-	<com name="spare" />
-	</div>
-	<div class="oner"><!--
-		<object class id="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="379" height="267">
-		  <param name="movie" value="__PUBLIC__/css/flvplayer.swf">
-		  <param name="quality" value="high">
-		  <param name="allowFullScreen" value="true">
-		  <param name="FlashVars" value="vcastr_file=__PUBLIC__/images/syztp.flv&LogoText=www.dpwl.net&BufferTime=3&IsAutoPlay=1">
-		  <embed src="__PUBLIC__/css/flvplayer.swf" allowfullscreen="true" flashvars="vcastr_file=__PUBLIC__/images/syztp.flv&LogoText=www.dpwl.net&IsAutoPlay=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="379" height="267"></embed>
-		</object>-->
-	</div>
-	</div>
-	<!--one end-->
-	<div class="adv">
-	<img src="__PUBLIC__/images/adv.jpg"/>
-	</div>
-	<!--adv end-->
-	<div class="two">
-	<div class="lanmu"><a class="more" title="更多" href="/index.php/Index/goods_12.html"></a><span class="fr"><a href="/index.php/Index/goods_29.html">久保田</a>&nbsp;|&nbsp;<a href="/index.php/Index/goods_30.html">CLAAS(克拉斯)</a>&nbsp;|&nbsp;<a href="/index.php/Index/goods_31.html">东方红</a></span></div>
-	<div class="hl_main5_content">
-        <div class="hl_scrool_leftbtn"></div>
-        <div class="hl_scrool_rightbtn"></div>
-        <div class="hl_main5_content1">
-            <ul>
-			<pist id="29,30,31" img="1" order="time desc" limit="12">
-             <li><a href='{$url}'><img src='{$pic}' border='0' width='250' height='185' alt='{$title}'><p>{$title|msubstr=###,0,12,'utf-8',false}</p></a></li>
-			</pist>
-            </ul>
-        </div>
-	</div>
-	<script type="text/javascript" src="__PUBLIC__/js/pengge.js"></script>
+{:W('bann/banner')}
+<div class="gsjj">
+	<div class="menu"><h3>公司简介</h3><p>About us</p></div>
+	<img src="__PUBLIC__/images/jj.jpg">
+	<com name="content" />
 	<div class="clear"></div>
-	</div>
-	<!--two end-->
-	<div class="three">
-	<div class="threel">
-	<div class="lanmu"><a class="more" title="更多" href="/index.php/Index/alist_10.html"></a></div>
-	<div class="pro_con111">
-	<ul>
-	<li class="hover" id="one40" onclick="setTab(&#39;one&#39;,40,42)">公司新闻</li>
-	<li id="one41" onclick="setTab(&#39;one&#39;,41,42)">行业动态</li>
-	<li id="one42" onclick="setTab(&#39;one&#39;,42,42)">政策法规</li>
-	</ul>
-	</div>
-	<script language="javascript">
-	<!--
-	function setTab(name,cursel,n){
-	for(i=40;i<=n;i++){
-	var menu=document.getElementById(name+i);
-	var con=document.getElementById("con_"+name+"_"+i);
-	menu.className=i==cursel?"hover":"";
-	con.style.display=i==cursel?"block":"none";
-	}
-	}
-	//-->
-	</script>
-	<!--选项卡结束-->
-	<div class="tll">
-	<div id='sliderPlay' style='visibility: hidden;'>
-	  <list id='23,24,25' img='1' limit='5' order='id desc'>
-		<a href='{$url}'><img src='{$pic}' width="361" height="236" alt='{$title}'/></a>
-	  </list>
-	</div>
-	<script>
-	$('#sliderPlay').sliderPlay({
-	speed: 300, 		//动画效果持续时间
-	timeout: 4000,		//幻灯间隔时间
-	moveType: 'randomMove',  // randomMove: 随机运动，moveTo: 切换运动 ，opacity: 淡入淡出
-	mouseEvent: 'click', //事件类型，默认是 click ,mouseover
-	isShowTitle: true,	//是否开始标题,开启则采用img标签alt的文字
-	isShowBtn:  true    //是否显示按钮
-	});
-	</script>
-	</div><!--end tll-->
-	<div class="tlr">
-	<div class="hover" id="con_one_40">
-	<ul>
-		<list id='23' limit='6' order='id desc'>
-		<li><a href='{$url}' target="_blank">{$title|msubstr=###,0,18,'utf-8',false}</a><span class="fr">{$time|date='Y-m-d',###}</span></li>
-		</list>
-	</ul>
-	</div>
-	<div class="hover" id="con_one_41" style="display: none"><ul>
-		<list id='24' limit='6' order='id desc'>
-		<li><a href='{$url}' target="_blank">{$title|msubstr=###,0,18,'utf-8',false}</a><span class="fr">{$time|date='Y-m-d',###}</span></li>
-		</list></ul>
-	</div>
-	<div class="hover" id="con_one_42" style="display: none"><ul>
-		<list id='25' limit='6' order='id desc'>
-		<li><a href='{$url}' target="_blank">{$title|msubstr=###,0,18,'utf-8',false}</a><span class="fr">{$time|date='Y-m-d',###}</span></li>
-		</list></ul>
-	</div>
-	</div><!--end tlr-->
-	</div><!--end threel-->
-	<div class="threer">
-	<a href="/bbs/" class="bbs" target="_blank"><img width="156" src="__PUBLIC__/images/lt.jpg"></a>
-	<a href="/index.php/Index/info_32.html" target="_blank"><img width="156" src="__PUBLIC__/images/khfw.jpg"></a>
-	<div class="lianxi">
-	<p>
-	<com name="contact" />
-	</p>
-	</div>
-	</div>
-	<div class="clear"></div>
-	</div>
-	<!--three end-->	
 </div>
-<div class="link">
-<ul><li class="bt">友情链接:</li>
-<borl name="link" limit="15" order="id desc">
-<li><a href="http://{$url}" target="_blank">{$name}<a>&nbsp;&nbsp;|</li>
-</borl>
-</ul>
+<div class="proudct">
+	<div class="menu"><h3>产品推荐</h3><p>Product recommendations</p></div>
+	<ul>
+	<pist img='1' tj='1' limit='4' order='id desc'>
+	<li><a href="{$url}"><div><img <if condition="strstr($pics,'|')" >src="{:substr($pics,0,strpos($pics, '|'))}" <else />src="{$pics}"</if>></div><p>{$title}</p></a></li>
+	</pist>
+	</ul>
 </div>
-	<!--link end-->
 <include file="public/bottom" />
 </body>
 </html>

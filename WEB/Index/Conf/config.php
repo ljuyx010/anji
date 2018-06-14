@@ -1,9 +1,9 @@
 <?php
-$conf = M('conf')->where(array('id' => 0))->getField('confing');
+$conf = M('site')->field('value')->where(array('name' => "extend"))->find();
 $meter=unserialize($conf);
 return array(
 	//'配置项'=>'配置值'
-	'TMPL_EXCEPTION_FILE' => './public/error.html', //自定义错误页面和404页面
+	//'TMPL_EXCEPTION_FILE' => './public/error.html', //自定义错误页面和404页面
 
 	//定义模板中__Public__路径
 	'TMPL_PARSE_STRING' => array('__public__' => __ROOT__.'/Public'),

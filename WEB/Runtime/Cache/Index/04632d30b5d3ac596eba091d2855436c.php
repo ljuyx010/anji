@@ -1,10 +1,9 @@
-<!-- banner -->
+<?php if (!defined('THINK_PATH')) exit();?><!-- banner -->
 <div id="focus" class="focus">
 	<div class="bd">
 		<ul>			
-			<borl name='banner' type='1' order='id DESC,sort ASC' limit='5'>
-			<li><a class="pic" href="javascript:;"><img src="{$pic}"/></a></li>
-			</borl>
+			<?php
+ $_link_data = M('banner')->where("type=1 and pic<>''")->order("id DESC,sort ASC")->limit("5")->select(); foreach($_link_data as $k=>$_link_v) : extract($_link_v); ?><li><a class="pic" href="javascript:;"><img src="<?php echo ($pic); ?>"/></a></li><?php endforeach; ?>
 		</ul>
 	</div>
 	<div class="hd">

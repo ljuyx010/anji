@@ -7,11 +7,11 @@ class IndexController extends Controller {
 	 * @return [type] [description]
 	 */
     public function index(){
-      $data = F('Site','',APP_PATH.'/Data/');
+      $rs=M('site')->field('value')->where(array('name'=>"basic"))->find();
+      $data =unserialize($rs['value']);
       $this->title = $data['title'];
       $this->keywords = $data['keywords'];
       $this->description = $data['description'];
-      $this->aboutus = $data['spare'];
       $this->display();  
     }
 
