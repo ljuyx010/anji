@@ -31,7 +31,7 @@
     wx.ready(function(){  
         var options = {  
             title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/Goods/index.html', // 分享链接，记得使用绝对路径，不能用document.URL
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/Index/details_1.html', // 分享链接，记得使用绝对路径，不能用document.URL
             imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '<?php echo ($description); ?>', // 分享描述  
             success: function () {  
@@ -50,31 +50,60 @@
 </script>
 </head>
 <body>
-<div class="top"><img src="/Public/images/topbg.png" /></div>
+<link rel="stylesheet" href="/Public/css/pickout.css">
+<!-- banner -->
+<div id="focus" class="focus">
+	<div class="bd">
+		<ul>			
+			<?php if(is_array($data['pics'])): foreach($data['pics'] as $key=>$v): ?><li><a class="pic" href="javascript:;"><img src="<?php echo ($v); ?>"/></a></li><?php endforeach; endif; ?>
+		</ul>
+	</div>
+	<div class="hd">
+		<ul></ul>
+	</div>
+</div>
+<script type="text/javascript">
+	TouchSlide({ 
+		slideCell:"#focus",
+		titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+		mainCell:".bd ul", 
+		effect:"leftLoop", 
+		autoPlay:true,//自动播放
+		autoPage:true, //自动分页
+		switchLoad:"_src" //切换加载，真实图片路径为"_src" 
+	});
+</script>
+<!-- banner end-->
 <div class="main">
-   <div class="menu"><h3>在线订车</h3><p>Online ordering</p></div>
-    <ul class="inner_pic">
-    <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><li><a href="<?php echo U('/'.MODULE_NAME.'/details_'.$v['id']);?>"><div><img <?php if(!$v['pics']): ?>src="/Public/images/nopic.png"<?php elseif(strstr($v['pics'],'|')): ?>src="<?php echo substr($v['pics'],0,strpos($v['pics'], '|'));?>" <?php else: ?>src="<?php echo ($v["pics"]); ?>"<?php endif; ?>></div>
-    <p><span class="zjzc"><strong>车型:</strong><?php echo ($v["classname"]); ?></span><?php echo ($v["title"]); ?></p>
-    </a></li><?php endforeach; endif; ?> 
-    <div class="clear"></div>
-    </ul>
-<div class="clear"></div>
- <div class="pages"><?php echo ($page); ?></div>
+	<h3><?php echo ($data["title"]); ?></h3>
+	<p>车型：<?php echo ($data["classname"]); ?></p>
+	<p class="udline"><b>车辆详情</b></p>
+	<div class="newsshow_ctt">
+		<?php echo ($data["content"]); ?>
+	</div>
 </div>
 <!--end main-->
-<p class="corpyt">湖北安吉旅游客运集团版权所有<br>技术支持：<a href="http://www.dpwl.net" target="_blank">湖北大鹏网络科技</a></p>
+<div class="cd-bouncy-nav-modal">
+	<nav>
+		<ul class="cd-bouncy-nav">
+			<li><a href="#">首页</a></li>
+			<li><a href="#s">jQuery</a></li>
+			<li><a href="#">PHP</a></li>
+			<li><a href="#">模板</a></li>
+			<li><a href="#">网址</a></li>
+			<li><a href="#">工具</a></li>
+		</ul>
+	</nav>
+	<a href="#0" class="cd-close">Close modal</a>
+</div>
 <div class="h75"></div>
 <!--footer-->
 <footer>
 	<div class="bottom3">
-		<a <?php if(CONTROLLER_NAME == 'Index'): ?>class="hover"<?php endif; ?> href="<?php echo U('Index/index');?>"><em><img <?php if(CONTROLLER_NAME == 'Index'): ?>src="/Public/images/rhome.png"<?php else: ?>src="/Public/images/home.png"<?php endif; ?>></em>首页</a>
-		<a <?php if(CONTROLLER_NAME == 'Goods'): ?>class="hover"<?php endif; ?> href="<?php echo U('Goods/index');?>"><em><img <?php if(CONTROLLER_NAME == 'Goods'): ?>src="/Public/images/rcar.png"<?php else: ?>src="/Public/images/car.png"<?php endif; ?>></em>订车</a>
-		<a href="tel:<?php
- $data = M('site')->field('value')->where(array('name'=>"basic"))->find(); echo unserialize($data['value'])['tel']; ?>"><em><img src="/Public/images/kf.png"></em>客服</a>
-		<a <?php if(CONTROLLER_NAME == 'User'): ?>class="hover"<?php endif; ?> href="<?php echo U('User/index');?>"><em><img <?php if(CONTROLLER_NAME == 'User'): ?>src="/Public/images/ruser.png"<?php else: ?>src="/Public/images/user.png"<?php endif; ?>></em>我的</a>
+		<a class="sy" href="<?php echo U('Index/index');?>"><em><img src="/Public/images/home.png"></em>返回首页</a>
+		<div class="xd cd-bouncy-nav-trigger">立即下单预定此车型</div>
 	</div>
 </footer>
-<!--footer end-->
+<script src="/Public/js/pickout.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 namespace Index\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+class IndexController extends CommonController {
 	/**
 	 * 前端首页模板
 	 * @return [type] [description]

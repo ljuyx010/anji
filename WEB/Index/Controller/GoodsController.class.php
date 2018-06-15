@@ -3,7 +3,7 @@ namespace Index\Controller;
 use Think\Controller;
 use \Lib;
 
-class GoodsController extends Controller{
+class GoodsController extends CommonController{
 	
 	public function index () {
 		
@@ -25,69 +25,12 @@ class GoodsController extends Controller{
 
 	public function details () {
 		$id = I('id','',intval);
-		$db = M('goods');
-		$data = $db->where(array('id'=>$id))->find();
-		$cid = $data['cid'];
-		$clas = $data['classid'];
-		$this->title = $data['title'];
-		$this->keywords = $data['keywords'];
-		$this->descriptions = $data['description'];
-		$this->time = $data['time'];
-		$this->content = stripslashes($data['content']);
-		$this->timg = $data['pic'];
-		$this->g = $data;
-
-		$this->clas = M('class')->where(array('id'=>$clas))->find();
-		//评论列表
-		$fz="Goods_".$id;
-		$this->counts=M('ping')->where(array('fz'=>$fz,'dis'=>1))->count();
-		$ping=M('ping')->where(array('fz'=>$fz,'_string'=>'dis=1 or hfid <>0'))->join('LEFT JOIN lj_member ON lj_ping.mid = lj_member.id')->field('lj_ping.*,lj_member.username')->order('lj_ping.id DESC')->select();
-		$this->ping = Lib\Category::unlimitedForping($ping);
-		$this->fz=$fz;
-		
-		$cate = Lib\Cate::catetkd($cid);
-		$this->sid = $id;
-		$this->cid = $cid;
-		$this->fid = $cate[0]['pid'];
-		$this->name = $cate[0]['name'];
-		$this->pic = $cate[0]['pic'];
-		$this->model = $cate[0]['model'];
-		$this->img = M('atlas')->where(array('gid'=>$id))->select();
-
-		$last_rs = $db->where(array('id' => array('GT',$id), 'del' => 0, 'cid' =>$cid))->order(array('id'=>'ASC'))->limit(1)->find(); //GT =>'小于'
-		$next_rs = $db->where(array('id' => array('LT',$id), 'del' => 0, 'cid' =>$cid))->order(array('id'=>'DESC'))->limit(1)->find(); //LT => '大于'
-        
-        if ( !empty($last_rs) ) 
-        {
-            $last = "上一篇：<a href=";
-            $last .= U(MODULE_NAME.'/details_'.$last_rs['id']);
-            $last .= "'>{$last_rs['title']}</a>";
-        }
-        else 
-        {
-            $last = "上一篇：已是第一篇";
-        }
-        if ( !empty($next_rs) )
-        {
-            $next = "下一篇：<a href='";
-            $next .= U(MODULE_NAME.'/details_'.$next_rs['id']);
-            $next .= "'>{$next_rs['title']}</a>";
-        }
-        else
-        {
-            $next = "下一篇：已是最后一篇";
-        }
-        $this->prev = $last;
-        $this->next = $next;
+		$data=M('class')->field('id,title,classname,pics,content')->where(array('id'=>$id))->find();
+		if(!$data){$this->error("没有相关信息");}
+		$data['pics']=explode('|', $data['pics']);
+		$this->data=$data;
+		$this->title=$data['title'];
 		$this->display();
-	}
-
-	public function getclick () {
-		$id = (int) $_GET['id'];
-		$where = array('id'=>$id);
-		M('goods')->where($where)->setInc('click');
-		$click = M('goods')->where($where)->getField('click');		
-		echo 'document.write('.$click.')';
 	}
 	
 	//商品预订

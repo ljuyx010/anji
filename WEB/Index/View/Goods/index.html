@@ -2,12 +2,13 @@
 <include file="public/top" />
 <div class="main">
    <div class="menu"><h3>在线订车</h3><p>Online ordering</p></div>
-    <ul>
+    <ul class="inner_pic">
     <foreach name="goods" item="v">
-    <li><a href="{:U('/'.MODULE_NAME.'/details_'.$v['id'])}"><div><img <if condition="!$v['pics']">src="__PUBLIC__/images/nopic.png"<elseif condition="strstr($v['pics'],'|')" />src="{:substr($v['pics'],0,strpos($v['pics'], '|'))}" <else />src="{$v.pics}"</if>></div><p>{$v.title}</p>
-    <span class="zjzc"><strong>车型:</strong>{$v.classname}</span>
+    <li><a href="{:U('/'.MODULE_NAME.'/details_'.$v['id'])}"><div><img <if condition="!$v['pics']">src="__PUBLIC__/images/nopic.png"<elseif condition="strstr($v['pics'],'|')" />src="{:substr($v['pics'],0,strpos($v['pics'], '|'))}" <else />src="{$v.pics}"</if>></div>
+    <p><span class="zjzc"><strong>车型:</strong>{$v.classname}</span>{$v.title}</p>
     </a></li>
     </foreach> 
+    <div class="clear"></div>
     </ul>
 <div class="clear"></div>
  <div class="pages">{$page}</div>

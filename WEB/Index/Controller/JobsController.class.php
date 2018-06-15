@@ -3,7 +3,7 @@ namespace Index\Controller;
 use Think\Controller;
 use \Lib;
 
-class JobsController extends Controller{
+class JobsController extends CommonController{
 	
 	public function index () {
 

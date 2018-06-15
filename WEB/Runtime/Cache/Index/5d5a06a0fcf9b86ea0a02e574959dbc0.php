@@ -31,7 +31,7 @@
     wx.ready(function(){  
         var options = {  
             title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/Goods/index.html', // 分享链接，记得使用绝对路径，不能用document.URL
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/User/index.html', // 分享链接，记得使用绝对路径，不能用document.URL
             imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '<?php echo ($description); ?>', // 分享描述  
             success: function () {  
@@ -50,17 +50,55 @@
 </script>
 </head>
 <body>
-<div class="top"><img src="/Public/images/topbg.png" /></div>
+<div class="userbox">
+	<div class="userimg"><img class="photo" src="/Public/images/logo.jpg" ><!--src="<?php echo (session('userHeadimgurl')); ?>"--><p><img src="/Public/images/icon-user-level.png"><?php if(session('name')): ?>Vip用户<?php else: ?>普通用户<?php endif; ?></p>
+	<h3><?php echo (session('userNickname')); ?>大胖娃娃</h3>
+	</div>
+</div>
 <div class="main">
-   <div class="menu"><h3>在线订车</h3><p>Online ordering</p></div>
-    <ul class="inner_pic">
-    <?php if(is_array($goods)): foreach($goods as $key=>$v): ?><li><a href="<?php echo U('/'.MODULE_NAME.'/details_'.$v['id']);?>"><div><img <?php if(!$v['pics']): ?>src="/Public/images/nopic.png"<?php elseif(strstr($v['pics'],'|')): ?>src="<?php echo substr($v['pics'],0,strpos($v['pics'], '|'));?>" <?php else: ?>src="<?php echo ($v["pics"]); ?>"<?php endif; ?>></div>
-    <p><span class="zjzc"><strong>车型:</strong><?php echo ($v["classname"]); ?></span><?php echo ($v["title"]); ?></p>
-    </a></li><?php endforeach; endif; ?> 
-    <div class="clear"></div>
-    </ul>
+   	<p class="udline">我的订单</p>
+    <!-- Tab切换 S -->
+	<div class="slideTxtBox">
+		<div class="hd">
+			<ul>
+				<li><a href="#">待付款</a></li>
+				<li><a href="#">已付款</a></li>
+				<li><a href="#">已完成</a></li>
+			</ul>
+		</div>
+		<div class="bd">
+			<ul>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">中国打破了世界软件巨头规则</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">口语：会说中文就能说英语！</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学英语送ipad2,45天突破听说</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学外语，上北外！</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">那些无法理解的荒唐事</a></li>
+			</ul>
+			<ul>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">名师教作文：３妙招巧写高分</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">耶鲁小子：教你备考SAT</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">施强：高端专业语言教学</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">【推荐】名校英语方法曝光！</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2012高考“考点”大曝光!!</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">涨价仍爆棚假日旅游冰火两重天</a></li>
+			</ul>
+			<ul>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">澳大利亚八大名校招生说明会</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2012世界大学排名新鲜出炉</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">新加坡留学，国际双语课程</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">高考后留学日本名校随你选</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">教育培训行业优势资源推介</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">即刻预约今年最后一场教育展</a></li>
+				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">女友坚持警局完婚不抛弃</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+	<!-- Tab切换 E -->
 <div class="clear"></div>
- <div class="pages"><?php echo ($page); ?></div>
 </div>
 <!--end main-->
 <p class="corpyt">湖北安吉旅游客运集团版权所有<br>技术支持：<a href="http://www.dpwl.net" target="_blank">湖北大鹏网络科技</a></p>

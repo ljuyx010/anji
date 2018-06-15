@@ -3,7 +3,7 @@ namespace Index\Controller;
 use Think\Controller;
 use \Lib;
 
-class ArticleController extends Controller{
+class ArticleController extends CommonController{
 	
 	public function index () {
 		$field = array('del','keywords','content');

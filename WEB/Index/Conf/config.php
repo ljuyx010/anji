@@ -1,6 +1,6 @@
 <?php
 $conf = M('site')->field('value')->where(array('name' => "extend"))->find();
-$meter=unserialize($conf);
+$meter=unserialize($conf['value']);
 return array(
 	//'配置项'=>'配置值'
 	//'TMPL_EXCEPTION_FILE' => './public/error.html', //自定义错误页面和404页面
@@ -56,9 +56,16 @@ return array(
     'MAIL_CHARSET' =>$meter['MAIL_CHARSET'],//设置邮件编码
     'MAIL_ISHTML' =>$meter['MAIL_ISHTML'], // 是否HTML格式邮件	
 	//微信配置项
-	'APPID'=>$meter['Appid'],
+	'APPID'=>$meter['AppId'],
 	'APPSECRET' =>$meter['AppSecret'],
-		
+	//微信支付配置参数
+	'WEIXINPAY_CONFIG' => array(
+    'APPID'              => $meter['AppId'], // 微信支付APPID
+    'MCHID'              => $meter['mhid'], // 微信支付MCHID 商户收款账号
+    'KEY'                => $meter['apikey'], // 微信支付KEY
+    'APPSECRET'          => $meter['AppSecret'], // 公众帐号secert (公众号支付专用)
+    'NOTIFY_URL'         => _URL_.'/index.php/Index/weixinpay/notify', // 接收支付状态的连接
+    ),
 	//支付宝配置参数
 	'alipay_config'=>array(
 		'partner' =>$meter['partner'],   //这里是你在成功申请支付宝接口后获取到的PID；

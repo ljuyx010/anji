@@ -150,4 +150,64 @@ function cut_name($user_name){
     // 发送邮件
     return($mail->Send());
  }
+
+    /**
+     * 使用curl获取远程数据
+     * @param  string $url url连接
+     * @return string      获取到的数据
+     */
+    function curl_get_contents($url){
+        $ch=curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);                //设置访问的url地址
+        // curl_setopt($ch,CURLOPT_HEADER,1);               //是否显示头部信息
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);               //设置超时
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);   //用户访问代理 User-Agent
+        curl_setopt($ch, CURLOPT_REFERER,$_SERVER['HTTP_HOST']);        //设置 referer
+        curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);          //跟踪301
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);        //返回结果
+        $r=curl_exec($ch);
+        curl_close($ch);
+        return $r;
+    }
+    /**
+     * 生成二维码
+     * @param  string  $url  url连接
+     * @param  integer $size 尺寸 纯数字
+     */
+    function qrcode($url){
+        Vendor('phpqrcode.phpqrcode');
+        //二维码URL参数
+        $text =  $url;
+        //二维码图片保存路径(若不生成文件则设置为false)
+        $filename = "./Upload/fxewm/" . time() . ".png";
+        $fileurl = "/Upload/fxewm/" . time() . ".png";
+        //二维码容错率，默认L
+        $level = "L";
+        //二维码图片每个黑点的像素，默认4
+        $size = '6';
+        //二维码边框的间距，默认2
+        $padding = 2;
+        //保存二维码图片并显示出来，$filename必须传递文件路径
+        $saveandprint = true;
+
+        //生成二维码图片
+        QRcode::png($text,$filename,$level,$size,$padding,$saveandprint);
+
+        //二维码logo
+        $logo = "./Public/images/logo.jpg";
+        $QR = imagecreatefromstring(file_get_contents($filename));
+        $logo = imagecreatefromstring(file_get_contents($logo));
+        $QR_width = imagesx($QR);
+        $QR_height = imagesy($QR);
+        $logo_width = imagesx($logo);
+        $logo_height = imagesy($logo);
+        $logo_qr_width = $QR_width / 5;
+        $scale = $logo_width / $logo_qr_width;
+        $logo_qr_height = $logo_height / $scale;
+        $from_width = ($QR_width - $logo_qr_width) / 2;
+        imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height);
+        imagepng($QR,$filename);
+        return $fileurl;
+    }
+    
 ?>
