@@ -14,6 +14,40 @@
 <script src="/Public/js/jquery-1.10.2.min.js"></script>
 <script src="/Public/js/TouchSlide.1.0.js"></script>
 <script src="/Public/js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>  
+<script>  
+    wx.config({  
+        debug: false, // 是否开启调试模式  
+        appId: '<?php echo ($wxconfig["appId"]); ?>', // 必填，微信号AppID  
+        timestamp: <?php echo ($wxconfig["timestamp"]); ?>, // 必填，生成签名的时间戳  
+        nonceStr: '<?php echo ($wxconfig["nonceStr"]); ?>', // 必填，生成签名的随机串  
+        signature: '<?php echo ($wxconfig["signature"]); ?>',// 必填，签名，见附录1  
+        jsApiList: ['onMenuShareTimeline', //分享到朋友圈  
+        'onMenuShareAppMessage', //分享给朋友  
+        'onMenuShareQQ' //分享到QQ  
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2  
+    });  
+  
+    wx.ready(function(){  
+        var options = {  
+            title: '<?php echo ($title); ?>', // 分享标题  
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/jobs/index', // 分享链接，记得使用绝对路径，不能用document.URL
+            imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/images/logo.jpg', // 分享图标，记得使用绝对路径  
+            desc: '<?php echo ($description); ?>', // 分享描述  
+            success: function () {  
+                console.info('分享成功！');  
+                // 用户确认分享后执行的回调函数  
+            },  
+            cancel: function () {  
+                console.info('取消分享！');  
+                // 用户取消分享后执行的回调函数  
+            }  
+        }  
+        wx.onMenuShareTimeline(options); // 分享到朋友圈  
+        wx.onMenuShareAppMessage(options); // 分享给朋友  
+        wx.onMenuShareQQ(options); // 分享到QQ  
+    });  
+</script>
 </head>
 <body>
 <div class="top"><img src="/Public/images/topbg.png" /></div>
@@ -40,39 +74,5 @@
 	</div>
 </footer>
 <!--footer end-->
-<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>  
-<script>  
-    wx.config({  
-        debug: false, // 是否开启调试模式  
-        appId: '<?php echo ($wxconfig["appId"]); ?>', // 必填，微信号AppID  
-        timestamp: <?php echo ($wxconfig["timestamp"]); ?>, // 必填，生成签名的时间戳  
-        nonceStr: '<?php echo ($wxconfig["nonceStr"]); ?>', // 必填，生成签名的随机串  
-        signature: '<?php echo ($wxconfig["signature"]); ?>',// 必填，签名，见附录1  
-        jsApiList: ['onMenuShareTimeline', //分享到朋友圈  
-        'onMenuShareAppMessage', //分享给朋友  
-        'onMenuShareQQ' //分享到QQ  
-        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2  
-    });  
-  
-    wx.ready(function(){  
-        var options = {  
-            title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/jobs/index', // 分享链接，记得使用绝对路径，不能用document.URL
-            imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/wap/images/logo.jpg', // 分享图标，记得使用绝对路径  
-            desc: '<?php echo ($description); ?>', // 分享描述  
-            success: function () {  
-                console.info('分享成功！');  
-                // 用户确认分享后执行的回调函数  
-            },  
-            cancel: function () {  
-                console.info('取消分享！');  
-                // 用户取消分享后执行的回调函数  
-            }  
-        }  
-        wx.onMenuShareTimeline(options); // 分享到朋友圈  
-        wx.onMenuShareAppMessage(options); // 分享给朋友  
-        wx.onMenuShareQQ(options); // 分享到QQ  
-    });  
-</script>
 </body>
 </html>

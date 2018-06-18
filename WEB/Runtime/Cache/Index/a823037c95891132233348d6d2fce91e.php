@@ -31,7 +31,7 @@
     wx.ready(function(){  
         var options = {  
             title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/', // 分享链接，记得使用绝对路径，不能用document.URL
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/index', // 分享链接，记得使用绝对路径，不能用document.URL
             imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '<?php echo ($description); ?>', // 分享描述  
             success: function () {  

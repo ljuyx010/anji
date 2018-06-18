@@ -42,3 +42,5 @@
 
 .input-group .bingp{display: inline-block; width: 30%;}
 .textarea{width: 100%;min-height:100px;}
+
+#l-map{display: none;}

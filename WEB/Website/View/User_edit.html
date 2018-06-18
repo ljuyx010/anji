@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会员资料</title>
+    <link href="__PUBLIC__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>会员资料</h5>
+                        <div class="gohome">
+                        <a class="animated bounceInUp" href="{:U('User/index')}" title="返回"><i class="fa fa-mail-reply-all"></i></a>
+                        </div> 
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-responsive" style="margin:0 auto;" src="{$v.photo}">
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong>{$v.nickname}</strong></h4>
+                            <p><i class="fa fa-user-secret"></i> {$v.openid}</p>
+                            <p><i class="fa fa-intersex"></i> <if condition="$v['sex']">男<else />女</if></p>
+                            <h5>真实姓名：{$v.name}</h5>
+                            <p><i class="fa fa-phone"></i> {$v.tel}</p>
+                            <div class="row m-t-lg">
+                                <div class="col-sm-6">
+                                    <h5>注册日期</h5>
+                                    <span>{$v.regtime|date='Y-m-d H:i:s',###}</span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>上次登录时间</h5>
+                                    <span>{$v.logintime|date='Y-m-d H:i:s',###}</span>
+                                </div>
+                            </div>
+                            <form method="post" action="{:U('User/runUpdata')}">
+                            <div class="user-button">
+                                <h5>备注信息：</h5>
+                                <textarea name="mark" class="textarea">{$v.mark}</textarea>
+                                <input type="hidden" name="id" value="{$v.id}">
+                                <div class="hr-line-dashed"></div>
+                                <button class="btn btn-primary" type="submit">保存</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>订单信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">选项1</a>
+                                </li>
+                                <li><a href="#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div>
+                            <div class="feed-activity-list">
+
+                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a1.jpg">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right text-navy">1天前</small>
+                                        <strong>奔波儿灞</strong> 关注了 <strong>灞波儿奔</strong>.
+                                        <br>
+                                        <small class="text-muted">54分钟前 来自 皮皮时光机</small>
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+                                            <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> 收藏</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <foreach name="order" item="d">
+                                <div class="feed-element">                                    
+                                    <div class="media-body ">
+                                        <small class="pull-right">下单时间：{$d.ordtime|date='Y-m-d H:i:s',###}</small>
+                                        <strong>{$d.ordernum}</strong>
+                                        <small class="pull-right"><if condition="$d['paytime']">支付时间：{$d.paytime|date='Y-m-d H:i:s',###}<else />未支付</if></small>
+                                        <p>{$d.title}</p>
+                                        <p>类型：<if condition="$d['utype'] eq 1">团队<elseif condition="$d['utype'] eq 2" />旅行社<else />个人</if></p>
+                                        <p>{$d.sdr}-->{$d.edr}：总共{$d.gl}公里</p>
+                                        <p>{$d.stime|date='Y-m-d',###}-->{$d.dtime|date='Y-m-d',###}</p>
+                                        <p>车辆数量：{$d.num}   总金额：{$d.money}元</p>
+                                    </div>
+                                </div>
+                                </foreach>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__PUBLIC__/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="__PUBLIC__/js/demo/peity-demo.min.js"></script>
+</body>
+</html>

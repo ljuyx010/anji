@@ -1,0 +1,516 @@
+[ 2018-06-18T09:37:50+08:00 ] 127.0.0.1 /index.php/website
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000358s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000344s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000468s ]
+NOTIC: [8] Undefined index: user F:\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user F:\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034390s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034477s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000471s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000509s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2018-06-18T09:37:51+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000781s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015919s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016028s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000681s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000943s ]
+
+[ 2018-06-18T09:38:01+08:00 ] 127.0.0.1 /index.php/Website/Orders/xianx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000268s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026408s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026584s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001126s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001227s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001661s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001765s ]
+
+[ 2018-06-18T09:38:03+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage?sEcho=1&iColumns=7&sColumns=%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=title&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=num&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=money&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=true&mDataProp_4=times&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=true&mDataProp_5=zt&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=false&mDataProp_6=id&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1529285881699
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' F:\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0597s ]
+SQL: SELECT `id`,`title`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times FROM `lj_orders` WHERE `uid` = '' ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0358s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` = '' LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2018-06-18T09:38:06+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000440s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000235s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000346s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 30 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 40 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 44 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 52 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 54 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 56 行.
+NOTIC: [8] Undefined variable: class F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 61 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 69 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 74 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 94 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 101 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 103 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 105 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 113 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 120 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 129 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 133 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 139 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 142 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028417s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028514s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001137s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001780s ]
+
+[ 2018-06-18T09:41:43+08:00 ] 127.0.0.1 /index.php/Website/Orders/xianx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015552s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015663s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000898s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001187s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001253s ]
+
+[ 2018-06-18T09:41:45+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage?sEcho=1&iColumns=7&sColumns=%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=title&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=num&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=money&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=true&mDataProp_4=times&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=true&mDataProp_5=zt&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=false&mDataProp_6=id&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1529286103185
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000630s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001479s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' F:\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0173s ]
+SQL: SELECT `id`,`title`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times FROM `lj_orders` WHERE `uid` = '' ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0008s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` = '' LIMIT 1   [ RunTime:0.0007s ]
+
+[ 2018-06-18T09:41:53+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000148s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000236s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 30 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 40 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 44 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 52 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 54 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 56 行.
+NOTIC: [8] Undefined variable: class F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 61 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 69 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 74 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 94 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 101 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 103 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 105 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 113 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 120 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 129 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 133 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 139 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 142 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032507s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032613s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000752s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000816s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001158s ]
+
+[ 2018-06-18T09:41:53+08:00 ] 127.0.0.1 /index.php/Website/Orders/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000903s ]
+
+[ 2018-06-18T09:42:00+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000223s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 30 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 40 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 44 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 52 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 54 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 56 行.
+NOTIC: [8] Undefined variable: class F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 61 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 69 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 74 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 94 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 101 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 103 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 105 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 113 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 120 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 129 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 133 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 139 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 142 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020409s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020477s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000683s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000736s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000978s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001040s ]
+
+[ 2018-06-18T09:45:05+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000307s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000495s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 31 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 41 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 45 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 53 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 55 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 57 行.
+NOTIC: [8] Undefined variable: class F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 62 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 70 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 75 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 95 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 102 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 104 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 106 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 114 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 121 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 130 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 134 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 140 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 143 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036048s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036162s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001287s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001792s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001907s ]
+
+[ 2018-06-18T09:47:22+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_class` [ RunTime:0.0183s ]
+SQL: SELECT `id`,`classname` FROM `lj_class`  [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000120s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 31 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 41 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 45 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 53 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 55 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 57 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 62 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 70 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 75 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 95 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 102 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 104 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 106 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 114 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 121 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 130 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 134 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 140 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 143 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046422s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046561s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000612s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000691s ]
+
+[ 2018-06-18T09:47:23+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_class` [ RunTime:0.0180s ]
+SQL: SELECT `id`,`classname` FROM `lj_class`  [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 31 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 41 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 45 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 53 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 55 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 57 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 62 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 70 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 75 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 95 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 102 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 104 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 106 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 114 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 121 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 130 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 134 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 140 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 143 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048309s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048426s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000788s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000835s ]
+
+[ 2018-06-18T09:47:24+08:00 ] 127.0.0.1 /index.php/Website/Orders/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000946s ]
+
+[ 2018-06-18T09:49:13+08:00 ] 127.0.0.1 /index.php/Website/Orders/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000474s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_class` [ RunTime:0.0207s ]
+SQL: SELECT `id`,`classname` FROM `lj_class`  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000145s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000214s ]
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 31 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 41 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 45 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 53 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 55 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 57 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 62 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 70 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 75 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 95 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 102 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 104 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 106 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 114 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 121 行.
+NOTIC: [8] Undefined variable: carnum F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 131 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 135 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 141 行.
+NOTIC: [8] Undefined variable: orders F:\anji\WEB\Runtime\Cache\Website\4933d71a43ae6a60bf51db52c202fe38.php 第 144 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022774s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022913s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000778s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000840s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001116s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001183s ]
+
+[ 2018-06-18T10:34:16+08:00 ] 127.0.0.1 /index.php/Website/Orders/runaddx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000760s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000864s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+
+[ 2018-06-18T10:36:09+08:00 ] 127.0.0.1 /index.php/Website/Orders/runaddx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+
+[ 2018-06-18T10:37:01+08:00 ] 127.0.0.1 /index.php/Website/Orders/runaddx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000458s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' F:\anji\WEB\Website\Controller\OrdersController.class.php 第 73 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' F:\anji\WEB\Website\Controller\OrdersController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0219s ]
+NOTIC: [8] Undefined index: auto F:\anji\Core\Library\Think\Model.class.php 第 1128 行.
+SQL: SHOW COLUMNS FROM `lj_class` [ RunTime:0.0195s ]
+ERR: 1054:Unknown column 'oilj' in 'field list'
+ [ SQL语句 ] : SELECT `classname`,`title`,`oilj`,`oilh`,`glf`,`lr` FROM `lj_class` WHERE ( id=1 ) LIMIT 1  
+ERR: 1054:Unknown column 'oilj' in 'field list'
+ [ SQL语句 ] : SELECT `classname`,`title`,`oilj`,`oilh`,`glf`,`lr` FROM `lj_class` WHERE ( id=1 ) LIMIT 1  
+
+[ 2018-06-18T10:38:24+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000451s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000490s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists F:\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048865s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048960s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000845s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000912s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000808s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000857s ]
+
+[ 2018-06-18T10:38:27+08:00 ] 127.0.0.1 /index.php/Website/Bak/index/Action/backup
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000461s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists F:\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\WEB\Lib\MySQLReback.class.php 第 20 行.
+NOTIC: [8192] Function mysql_list_tables() is deprecated F:\anji\WEB\Lib\MySQLReback.class.php 第 125 行.
+NOTIC: [8] Undefined variable: return F:\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+NOTIC: [8] Undefined variable: return F:\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+NOTIC: [8] Undefined variable: return F:\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+NOTIC: [8] Undefined variable: return F:\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008188s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008225s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000533s ]
+
+[ 2018-06-18T10:38:28+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000520s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists F:\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000267s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025436s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025553s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001150s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001249s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001829s ]
+

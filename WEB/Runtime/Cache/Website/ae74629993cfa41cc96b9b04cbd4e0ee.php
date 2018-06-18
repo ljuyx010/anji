@@ -63,7 +63,7 @@
                         </ul>
 
                     </li>
-					<li><a href="#"><i class="fa fa-group"></i> <span class="nav-label">会员管理</span></a></li>
+					<li><a class="J_menuItem" href="<?php echo U('User/index');?>"><i class="fa fa-group"></i> <span class="nav-label">会员管理</span></a></li>
                     <li>
                         <a href="#">
                             <i class="fa fa-bus"></i> <span class="nav-label">车辆管理</span>
@@ -81,11 +81,11 @@
                     </li>
 
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">业务登记 </span><span class="label label-warning pull-right">16</span></a>
+                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">订单管理 </span><span class="label label-warning pull-right">16</span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="<?php echo U('Orders/tongji');?>">业务统计</a>
+                            <li><a class="J_menuItem" href="<?php echo U('Orders/index');?>">线上订单</a>
                             </li>
-                            <li><a class="J_menuItem" href="<?php echo U('Orders/index');?>">订单管理</a>
+                            <li><a class="J_menuItem" href="<?php echo U('Orders/xianx');?>">业务登记</a>
                             </li>
                         </ul>
                     </li>

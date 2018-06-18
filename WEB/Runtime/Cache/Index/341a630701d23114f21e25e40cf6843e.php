@@ -50,7 +50,18 @@
 </script>
 </head>
 <body>
-<link rel="stylesheet" href="/Public/css/pickout.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cRIblrzawnZeT319eL3dLssL"></script>
+<link href="/Web/Website/public/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+<link href="/Web/Website/public/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="/Web/Website/public/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+<link href="/Web/Website/public/css/animate.min.css" rel="stylesheet">
+<link href="/Web/Website/public/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+<style type="text/css">
+.modal-backdrop {  z-index: 140!important;}
+.modal { z-index: 200!important;}
+#l-map{display:none;}
+.tangram-suggestion-main{z-index: 210;}
+</style>
 <!-- banner -->
 <div id="focus" class="focus">
 	<div class="bd">
@@ -83,27 +94,120 @@
 	</div>
 </div>
 <!--end main-->
-<div class="cd-bouncy-nav-modal">
-	<nav>
-		<ul class="cd-bouncy-nav">
-			<li><a href="#">首页</a></li>
-			<li><a href="#s">jQuery</a></li>
-			<li><a href="#">PHP</a></li>
-			<li><a href="#">模板</a></li>
-			<li><a href="#">网址</a></li>
-			<li><a href="#">工具</a></li>
-		</ul>
-	</nav>
-	<a href="#0" class="cd-close">Close modal</a>
+<!--model-->
+<div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">汽车租赁订单</h4>
+                <small class="font-bold">车型：<?php echo ($data["classname"]); ?></small>
+            </div>
+            <div class="modal-body">
+            	<div id="l-map"></div>
+                <div class="form-group">
+                    <label class="font-noraml">您的姓名</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-noraml">联系电话</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
+                        <input type="text" class="form-control" name="tel" value="">
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label class="font-noraml">租赁类型</label>
+                    <div class="input-group">
+                        <label class="checkbox-inline">
+                        	<input type="radio" name="dw" checked value="1" >团体
+                        </label>
+                        <label class="checkbox-inline">
+                        	<input type="radio" name="dw" value="2" >旅行社
+                        </label>
+                        <label class="checkbox-inline">
+                        	<input type="radio" name="dw" value="0" >个人
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">租赁数量</label>
+                    <div class="input-group m-b">
+                    	<span class="input-group-addon"><i class="fa fa-cab"></i></span>
+                        <select class="form-control" name="num">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select> 
+                        <span class="input-group-addon">辆</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-noraml">接车地点</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                        <input type="text" class="form-control" id="suggestId" name="sdr" value="">						
+                    </div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-noraml">目的地</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                        <input type="text" class="form-control" id="suggestId2" name="edr" value="">                        
+                        <input type="hidden" class="form-control" id="lc" name="lc" value="">                        
+                    </div>
+                    <div id="searchResultPanel2" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
+                    <span class="help-block m-b-none">根据输入提示,从下拉框中选择所需要的地址,如果没有你所需要的地址,则选择离你最近的下拉框中的地址</span>
+                </div>
+                <div class="form-group" id="data_5">
+                    <label class="font-noraml">时间安排</label>
+                    <div class="input-group date">
+                    	<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <div class="input-daterange input-group" id="datepicker">
+                        <input type="text" class="input-sm form-control" name="start" value="<?php echo (date('Y-m-d',(isset($v["time"]) && ($v["time"] !== ""))?($v["time"]):time())); ?>">
+                        <span class="input-group-addon">到</span>
+                        <input type="text" class="input-sm form-control" name="end" value="<?php echo (date('Y-m-d',(isset($v["time"]) && ($v["time"] !== ""))?($v["time"]):time())); ?>">
+                    	</div>
+                    </div>
+                </div>                	
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">提交订单</button>
+            </div>
+        </div>
+    </div>
 </div>
+<!--model end-->
 <div class="h75"></div>
 <!--footer-->
 <footer>
 	<div class="bottom3">
 		<a class="sy" href="<?php echo U('Index/index');?>"><em><img src="/Public/images/home.png"></em>返回首页</a>
-		<div class="xd cd-bouncy-nav-trigger">立即下单预定此车型</div>
+		<div class="xd cd-bouncy-nav-trigger" data-toggle="modal" data-target="#myModal5" >立即下单预定此车型</div>
 	</div>
 </footer>
-<script src="/Public/js/pickout.js"></script>
+<script src="/Web/Website/public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/Web/Website/public/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script>
+$(document).ready(function () {
+	$("#data_5 .input-daterange").datepicker({keyboardNavigation:!1,forceParse:!1,autoclose:!0});
+});
+</script>
 </body>
 </html>
+<script src="/Public/js/map.js"></script>

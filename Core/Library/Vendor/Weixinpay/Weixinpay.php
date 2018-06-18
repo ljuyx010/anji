@@ -64,7 +64,7 @@ class Weixinpay {
             die($result['return_msg']);
         }
         $result['sign']=$sign;
-        $result['nonce_str']='yunguanjia';
+        $result['nonce_str']='anjilvyou';
         return $result;
     }
 
@@ -163,13 +163,12 @@ class Weixinpay {
 		$out_trade_no=$dh;
 		$openid=session('userOpenid');
 		// 订单数据  请根据订单号out_trade_no 从数据库中查出实际的body、total_fee、out_trade_no、product_id
-		$dingd=M('orders')->where(array('order'=>$out_trade_no))->find();
-		if(($dingd['sumprice']-$dingd['dk'])<>$dingd['total_fee']){$dingd['total_fee']=$dingd['sumprice']-$dingd['dk'];}
+		$dingd=M('orders')->where(array('ordernum'=>$out_trade_no))->find();
 		$order=array(
-			'body'=>$dingd['pname'],// 商品描述（需要根据自己的业务修改）
-			'total_fee'=>$dingd['total_fee']*100,// 订单金额  以(分)为单位（需要根据自己的业务修改）
+			'body'=>$dingd['des'],// 商品描述（需要根据自己的业务修改）
+			'total_fee'=>$dingd['money']*100,// 订单金额  以(分)为单位（需要根据自己的业务修改）
 			'out_trade_no'=>$out_trade_no,// 订单号（需要根据自己的业务修改）
-			'product_id'=>$dingd['pid'],// 商品id（需要根据自己的业务修改）
+			'product_id'=>$dingd['cid'],// 商品id（需要根据自己的业务修改）
 			'trade_type'=>'JSAPI',// JSAPI公众号支付
 			'openid'=>$openid// 获取到的openid
 		);

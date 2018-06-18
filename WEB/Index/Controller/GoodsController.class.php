@@ -35,43 +35,73 @@ class GoodsController extends CommonController{
 	
 	//商品预订
 	public function reser(){
-		if(!$_POST['uname']) $this->error('姓名不能为空');
-		if(!$_POST['address']) $this->error('地址不能为空');
-		if(!$_POST['tel']) $this->error('电话不能为空');
-		if(!$_POST['num'] && $_POST['num'] >= 1) $this->error('订购数量不能为空且要大于1');
-		$pid = (int) $_POST['pid'];
-		$gata=M('goods')->where(array('id'=>$pid))->field('title,price,memprice,isdis')->find();
-		$price=$gata['price'];
-		$msg= ($gata['isdis']) ? "政府补贴" : "暂无" ;
-		$sumprice=$_POST['num']*$price;
-		$h=time();
-		$dh="A".date("y",time()).substr($h, -8).date("md",time());
-		$data = array(
-			'uid' => $_POST['uid'],
-			'uname' => $_POST['uname'],
-			'tel' => $_POST['tel'],
-			'address' => $_POST['address'],
-			'pid' => $pid,
-			'pname' => $gata['title'],
-			'order' => $dh,
-			'price' => $price,
-			'num' => $_POST['num'],
-			'sumprice' => $sumprice,
-			'buytime' => $h,
-			'remark' => $_POST['remark'],
-			'status' => 1
+		$cx=I('cx','',intval);
+		$start=strtotime(I('start'));
+		$end=strtotime(I('end'));
+		$num=I('num');
+		$lc=ceil(substr(I('lc'), 0, -2));//I('lc','',intval)
+		$db = M("orders"); 
+		$lei = array(//自动验证
+	     array('uname','require','姓名必填'), 
+	     array('utel','require','联系电话必填'),
+	     array('gl','require','请正确选择接车地点和目的地')
 		);
-		
-		$to="sales@hubeishunye.com";
-		$title="您有新订单".$dh;
-		$content="<strong>订单详细信息</strong><br />订单号:".$dh."<br />商品名称:".$gata['title']."<br />优惠活动:".$msg."<br />订购数量:".$_POST['num']."<br />单价:".$price."<br />总价：".$sumprice."<br />订购者名称:".$_POST['uname']."<br />订购者电话:".$_POST['tel']."<br />订购地址:".$_POST['address']."<br />下单时间:".date('Y-m-d H:i:s',$h)."<br />备注信息:".$_POST['remark']."<br/><br /><br/>本邮件为系统邮件，请勿回复!";
-		
-		SendMail($to,$title,$content);
-		if(M('orders')->add($data)){
-			$this->success('商品预订成功');
-		}else{
-			$this->error('商品预订失败');
+		$data['uname'] = I('username');
+		$data['utel'] = I('tel');
+		$data['gl'] = $lc;
+		if (!$db->validate($lei)->create($data)){
+		     // 如果创建失败 表示验证没有通过 输出错误提示信息
+		     $this->error($db->getError());
 		}
+		$gs=M('class')->field('oilj,oilh,glf,lr')->where('id='.$cx)->find();
+		$where="'zt>1 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))'";
+		$rs=$db->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('carnum,stime,dtime')->where($where)->select();
+		$str="(";
+		$last=count($rs)-1;
+		foreach ($rs as $k => $v) {
+			if($k==$last){
+				$str=$str.$v['carnum'].")";
+			}else{
+				$str=$str.$v['carnum'].",";
+			}			
+		}
+		$where2="'type=".$cx." and carnum not in ".$str." and ((xtime>".$start." and ktime >".$start.") or (xtime<".$start." and ktime <".$start."))'";
+		$rs2=M('car')->field('carnum')->where($where2)->order('RAND()')->limit($num)->select();
+		$cn=count($rs2);
+		if($cn<$num){$this->error('该车型仅有'.$cn.'辆空闲，请选择'.$cn.'辆再搭配其他车型');}
+		$yCode = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
+		$orderSn = $yCode[intval(date('Y')) - 2011] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -4) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));//生成订单号
+		if($end-$start){$d=round(($end-$start)/3600/24);}else{$d=1;}
+		$money=(($gs['oilj']*$gs['oilh']+$gs['glf'])+$num*0.43)*$lc+$gs['lr']*$d;		
+		$data = array(
+			'ordernum' => $orderSn,
+			'edr' => I('edr'),
+			'money' => $money,
+			'dtime' => $end,
+			'stime' => $start,
+			'ordtime' => time(),
+			'utype' => I('dw'),
+			'num' => $num,
+			'title' => I('title'),
+			'des' => I('des'),
+			'cid' => $cx,
+			'zt' => 1,
+			'type' => 1,
+			'uid' => session('userID'),
+			'sdr' => I('sdr')
+		);
+		foreach ($rs2 as $ke => $va) {
+			$rs2[$ke]['ordernum']=$orderSn;
+		}
+		$jg=$db->add($data);
+		$jg2=M('ordcar')->addAll($rs2);
+
+		if($jg&&$jg2){
+			$this->success('下单成功',U('Weixinpay/pay',array('out_trade_no'=>$orderSn)));
+		}else{
+			$this->error('下单失败，请稍后再试');
+		}
+
 	}
 	
 	//放入购物车页面

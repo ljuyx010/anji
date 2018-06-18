@@ -127,5 +127,5 @@ footer .bottom3 .hover{color: #DE0808;}
 .slideTxtBox .bd li{ height:24px; line-height:24px;   }
 .slideTxtBox .bd li .date{ float:right; color:#999;  }
 /*inner end*/
-.bottom3 .sy{width:50%;}
+.bottom3 .sy{width:50%;color: #3A3A3A}
 .xd{width:50%;height:70px;display: flex; justify-content: center; align-items: center; font-size: 16px; font-weight: 500; color: #fff; background: #EE451E;}
