@@ -39,6 +39,7 @@ class GoodsController extends CommonController{
 		$start=strtotime(I('start'));
 		$end=strtotime(I('end'));
 		$num=I('num');
+		$ora=I('ora','',intval);
 		$lc=ceil(substr(I('lc'), 0, -2));//I('lc','',intval)
 		$db = M("orders"); 
 		$lei = array(//自动验证
@@ -46,35 +47,35 @@ class GoodsController extends CommonController{
 	     array('utel','require','联系电话必填'),
 	     array('gl','require','请正确选择接车地点和目的地')
 		);
-		$data['uname'] = I('username');
-		$data['utel'] = I('tel');
-		$data['gl'] = $lc;
-		if (!$db->validate($lei)->create($data)){
-		     // 如果创建失败 表示验证没有通过 输出错误提示信息
-		     $this->error($db->getError());
-		}
+
 		$gs=M('class')->field('oilj,oilh,glf,lr')->where('id='.$cx)->find();
-		$where="'zt>1 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))'";
+		$where="zt>1 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
 		$rs=$db->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('carnum,stime,dtime')->where($where)->select();
-		$str="(";
-		$last=count($rs)-1;
-		foreach ($rs as $k => $v) {
-			if($k==$last){
-				$str=$str.$v['carnum'].")";
-			}else{
-				$str=$str.$v['carnum'].",";
-			}			
+		if($rs){
+			$str="(";
+			$last=count($rs)-1;
+			foreach ($rs as $k => $v) {
+				if($k==$last){
+					$str=$str.$v['carnum'].")";
+				}else{
+					$str=$str.$v['carnum'].",";
+				}			
+			}
+			$where1=" and carnum not in".$str;
 		}
-		$where2="'type=".$cx." and carnum not in ".$str." and ((xtime>".$start." and ktime >".$start.") or (xtime<".$start." and ktime <".$start."))'";
+		$where2="type=".$cx.$where1." and ((xtime>".$start." and ktime >".$start.") or (xtime<".$start." and ktime <".$start."))";
 		$rs2=M('car')->field('carnum')->where($where2)->order('RAND()')->limit($num)->select();
 		$cn=count($rs2);
 		if($cn<$num){$this->error('该车型仅有'.$cn.'辆空闲，请选择'.$cn.'辆再搭配其他车型');}
-		$yCode = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
-		$orderSn = $yCode[intval(date('Y')) - 2011] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -4) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));//生成订单号
+		
 		if($end-$start){$d=round(($end-$start)/3600/24);}else{$d=1;}
-		$money=(($gs['oilj']*$gs['oilh']+$gs['glf'])+$num*0.43)*$lc+$gs['lr']*$d;		
+		$money=(($gs['oilj']*$gs['oilh']+$gs['glf'])+$num*0.43)*$lc*$ora+$gs['lr']*$d;
+		$money=round($money/100)*100;	
 		$data = array(
-			'ordernum' => $orderSn,
+			'ordernum' => 'zwf',
+			'uname' => I('username'),
+			'utel' => I('tel'),
+			'gl' => $lc,
 			'edr' => I('edr'),
 			'money' => $money,
 			'dtime' => $end,
@@ -82,6 +83,7 @@ class GoodsController extends CommonController{
 			'ordtime' => time(),
 			'utype' => I('dw'),
 			'num' => $num,
+			'ora' => $ora,
 			'title' => I('title'),
 			'des' => I('des'),
 			'cid' => $cx,
@@ -90,6 +92,11 @@ class GoodsController extends CommonController{
 			'uid' => session('userID'),
 			'sdr' => I('sdr')
 		);
+
+		if (!$db->validate($lei)->create($data)){
+		     // 如果创建失败 表示验证没有通过 输出错误提示信息
+		     $this->error($db->getError());
+		}
 		foreach ($rs2 as $ke => $va) {
 			$rs2[$ke]['ordernum']=$orderSn;
 		}
@@ -97,69 +104,12 @@ class GoodsController extends CommonController{
 		$jg2=M('ordcar')->addAll($rs2);
 
 		if($jg&&$jg2){
-			$this->success('下单成功',U('Weixinpay/pay',array('out_trade_no'=>$orderSn)));
+			$this->success('下单成功',U('Weixinpay/index',array('id'=>$jg)));
 		}else{
 			$this->error('下单失败，请稍后再试');
 		}
 
-	}
-	
-	//放入购物车页面
-	public function cart (){
-		if(!session('memberid')){$this->redirect(MODULE_NAME.'/Member/index','', 3, '请先登录...');}
-		$uid=session('memberid');
-		$pid=(int) $_GET['id'];
-		$gata=M('goods')->where(array('id'=>$pid))->field('title,price,memprice,isdis')->find();
-		if($gata['isdis']){$price=$gata['memprice'];}else{$price=$gata['price'];}
-		$h=time();
-		$dh="A".date("y",time()).substr($h, -8).date("md",time());
-		$data = array(
-			'uid' => $uid,
-			'pid' => $pid,
-			'pname' => $gata['title'],
-			'order' => $dh,
-			'price' => $price,
-			'num' => 1,
-			'sumprice' => $price,
-			'buytime' => $h,
-			'status' => 0
-		);
-		if(M('orders')->add($data)){
-			$this->success('商品已加入购物车');
-		}else{
-			$this->error('加入购物车失败');
-		}
-
-	}
-		
-	//下单页面
-	public function buy (){
-		if(!session('memberid')){$this->redirect(MODULE_NAME.'/Member/index','', 3, '请先登录...');}
-		$h=time();
-		$dh="B".date("y",time()).substr($h, -8).date("md",time());
-		$uid=session('memberid');
-		$pid=(int) $_GET['id'];
-		if($pid !== (int) $_POST['pid']){$this->error('参数错误');}
-		$gata=M('goods')->where(array('id'=>$pid))->field('title,price,memprice,stock,isdis')->find();
-		if($gata['stock']<$_POST['num']){$this->error('购买数量大于库存，请修改');}else{$num = (int) $_POST['num'];}
-		if($gata['isdis']){$price=$gata['memprice'];}else{$price=$gata['price'];}
-		$data = array(
-			'uid' => $uid,
-			'pid' => $pid,
-			'pname' => $gata['title'],
-			'order' => $dh,
-			'price' => $price,
-			'num' => $num,
-			'sumprice' => $price*$num,
-			'buytime' => $h,
-			'status' => 1
-		);
-		if(M('orders')->add($data)){
-			$this->success('下单成功',U(MODULE_NAME.'/Orders/index',array('order',$dh)));
-		}else{
-			$this->error('下单失败');
-		}
-	}
+	}	
 	
 	
 }

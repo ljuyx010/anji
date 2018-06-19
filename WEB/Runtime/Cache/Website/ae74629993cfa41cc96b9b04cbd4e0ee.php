@@ -107,6 +107,8 @@
                         <ul class="nav nav-second-level">
                             <li><a class="J_menuItem" href="<?php echo U('Finacal/etc');?>">ETC充值</a>
                             </li>
+                            <li><a class="J_menuItem" href="<?php echo U('Finacal/gz');?>">司机月工资</a>
+                            </li>
                             <li><a class="J_menuItem" href="<?php echo U('Finacal/index');?>">财务统计</a>
                             </li>                            
                         </ul>
@@ -114,6 +116,8 @@
                     <li>
                         <a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">维保售后</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="<?php echo U('After/dingd');?>">完成订单</a>
+                            </li>
                             <li><a class="J_menuItem" href="<?php echo U('After/weixiu');?>">维修登记</a>
                             </li>
                             <li><a class="J_menuItem" href="<?php echo U('After/tousu');?>">投诉违章</a>
@@ -121,6 +125,8 @@
                             <li><a class="J_menuItem" href="<?php echo U('After/nianshen');?>">年审保险</a>
                             </li>
                             <li><a class="J_menuItem" href="<?php echo U('After/safe');?>">事故登记</a>
+                            </li>
+                            <li><a class="J_menuItem" href="<?php echo U('After/tongj');?>">售后统计</a>
                             </li>                                                  
                         </ul>
                     </li>

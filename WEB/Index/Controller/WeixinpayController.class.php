@@ -2,7 +2,22 @@
 namespace Index\Controller;
 use Think\Controller;
 
-class WeixinpayController extends Controller{
+class WeixinpayController extends CommonController{
+
+	public function index(){
+		$id=I('id','',intval);
+		$data=M('orders')->where(array('id'=>$id,'uid'=>session('stuID')))->find();
+		if($data){
+			$yCode = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
+			$orderSn = $yCode[intval(date('Y')) - 2011] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -4) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));//生成订单号
+			M('orders')->where(array('id'=>$id))->setField('ordernum',$orderSn);
+			$this->odr=$orderSn;
+			$this->v=$data;
+			$this->display();
+		}else{
+			$this->error('没有这个订单');
+		}
+	}
 	/**
 	 * 公众号支付 必须以get形式传递 out_trade_no 参数
 	 * 中的wexinpay_js方法
@@ -13,7 +28,7 @@ class WeixinpayController extends Controller{
 		$wxpay=new \Weixinpay();
 		// 获取jssdk需要用到的数据
 		$order=I('out_trade_no');
-		M('orders')->where(array('ordernum'=>$order))->find();
+		
 		$data=$wxpay->getParameters($order);
 		// 将数据分配到前台页面
 		$assign=array(
@@ -21,6 +36,18 @@ class WeixinpayController extends Controller{
 			);
 		$this->assign($assign);
 		$this->display();
+	}
+
+	public function del(){
+		$id=I('id','',intval);
+		$where=array('id'=>$id,'uid'=>session('stuID'));
+		$rs=M('orders')->field('ordernum')->where($where)->find();
+		if(M('orders')->where($where)->delete()){
+			M('ordcar')->where(array('ordernum'=>$rs['ordernum']))->delete();
+			$this->success('订单已取消',U('User/index'));
+		}else{
+			$this->error('订单取消失败');
+		}
 	}
 	
 	/**

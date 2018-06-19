@@ -1,0 +1,76 @@
+<include file="public/header" />
+<link href="/Web/Website/public/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+<link href="/Web/Website/public/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="/Web/Website/public/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+<link href="/Web/Website/public/css/animate.min.css" rel="stylesheet">
+<link href="/Web/Website/public/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+<include file="public/top" />
+<div class="main">
+	<!--文章内容-->
+	<div class="m_ctt">
+		<div class="newsshow_title">订单详情</div>
+		<div class="newsshow_sm"></div>
+		<div class="newsshow_ctt">
+			<div class="ibox-content">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>商品名称</td>
+                            <td>{$v.title}</td>                            
+                        </tr>
+                        <tr>
+                            <td>订购数量</td>
+                            <td>{$v.num}辆</td>                            
+                        </tr>
+                        <tr>
+                            <td>车程类型</td>
+                            <td><if condition="$v['ora'] eq 1">单程<else />双程</if></td>                            
+                        </tr>
+                        <tr>
+                            <td>订单金额</td>
+                            <td><strong style="color: red;">{$v.money}元</strong></td>                            
+                        </tr>
+                        <tr>
+                            <td>出发类型</td>
+                            <td><if condition="$v['utype'] eq 1">团体<elseif condition="$v['utype'] eq 2" />旅行社<else />个人</if></td>                            
+                        </tr>
+                        <tr>
+                            <td>联系人</td>
+                            <td>{$v.uname}</td>                            
+                        </tr>
+                        <tr>
+                            <td>联系电话</td>
+                            <td>{$v.utel}</td>                            
+                        </tr>
+                        <tr>
+                            <td>出发日期</td>
+                            <td>{$v.stime|date='Y-m-d',###}</td>                            
+                        </tr>
+                        <tr>
+                            <td>接车地址</td>
+                            <td>{$v.sdr}</td>                            
+                        </tr>
+                        <tr>
+                            <td>目的地</td>
+                            <td>{$v.edr}</td>                            
+                        </tr>
+                        <tr>
+                            <td>返程日期</td>
+                            <td>{$v.dtime|date='Y-m-d',###}</td>                            
+                        </tr>                       
+                    </tbody>
+                </table>
+				<a class="btn btn-sm btn-white pull-right m-t-n-xs" href="{:U('Weixinpay/del',array('id'=>$v['id']))}">取消订单</a>
+				<a class="btn btn-sm btn-primary" href="{:U('Weixinpay/pay',array('out_trade_no'=>$odr))}"><strong>确认订单并支付</strong></a>
+            </div>
+		</div>		
+	</div>
+	<!--文章内容 end-->
+	<div class="clear"></div>
+</div>
+<!--end main-->
+<include file="public/bottom" />
+<script src="/Web/Website/public/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/Web/Website/public/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+</body>
+</html>

@@ -114,6 +114,7 @@ class CarController extends CommonController {
 	     array('oilh','require','油耗参数必填'),
 	     array('glf','require','过路费参数必填'),
 	     array('lr','require','利润参数必填'),
+	     array('kmm','require','薪酬参数必填')
 		);
 		$data = array(
 			'id' => $_POST['id'],
@@ -125,6 +126,7 @@ class CarController extends CommonController {
 			'oilh' => I('oilh'),
 			'glf' => I('glf'),
 			'lr' => I('lr'),
+			'kmm' => I('kmm'),
 			'pics' => implode("|",$_POST['pics']),
 			'content' => $_POST['content']
 		 );

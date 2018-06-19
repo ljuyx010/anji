@@ -323,6 +323,10 @@ class AfterController extends CommonController{
 		}
 	}
 
+	public function dingd (){
+		M('orders')->
+	}
+
 
 }
 ?>

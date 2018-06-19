@@ -71,6 +71,7 @@
     <script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
     <script>
     var url="{:U('Orders/editx')}";
+    var url1="{:U('Orders/del')}";
     jQuery(document).ready(function() {
         $('#editable').dataTable({
         "bServerSide": true,
@@ -97,7 +98,7 @@
                 if(data==3){return "任务中";}
             }},            
             {"mData": "id","bSortable": false,"mRender": function(data) {
-                return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a>";
+                return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a> <a onclick='return confirm(`确定要删除吗？`)' href='"+url1+"/id/"+ data +"' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i> 删除</a>";
                 }
             }
         ]

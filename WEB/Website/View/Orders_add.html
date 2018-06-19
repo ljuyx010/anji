@@ -41,6 +41,7 @@
                                 <label class="col-sm-2 control-label">用户姓名</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" name="uname" value="{$orders.uname}">
+                                    <input type="hidden" class="form-control" name="ordernum" value="{$orders.ordernum}">
                                 </div>
                                 <label class="col-sm-2 control-label">联系电话</label>
                                 <div class="col-sm-4">
@@ -71,12 +72,21 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">接车地址</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="suggestId" name="sdr" value="{$orders.sdr}">
+                                <if condition="$orders['sdr']">
+                                <input type="text" class="form-control" name="sdr" value="{$orders.sdr}">
+                                <else />
+                                <input type="text" class="form-control" id="suggestId" name="sdr" >
+                                </if>                                    
                                     <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </div>
                                 <label class="col-sm-2 control-label">目的地</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="suggestId2" name="edr" value="{$orders.edr}">
+                                <if condition="$orders['edr']">
+                                <input type="text" class="form-control" name="edr" value="{$orders.edr}">
+                                <else />
+                                <input type="text" class="form-control" id="suggestId2" name="edr" value="">
+                                </if>
+                                    
                                     <div id="searchResultPanel2" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </div>                                
                             </div>
@@ -127,15 +137,25 @@
                                     </div>
                                     <span class="help-block m-b-none">留空系统自动计算</span>                                    
                                 </div>
-                            </div>                                                 
+                            </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">车程类型</label>
+                                <div class="col-sm-4">
+                                    <label class="checkbox-inline">
+                                        <input type="radio" <if condition="$orders['ora'] eq 1">checked=""</if> value="1" name="ora">单程</label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" <if condition="$orders['ora'] eq 2">checked=""</if> value="2" name="ora">双程</label>
+                                </div>
                                 <label class="col-sm-2 control-label">车辆配置</label>
                                 <div class="col-sm-4">
                                     <foreach name="carnum" item="v">
                                     <input type="text" class="form-control" name="car[{$v.id}]" value="{$v.carnum}">
                                     </foreach>
-                                </div>
+                                </div>                                
+                            </div>                                                 
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">                                
                                 <label class="col-sm-2 control-label">备注信息</label>
                                 <div class="col-sm-4">
                                     <textarea class="textarea" name="mark">{$orders.mark}</textarea>                                   

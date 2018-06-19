@@ -24,7 +24,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>线下业务管理</h5>
+                        <h5>订单管理</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -39,7 +39,6 @@
                     </div>
                     <div class="ibox-content">
                         <div class="">
-                            <a href="<?php echo U('Orders/add');?>" class="btn btn-primary "><i class="fa fa-plus"></i> 业务登记</a>
                         </div>
                         <table class="table table-striped table-bordered table-hover " id="editable">
                             <thead>
@@ -70,8 +69,7 @@
     <script src="/WEB/Website/public/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="/WEB/Website/public/js/content.min.js?v=1.0.0"></script>
     <script>
-    var url="<?php echo U('Orders/editx');?>";
-    var url1="<?php echo U('Orders/del');?>";
+    var url="<?php echo U('Orders/edit');?>";    
     jQuery(document).ready(function() {
         $('#editable').dataTable({
         "bServerSide": true,
@@ -82,7 +80,7 @@
         "iDisplayLength": 20, //每页显示10条记录
         "aaSorting": [[ 0, "desc" ]],
         'bFilter': true, //是否使用内置的过滤功能
-        "sAjaxSource": "<?php echo U('Orders/fpage');?>",
+        "sAjaxSource": "<?php echo U('Orders/fpage',array('id'=>1));?>",
         "aoColumns": [
             {"mData": "ordernum", "bSortable": true},
             {"mData": "title", "bSortable": false},
@@ -98,7 +96,7 @@
                 if(data==3){return "任务中";}
             }},            
             {"mData": "id","bSortable": false,"mRender": function(data) {
-                return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a> <a onclick='return confirm(`确定要删除吗？`)' href='"+url1+"/id/"+ data +"' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i> 删除</a>";
+                return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a>";
                 }
             }
         ]

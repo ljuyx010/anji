@@ -103,6 +103,13 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">司机50KM薪酬</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="kmm" value="<?php echo ($v["kmm"]); ?>">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">排序</label>
 
                                 <div class="col-sm-2">
