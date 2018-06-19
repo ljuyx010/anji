@@ -113,11 +113,11 @@
                                 <label class="col-sm-2 control-label">订单状态</label>
                                 <div class="col-sm-4">
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="$orders['zt'] eq 1">checked=""</if> value="1" name="zt">待支付</label>
+                                        <input type="radio" <if condition="$orders['zt'] eq 0">checked=""</if> value="0" name="zt">待支付</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="$orders['zt'] eq 2">checked=""</if> value="2" name="zt">已支付</label>
+                                        <input type="radio" <if condition="$orders['zt'] eq 1">checked=""</if> value="1" name="zt">已支付</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="!$orders['zt']">checked=""</if> value="0" name="zt">已完成</label>
+                                        <input type="radio" <if condition="!$orders['zt'] eq 3">checked=""</if> value="3" name="zt">已完成</label>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -167,7 +167,7 @@
                                     <input type="hidden" class="form-control" name="id" value="{$orders.id}">
                                     <button class="btn btn-primary" type="submit">保存</button>
                                 </div>
-                                <if condition="$orders['zt'] eq 2">
+                                <if condition="$orders['zt'] eq 1">
                                 <div class="col-sm-4">
                                     <a href="{:U('Orders/sendmaill',array('dh'=>$orders.ordernum))}" class="btn btn-warning">下发短信通知</a>
                                 </div>

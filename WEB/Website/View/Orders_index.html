@@ -90,10 +90,10 @@
             {"mData": "zt","bSortable": false,"mRender": function(data) {
                 if(data==-2){return "退款成功";}
                 if(data==-1){return "申请退款";}
-                if(data==0){return "已完成";}
-                if(data==1){return "待支付";}
-                if(data==2){return "已支付";}
-                if(data==3){return "任务中";}
+                if(data==0){return "待支付";}
+                if(data==1){return "已支付";}
+                if(data==2){return "任务中";}
+                if(data==3){return "已完成";}
             }},            
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a>";

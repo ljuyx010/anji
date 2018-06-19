@@ -324,7 +324,68 @@ class AfterController extends CommonController{
 	}
 
 	public function dingd (){
-		M('orders')->
+		if($_GET['f']){
+			$c=$_GET['iDisplayLength'];
+			$s=$_GET['sSearch'];
+			$p=$_GET['iDisplayStart']/$c+1;
+			$px=$_GET['sSortDir_0'];
+			$col=$_GET['iSortCol_0'];
+			switch ($col){ 
+			case 0 : $order="lj_ordcar.id ".$px; break; 
+			case 1 : $order="ordernum ".$px; break; 
+			case 4 : $order="ordtime ".$px; break; 
+			} 
+			$where=array('zt'=>array('gt',0));
+			if($s){$where['carnum']=array('like','%'.$s.'%');}
+			$article = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,edr,zt,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as otime')->where($where)->order($order)->page($p,$c)->select();
+			$count = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->where($where)->count();
+			$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
+	 		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);
+			$this->ajaxReturn($data);
+		}else{
+			$this->display();
+		}
+	}
+
+	public function finish (){
+		$id=I('id');
+		$this->v=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,edr,cid')->where('lj_ordcar.id='.$id)->find();
+		$this->display();
+	}
+
+	public function jsuan(){
+		$id=I('id');
+		$cid=I('cid');
+		$d=I('d','',intval);
+		$lei = array(//自动验证
+	     array('mileage','require','实际里程必填'), 
+	     array('oil','require','使用油料必填')
+		);
+		$rs=M('class')->field('kmm')->where('id='.$cid)->find();
+		$rs2=M('ordcar')->field('ordernum')->where('id='.$id)->find();
+		if(I('mileage')>1600){
+			$wage=$d*200;
+		}elseif(I('mileage')<1400){
+			$wage=floor(I('mileage')/50)*10+$rs['kmm'];
+		}else{
+			$wage=floor((I('mileage')-1400)/50)*20+27*10+$rs['kmm'];
+		}
+		$data=array(
+			'mileage'=>I('mileage'),
+			'wage'=>$wage,
+			'oil'=>I('oil'),
+			'addoil'=>I('addoil')
+		);
+		if (!$db->validate($lei)->create($data)){
+		     // 如果创建失败 表示验证没有通过
+		     $this->error($db->getError());
+		}
+		if(M('ordcar')->where('id='.$id)->save($data)){
+			M('orders')->where('ordernum='.$rs2['ordernum'])->setField('zt',3);
+			$this->success('保存成功',U('After/dingd'));
+		}else{
+			$this->error('保存失败');
+		}
 	}
 
 

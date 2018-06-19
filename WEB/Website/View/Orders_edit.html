@@ -95,9 +95,9 @@
                                     <switch name="orders.zt">
                                         <case value="-2">已退款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
                                         <case value="-1">申请退款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
-                                        <case value="1">待付款</case>
-                                        <case value="2">已付款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
-                                        <case value="0">已完成，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="0">待付款</case>
+                                        <case value="1">已付款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="3">已完成，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
                                     </switch>
                                     </p>
                                 </div>
@@ -121,12 +121,19 @@
                             </div>                                                 
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">车程类型</label>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static"><if condition="$orders['ora'] eq 1">单程<else />双程</if></p>                                  
+                                </div>
                                 <label class="col-sm-2 control-label">车辆配置</label>
                                 <div class="col-sm-4">
                                     <foreach name="carnum" item="v">
                                     <input type="text" class="form-control" name="car[{$v.id}]" value="{$v.carnum}">
                                     </foreach>
-                                </div>
+                                </div>                                
+                            </div> 
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">备注信息</label>
                                 <div class="col-sm-4">
                                     <textarea class="textarea" name="mark">{$orders.mark}</textarea>                                   
@@ -138,7 +145,7 @@
                                     <input type="hidden" class="form-control" name="id" value="{$orders.id}">
                                     <button class="btn btn-primary" type="submit">保存</button>
                                 </div>
-                                <if condition="$orders['zt'] eq 2">
+                                <if condition="$orders['zt'] eq 1">
                                 <div class="col-sm-4">
                                     <a href="{:U('Orders/sendmaill',array('dh'=>$orders.ordernum))}" class="btn btn-warning">下发短信通知</a>
                                 </div>

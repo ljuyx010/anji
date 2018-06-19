@@ -83,7 +83,7 @@
         "sAjaxSource": "<?php echo U('Article/fpage');?>",
         "aoColumns": [
             {"mData": "id", "bSortable": true},
-            {"bSortable": false,"bSearchable": false,"mData": function(obj) {
+            {"bSearchable": false,"mData": function(obj) {
                 if(obj.pic){var p="&nbsp;&nbsp;<span class='text-success'>[题图]</span>";}else{var p="";}
                 if(obj.tj==1){var r="&nbsp;&nbsp;<span class='text-danger'>[推荐]</span>";}else{var r="";}
                 return obj.title+r+p;
