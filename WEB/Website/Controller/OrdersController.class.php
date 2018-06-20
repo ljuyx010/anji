@@ -184,5 +184,11 @@ class OrdersController extends CommonController{
 		}
 	}
 
+	public function ajax(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs=M('orders')->field('Count(id) as dd,Sum(money) as je,FROM_UNIXTIME(stime,"%m月") as m')->where(array('zt'=>3,'stime'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$this->ajaxReturn($rs);
+	}
+
 }
 ?>

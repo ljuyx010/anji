@@ -5,7 +5,7 @@ use Think\Controller;
 class FinacalController extends CommonController{
 	
 	public function index (){
-		echo 111;
+		$this->display();
 	}
 
 	public function etc (){
@@ -87,6 +87,42 @@ class FinacalController extends CommonController{
 		}else{
 			$this->error('删除失败！');
 		}
+	}
+
+	public function gz(){
+		$f=strtotime(date("Y-m-01"));
+		$c=date('Y-m-d',$f);
+		$l=strtotime("$c +1 month -1 day");
+		$where=array('dtime'=>array('between',array($f,$l)),'zt'=>3);
+		$data=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')
+		->join('lj_car on lj_ordcar.carnum=lj_car.carnum')->field('lj_ordcar.carnum,driver,SUM(wage) as tc,Count(lj_ordcar.carnum) as ds')
+		->where($where)->group('lj_ordcar.carnum')->select();
+		$this->tc=$data;
+		$this->display();
+	}
+
+	public function gzxq(){
+		$id=I('id');
+		$f=strtotime(date("Y-m-01"));
+		$c=date('Y-m-d',$f);
+		$l=strtotime("$c +1 month -1 day");
+		$where=array('dtime'=>array('between',array($f,$l)),'zt'=>3,'lj_ordcar.carnum'=>$id);
+		$xq=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')->field('lj_ordcar.ordernum,edr,type,stime,wage')
+		->where($where)->select();
+		$sum = 0;  
+		foreach($xq as $v){  
+		  $sum += (int) $v['wage'];  
+		}
+		$this->sum=$sum;
+		$this->id=$id;
+		$this->xq=$xq;
+		$this->display();
+	}
+
+	public function ajax(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs=M('etc')->field('Sum(money) as et,FROM_UNIXTIME(time,"%m月") as m')->where(array('time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$this->ajaxReturn($rs);
 	}
 
 

@@ -334,10 +334,11 @@ class AfterController extends CommonController{
 			case 0 : $order="lj_ordcar.id ".$px; break; 
 			case 1 : $order="ordernum ".$px; break; 
 			case 4 : $order="ordtime ".$px; break; 
+			case 5 : $order="mileage ".$px; break; 
 			} 
 			$where=array('zt'=>array('gt',0));
 			if($s){$where['carnum']=array('like','%'.$s.'%');}
-			$article = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,edr,zt,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as otime')->where($where)->order($order)->page($p,$c)->select();
+			$article = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,edr,zt,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as otime,mileage')->where($where)->order($order)->page($p,$c)->select();
 			$count = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->where($where)->count();
 			$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
 	 		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);
@@ -365,10 +366,10 @@ class AfterController extends CommonController{
 		$rs2=M('ordcar')->field('ordernum')->where('id='.$id)->find();
 		if(I('mileage')>1600){
 			$wage=$d*200;
-		}elseif(I('mileage')<1400){
-			$wage=floor(I('mileage')/50)*10+$rs['kmm'];
+		}elseif(I('mileage')<=300){
+			$wage=ceil(I('mileage')/50)*10+$rs['kmm'];
 		}else{
-			$wage=floor((I('mileage')-1400)/50)*20+27*10+$rs['kmm'];
+			$wage=ceil((I('mileage')-300)/50)*20+6*10+$rs['kmm'];
 		}
 		$data=array(
 			'mileage'=>I('mileage'),
@@ -386,6 +387,39 @@ class AfterController extends CommonController{
 		}else{
 			$this->error('保存失败');
 		}
+	}
+
+	public function tongj (){
+		$db=M('bad');
+		$start=strtotime(date('Y-m-01 00:00:00'));
+		$end = strtotime(date('Y-m-d H:i:s'));
+		$where = array('time'=>array('between',array($start,$end)));
+		$this->ts=$db->field('id,mark',true)->where(array_merge(array('type'=>0),$where))->select();
+		$this->wz=$db->field('id,mark',true)->where(array_merge(array('type'=>1),$where))->select();
+		$this->display();
+	}
+
+	public function ajax(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs1=M('bad')->field('Count(id) as num,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>0,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$new1=array();
+		$new2=array();		
+		foreach($rs1 as $k=>$v){
+			if($v['m']){
+			$new1=array_merge($new1,array($v['m']=>array('ts'=>$v['num'],'m'=>$v['m']."月")));
+			}
+		}		
+		$rs2=M('bad')->field('Count(id) as wz,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>1,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();		
+		foreach($rs2 as $k2=>$v2){
+			if($v2['m']){
+				$k=$v2['m'];
+				$new2[$k] = array_merge(array('wz'=>$v2['wz'],'m'=>$v['m']."月"),$new1[$k]);
+			}
+		}
+		foreach($new2 as $k3=>$v3){
+			$rs[]=$v3;
+		}		
+		$this->ajaxReturn($rs);
 	}
 
 

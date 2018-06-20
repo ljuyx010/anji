@@ -260,5 +260,17 @@ class HrController extends CommonController {
 		}
 	}
 
+	public function ajax(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs=M('wage')->field('Sum(sf) as gz,FROM_UNIXTIME(time,"%m月") as m')->where(array('time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$this->ajaxReturn($rs);
+	}
+
+	public function rc(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs=M('spend')->field('Sum(money) as rc,FROM_UNIXTIME(time,"%m月") as m')->where(array('time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$this->ajaxReturn($rs);
+	}
+
 }
 ?>

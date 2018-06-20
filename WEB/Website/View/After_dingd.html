@@ -46,6 +46,7 @@
                                     <th>车牌号</th>
                                     <th>状态</th>
                                     <th>下单时间</th>
+                                    <th>总里程</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -88,6 +89,7 @@
                 if(data==3){return "已完成";}
             }},
             {"mData": "otime","bSortable": true},
+            {"mData": "mileage","bSortable": true},
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 编辑 </a> ";
                 }
