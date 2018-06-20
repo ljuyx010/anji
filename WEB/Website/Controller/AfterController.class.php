@@ -422,6 +422,35 @@ class AfterController extends CommonController{
 		$this->ajaxReturn($rs);
 	}
 
+	public function oil(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')->field('SUM(addoil) as oil,FROM_UNIXTIME(dtime,"%m月") as m')->where(array('dtime'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$this->ajaxReturn($rs);
+	}
+
+	public function wx(){
+		$year=strtotime(date('Y-01-01 00:00:00'));
+		$rs1=M('xiu')->field('SUM(money) as wx,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>array('gt',0),'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$rs2=M('xiu')->field('SUM(money) as by,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>0,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$new1=array();
+		$new2=array();
+		foreach($rs1 as $k=>$v){
+			if($v['m']){
+			$new1=array_merge($new1,array($v['m']=>array('wx'=>$v['wx'],'m'=>$v['m']."月")));
+			}
+		}
+		foreach($rs2 as $k2=>$v2){
+			if($v2['m']){
+				$k=$v2['m'];
+				$new2[$k] = array_merge(array('by'=>$v2['by'],'m'=>$v['m']."月"),$new1[$k]);
+			}
+		}
+		foreach($new2 as $k3=>$v3){
+			$rs[]=$v3;
+		}		
+		$this->ajaxReturn($rs);	
+	}
+
 
 }
 ?>

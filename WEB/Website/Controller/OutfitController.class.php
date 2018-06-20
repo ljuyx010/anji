@@ -3,7 +3,7 @@ namespace Website\Controller;
 use Think\Controller;
 
 class OutfitController extends CommonController{
-	
+	//设备模块
 	public function index(){		
 		if($_GET['f']){
 			$c=$_GET['iDisplayLength'];
