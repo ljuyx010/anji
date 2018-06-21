@@ -50,6 +50,14 @@
 </script>
 </head>
 <body>
+<?php if(CONTROLLER_NAME == 'Index'): ?><header>
+    <a href="<?php echo U('Index/index');?>"><img src="/Public/images/logo.png">孝客集团安吉旅游</a>
+</header>
+<div class="clear h50"></div><?php endif; ?>
+<header>
+	<a href="<?php echo U('Index/index');?>"><img src="/Public/images/logo.png">孝客集团安吉旅游</a>
+</header>
+<div class="clear h50"></div>
 <div class="top"><img src="/Public/images/topbg.png" /></div>
 <div class="main">
    <div class="menu"><h3>在线订车</h3><p>Online ordering</p></div>

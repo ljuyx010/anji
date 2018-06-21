@@ -62,29 +62,25 @@ class WeixinpayController extends CommonController{
 			$dh=$result['out_trade_no'];
 			$jj=array(
 			'paytime'=>time(),
-			'zt'=>2,
+			'zt'=>1,
 			);
-			$c=M('orders')->where(array('order'=>$dh,'zt'=>1))->save($jj);			
+			$c=M('orders')->where(array('order'=>$dh,'zt'=>0))->save($jj);			
 		}
 		if($c){	 
 			$or=M('orders')->where(array('order'=>$dh))->find();
+			M('user')->where(array('id'=>$or['uid']))->save(array('name'=>$or['uname'],'tel'=>$or['utel']));
 			$openid=M('user')->where(array('id'=>$or['uid']))->getField('openid');
 			$data=array(  
-			   'first'=>array('value'=>urlencode("尊敬的客户，您已下单成功"),'color'=>"#00CD00"),  
-			   'keyword1'=>array('value'=>urlencode($or['pname']),'color'=>'#00CD00'),  
-			   'keyword2'=>array('value'=>urlencode("单号".$dh),'color'=>'#EE5C42'),     
-			   'remark'=>array('value'=>urlencode("如有疑问可致电：".$conf['contact']),'color'=>'#030303'),  
-			);
-			$data2=array(  
-			   'first'=>array('value'=>urlencode("您有新订单需处理"),'color'=>"#EE5C42"),  
-			   'keyword1'=>array('value'=>urlencode("环保云管家商城有一个新订单已下单"),'color'=>'#030303'),  
-			   'keyword2'=>array('value'=>urlencode(date("Y-m-d h:i",time())),'color'=>'#030303'),     
-			   'keyword3'=>array('value'=>urlencode("单号:".$dh),'color'=>'#00CD00'),     
-			   'remark'=>array('value'=>urlencode("请尽快登录网站后台处理！"),'color'=>'#030303'),  
+			   'first'=>array('value'=>urlencode("尊敬的用户，您已下单成功"),'color'=>"#333"),  
+			   'keyword1'=>array('value'=>urlencode($or['ordernum']),'color'=>'#ED1B28'),  
+			   'keyword2'=>array('value'=>urlencode(date('Y-m-d H:i',$or['ordtime'])),'color'=>'#333'),     
+			   'keyword3'=>array('value'=>urlencode($or['title']),'color'=>'#333'),     
+			   'keyword4'=>array('value'=>urlencode(date('Y-m-d H:i',$or['stime'])),'color'=>'#333'),     
+			   'keyword5'=>array('value'=>urlencode(date('Y-m-d H:i',$or['dtime'])),'color'=>'#333'),     
+			   'remark'=>array('value'=>urlencode("感谢您对安吉旅游的支持！服务热线：0712-2467890")),  
 			);
 			//发送付款成功通知
-			doSend($openid,'Uugs60RrAwUFQQaBBi8jU0tuWismOrr4fmex1CLLc2U','http://yunguanjia.35xg.com/index.php/Index/member/index/',$data); 			
-			doSend($open,'zJ3zwVzMUmTL5s6zWcQ5XcxH2jzulDFCOU1ABrK86jQ','http://yunguanjia.35xg.com/',$data2); 			
+			doSend($openid,'xyrjKQgTFBxdcewTu0Z3kc9WVqGoTDyIPwqzKsFyE3Y',"http://".$_SERVER['SERVER_NAME'],$data); 						
 		}
 	}
 }

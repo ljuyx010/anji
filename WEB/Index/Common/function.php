@@ -195,7 +195,7 @@ if (!function_exists('wx_share_init')) {
 	/** 
      * 发送自定义的模板消息 
      */  
-    function doSend($touser, $template_id, $url, $data, $topcolor = '#7B68EE'){  
+    function doSend($touser, $template_id, $url, $data, $topcolor = '#0D89C4'){  
         $template = array(  
             'touser' => $touser,  
             'template_id' => $template_id,  

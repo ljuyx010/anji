@@ -81,7 +81,9 @@
                     </li>
 
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">订单管理 </span><span class="label label-warning pull-right">16</span></a>
+                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">订单管理 </span>
+                        <if condition="$ddm"><span class="label label-warning pull-right">{$ddm}</span></if>
+                        </a>
                         <ul class="nav nav-second-level">
                             <li><a class="J_menuItem" href="{:U('Orders/index')}">线上订单</a>
                             </li>
@@ -187,35 +189,32 @@
 						</li>
 						<li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                                <i class="fa fa-bell"></i>
+                                <if condition="$num"><span class="label label-danger">{$num}</span></if>
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
+                            <foreach name="dd" item="v">
                                 <li>
-                                    <a href="mailbox.html">
+                                    <a class="J_menuItem" href="{:U('Orders/edit',array('id'=>$v['id']))}">
                                         <div>
-                                            <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
-                                            <span class="pull-right text-muted small">4分钟前</span>
+                                            <i class="fa fa-tags fa-fw"></i> {$v.ordernum}
+                                            <span class="pull-right text-muted small">{$v.ordtime|date='m-d H:i',###}</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="divider"></li>
+                            </foreach>
+                            <foreach name="shen" item="s">
                                 <li>
-                                    <a href="profile.html">
+                                    <a class="J_menuItem" href="{:U('After/nianshen')}">
                                         <div>
-                                            <i class="fa fa-qq fa-fw"></i> 3条新回复
-                                            <span class="pull-right text-muted small">12分钟钱</span>
+                                            <i class="fa fa-warning fa-fw"></i> {$s.carnum} | <if condition="$s['type'] eq 1">营运证<elseif condition="$s['type'] eq 2" />行车证<else />保险</if>
+                                            <span class="pull-right text-muted small">过期：{$s.dtime|date='Y-m-d',###}</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a class="J_menuItem" href="notifications.html">
-                                            <strong>查看所有 </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
+                            </foreach>    
                             </ul>
                         </li>
                         <li class="dropdown hidden-xs">

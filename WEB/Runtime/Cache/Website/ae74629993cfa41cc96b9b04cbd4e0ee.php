@@ -81,7 +81,9 @@
                     </li>
 
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">订单管理 </span><span class="label label-warning pull-right">16</span></a>
+                        <a href="mailbox.html"><i class="fa fa-edit"></i> <span class="nav-label">订单管理 </span>
+                        <?php if($ddm): ?><span class="label label-warning pull-right"><?php echo ($ddm); ?></span><?php endif; ?>
+                        </a>
                         <ul class="nav nav-second-level">
                             <li><a class="J_menuItem" href="<?php echo U('Orders/index');?>">线上订单</a>
                             </li>
@@ -187,35 +189,28 @@
 						</li>
 						<li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                                <i class="fa fa-bell"></i>
+                                <?php if($num): ?><span class="label label-danger"><?php echo ($num); ?></span><?php endif; ?>
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
-                                <li>
+                            <?php if(is_array($dd)): foreach($dd as $key=>$v): ?><li>
                                     <a href="mailbox.html">
                                         <div>
-                                            <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
-                                            <span class="pull-right text-muted small">4分钟前</span>
+                                            <i class="fa fa-tags fa-fw"></i> <?php echo ($v["ordernum"]); ?>
+                                            <span class="pull-right text-muted small"><?php echo (date('m-d H:i',$v["ordtime"])); ?></span>
                                         </div>
                                     </a>
                                 </li>
-                                <li class="divider"></li>
-                                <li>
+                                <li class="divider"></li><?php endforeach; endif; ?>
+                            <?php if(is_array($shen)): foreach($shen as $key=>$s): ?><li>
                                     <a href="profile.html">
                                         <div>
-                                            <i class="fa fa-qq fa-fw"></i> 3条新回复
-                                            <span class="pull-right text-muted small">12分钟钱</span>
+                                            <i class="fa fa-warning fa-fw"></i> <?php echo ($s["carnum"]); ?> | <?php if($s['type'] == 1): ?>营运证<?php elseif($s['type'] == 2): ?>行车证<?php else: ?>保险<?php endif; ?>
+                                            <span class="pull-right text-muted small">过期：<?php echo (date('Y-m-d',$s["dtime"])); ?></span>
                                         </div>
                                     </a>
                                 </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a class="J_menuItem" href="notifications.html">
-                                            <strong>查看所有 </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
+                                <li class="divider"></li><?php endforeach; endif; ?>    
                             </ul>
                         </li>
                         <li class="dropdown hidden-xs">

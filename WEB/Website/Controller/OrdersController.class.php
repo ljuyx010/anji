@@ -57,7 +57,9 @@ class OrdersController extends CommonController{
 	
 	public function sendmail (){
 		$dh = I('dh');
-		
+		$rs=M('orders')->field('ordernum,uname,utel,stime,sdr')->where(array('ordernum'=>$dh))->find();
+		$rs2=M('ordcar')->field('lj_ordcar.carnum,driver,tel')->jion('LEFT JOIN lj_car on lj_ordcar.carnum=lj_car.carnum')->where(array('ordernum'=>$dh))->select();
+
 	}
 
 	public function xianx (){

@@ -413,7 +413,12 @@ class AfterController extends CommonController{
 		foreach($rs2 as $k2=>$v2){
 			if($v2['m']){
 				$k=$v2['m'];
-				$new2[$k] = array_merge(array('wz'=>$v2['wz'],'m'=>$v['m']."月"),$new1[$k]);
+				if($new1[$k]){
+					$new2[$k] = array_merge(array('wz'=>$v2['wz'],'m'=>$v['m']."月"),$new1[$k]);
+				}else{
+					$new2[$k] = array('wz'=>$v2['wz'],'m'=>$v['m']."月",'ts'=>0);
+				}
+				
 			}
 		}
 		foreach($new2 as $k3=>$v3){
@@ -430,8 +435,9 @@ class AfterController extends CommonController{
 
 	public function wx(){
 		$year=strtotime(date('Y-01-01 00:00:00'));
-		$rs1=M('xiu')->field('SUM(money) as wx,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>array('gt',0),'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
-		$rs2=M('xiu')->field('SUM(money) as by,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>0,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$rs1=M('xiu')->field('Sum(money) as wx,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>array('gt',0),'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$rs2=M('xiu')->field('Sum(money) as bao,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>0,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+
 		$new1=array();
 		$new2=array();
 		foreach($rs1 as $k=>$v){
@@ -442,9 +448,14 @@ class AfterController extends CommonController{
 		foreach($rs2 as $k2=>$v2){
 			if($v2['m']){
 				$k=$v2['m'];
-				$new2[$k] = array_merge(array('by'=>$v2['by'],'m'=>$v['m']."月"),$new1[$k]);
+				if($new1[$k]){
+					$new2[$k] = array_merge(array('bao'=>$v2['bao'],'m'=>$v['m']."月"),$new1[$k]);
+				}else{
+					$new2[$k] = array('bao'=>$v2['bao'],'m'=>$v['m']."月",'wx'=>0);
+				}				
 			}
 		}
+		//p($new2);
 		foreach($new2 as $k3=>$v3){
 			$rs[]=$v3;
 		}		

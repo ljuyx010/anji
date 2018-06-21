@@ -11,10 +11,27 @@ class IndexController extends CommonController {
 	 * @return [type] [description]
 	 */
     public function index (){
+    	$day=strtotime(date('Y-m-d 00:00:00'));
+    	$where=array('type'=>1,'zt'=>1,'ordtime'=>array('egt',$day));
+    	$this->dd=M('orders')->field('id,ordernum,ordtime')->where($where)->select();
+    	$ddm=M('orders')->where($where)->count();
+    	$this->shen=M('shen')->field('carnum,type,dtime')->where(array('dtime'=>array('elt',time())))->select();
+    	$sm=M('shen')->where(array('dtime'=>array('elt',time())))->count();
+    	$this->num=$ddm+$sm;
+    	$this->ddm=$ddm;
         $this->display();
     }
 	
 	public function welcom(){
+		$day=strtotime(date('Y-m-d 00:00:00'));
+		$month=strtotime(date('Y-m-01 00:00:00'));
+		$this->d=M('orders')->field('count(id) as ds,Sum(money) as dq')->where(array('zt'=>array('gt',0),'ordtime'=>array('egt',$day)))->select();
+		$this->m=M('orders')->field('count(id) as ms,Sum(money) as mq')->where(array('zt'=>array('gt',0),'ordtime'=>array('egt',$month)))->select();
+		$this->dn=M('user')->where(array('regtime'=>array('egt',$day)))->count();
+		$this->mn=M('user')->where(array('regtime'=>array('egt',$month)))->count();
+		$this->dh=M('user')->where(array('logintime'=>array('egt',$day)))->count();
+		$this->mh=M('user')->where(array('logintime'=>array('egt',$month)))->count();
+		$this->zs=M('user')->count();
 		$this->display();
 	}
 

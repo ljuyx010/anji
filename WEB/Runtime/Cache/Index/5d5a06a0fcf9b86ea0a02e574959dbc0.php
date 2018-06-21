@@ -50,6 +50,10 @@
 </script>
 </head>
 <body>
+<?php if(CONTROLLER_NAME == 'Index'): ?><header>
+    <a href="<?php echo U('Index/index');?>"><img src="/Public/images/logo.png">孝客集团安吉旅游</a>
+</header>
+<div class="clear h50"></div><?php endif; ?>
 <div class="userbox">
 	<div class="userimg"><img class="photo" src="/Public/images/logo.jpg" ><!--src="<?php echo (session('userHeadimgurl')); ?>"--><p><img src="/Public/images/icon-user-level.png"><?php if(session('name')): ?>Vip用户<?php else: ?>普通用户<?php endif; ?></p>
 	<h3><?php echo (session('userNickname')); ?>大胖娃娃</h3>

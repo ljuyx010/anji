@@ -32,32 +32,75 @@
             <div class="col-sm-4">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <span class="label label-info pull-right">月</span>
+                        <span class="label label-info pull-right">当天</span>
                         <h5>订单</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">60 420,600</h1>
-                        <div class="stat-percent font-bold text-info">40% <i class="fa fa-level-up"></i>
-                        </div>
-                        <small>新订单</small>
+                        <p>订单量</p>
+                        <h1 class="no-margins"><?php echo ($d[0]['ds']); ?></h1>                        
+                        <p><br></p>
+                        <p><br></p>                       
+                        <small>订单总额</small>
+                        <h1 class="no-margins"><?php if($d[0]['dq']): echo ($d[0]['dq']); else: ?>0<?php endif; ?></h1>                        
+                    </div>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">本月</span>
+                        <h5>订单</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <p>订单量</p>
+                        <h1 class="no-margins"><?php echo ($m[0]['ms']); ?></h1>                        
+                        <p><br></p>
+                        <p><br></p>                       
+                        <small>订单总额</small>
+                        <h1 class="no-margins"><?php if($m[0]['mq']): echo ($m[0]['mq']); else: ?>0<?php endif; ?></h1>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <span class="label label-info pull-right">月</span>
+                        <span class="label label-info pull-right">当天</span>
                         <h5>会员</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">60 420,600</h1>
-                        <div class="stat-percent font-bold text-info">40% <i class="fa fa-level-up"></i>
-                        </div>
-                        <small>新会员</small>
+                        <p>新会员</p>
+                        <h1 class="no-margins"><?php echo ($dn); ?></h1>                        
+                        <p><br></p>
+                        <p><br></p>                       
+                        <small>活跃会员</small>
+                        <h1 class="no-margins"><?php echo ($dh); ?></h1>
+                    </div>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">本月</span>
+                        <h5>会员</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <p>新会员</p>
+                        <h1 class="no-margins"><?php echo ($mn); ?></h1>                        
+                        <p><br></p>
+                        <p><br></p>                       
+                        <small>活跃会员</small>
+                        <h1 class="no-margins"><?php echo ($mh); ?></h1>
                     </div>
                 </div>
             </div>
 			<div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>注册会员</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <p>会员总数</p>
+                        <h1 class="no-margins"><?php echo ($zs); ?></h1>                        
+                        <p><br></p>
+                    </div>
+                </div>
+
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>技术支持</h5>

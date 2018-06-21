@@ -1,7 +1,7 @@
 <include file="public/header" />
 <div class="userbox">
-	<div class="userimg"><img class="photo" src="__PUBLIC__/images/logo.jpg" ><!--src="{$Think.session.userHeadimgurl}"--><p><img src="__PUBLIC__/images/icon-user-level.png"><if condition="session('name')">Vip用户<else />普通用户</if></p>
-	<h3>{$Think.session.userNickname}大胖娃娃</h3>
+	<div class="userimg"><img src="{$Think.session.userHeadimgurl}" /><p><img src="__PUBLIC__/images/icon-user-level.png"><if condition="session('name')">Vip用户<else />普通用户</if></p>
+	<h3>{$Think.session.userNickname}</h3>
 	</div>
 </div>
 <div class="main">
@@ -17,31 +17,48 @@
 		</div>
 		<div class="bd">
 			<ul>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">中国打破了世界软件巨头规则</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">口语：会说中文就能说英语！</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">农场摘菜不如在线学外语好玩</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学英语送ipad2,45天突破听说</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学外语，上北外！</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">那些无法理解的荒唐事</a></li>
+			<foreach name="dfk" item="v">
+				<div class="dd">
+				<p><strong>预定车型：{$v.title}</strong>预定数量：{$v.num}X辆</p>
+				<p>车型描述：{$v.des}</p>
+				<p><span>车程类型：<if condition="$v[ora] eq 1">单程<else />双程</if></span>下单时间：{$v.ordtime|date='Y-m-d H:i',###}</p>
+				<p>目的地：{$v.edr}</p>
+				<p><strong>合计：{$v.money}元</strong>				
+				<a class="qx" href="{:U('Weixinpay/del',array('id'=>$v['id']))}">取消订单</a>
+				<a class="zf" href="{:U('Weixinpay/index',array('id'=>$v['id']))}">去支付</a>
+				</p>				
+				</div>
+			</foreach>
 			</ul>
 			<ul>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">名师教作文：３妙招巧写高分</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">耶鲁小子：教你备考SAT</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">施强：高端专业语言教学</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">【推荐】名校英语方法曝光！</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2012高考“考点”大曝光!!</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">涨价仍爆棚假日旅游冰火两重天</a></li>
+			<foreach name="yzf" item="y">
+				<div class="dd">
+				<p><strong>预定车型：{$y.title}</strong>预定数量：{$y.num}X辆</p>
+				<p>车型描述：{$y.des}</p>
+				<p><span>车程类型：<if condition="$y[ora] eq 1">单程<else />双程</if></span>下单时间：{$y.ordtime|date='Y-m-d H:i',###}</p>
+				<p>目的地：{$y.edr}</p>
+				<p><strong>合计：{$y.money}元</strong>
+				<if condition="$y['zt'] eq -1">
+				<a class="qx" href="javascript:;">取消申请中</a>
+				<a class="zf" href="{:U('Weixinpay/qxsq',array('id'=>$y['id']))}">取消申请</a>
+				<else />
+				<a class="qx" href="{:U('Weixinpay/sq',array('id'=>$y['id']))}">取消订单</a>
+				</if>
+				</p>				
+				</div>
+			</foreach>
 			</ul>
 			<ul>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">澳大利亚八大名校招生说明会</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">2012世界大学排名新鲜出炉</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">新加坡留学，国际双语课程</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">高考后留学日本名校随你选</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">教育培训行业优势资源推介</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">即刻预约今年最后一场教育展</a></li>
-				<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">女友坚持警局完婚不抛弃</a></li>
+			<foreach name="ywc" item="c">
+				<div class="dd">
+				<p><strong>预定车型：{$c.title}</strong>预定数量：{$c.num}X辆</p>
+				<p>车型描述：{$c.des}</p>
+				<p><span>车程类型：<if condition="$c[ora] eq 1">单程<else />双程</if></span>下单时间：{$c.ordtime|date='Y-m-d H:i',###}</p>
+				<p>目的地：{$c.edr}</p>
+				<p><strong>合计：{$c.money}元</strong><a class="qx" href="javascript:;"><if condition="$c['zt'] eq 3">已完成<else />已退款</if></a>
+				</p>				
+				</div>
+			</foreach>
 			</ul>
 		</div>
 	</div>

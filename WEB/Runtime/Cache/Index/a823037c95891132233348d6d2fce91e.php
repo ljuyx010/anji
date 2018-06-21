@@ -31,7 +31,7 @@
     wx.ready(function(){  
         var options = {  
             title: '<?php echo ($title); ?>', // 分享标题  
-            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/', // 分享链接，记得使用绝对路径，不能用document.URL
+            link: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/index.php/Index/index.html', // 分享链接，记得使用绝对路径，不能用document.URL
             imgUrl: 'http://<?php echo ($_SERVER['SERVER_NAME']); ?>/Public/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '<?php echo ($description); ?>', // 分享描述  
             success: function () {  
@@ -50,6 +50,10 @@
 </script>
 </head>
 <body>
+<?php if(CONTROLLER_NAME == 'Index'): ?><header>
+    <a href="<?php echo U('Index/index');?>"><img src="/Public/images/logo.png">孝客集团安吉旅游</a>
+</header>
+<div class="clear h50"></div><?php endif; ?>
 <?php echo W('bann/banner');?>
 <div class="gsjj">
 	<div class="menu"><h3>公司简介</h3><p>About us</p></div>

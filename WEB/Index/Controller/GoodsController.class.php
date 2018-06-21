@@ -87,7 +87,7 @@ class GoodsController extends CommonController{
 			'title' => I('title'),
 			'des' => I('des'),
 			'cid' => $cx,
-			'zt' => 1,
+			'zt' => 0,
 			'type' => 1,
 			'uid' => session('userID'),
 			'sdr' => I('sdr')
