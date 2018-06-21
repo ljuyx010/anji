@@ -57,9 +57,27 @@ class OrdersController extends CommonController{
 	
 	public function sendmail (){
 		$dh = I('dh');
+		$send=A('Dxin');
 		$rs=M('orders')->field('ordernum,uname,utel,stime,sdr')->where(array('ordernum'=>$dh))->find();
 		$rs2=M('ordcar')->field('lj_ordcar.carnum,driver,tel')->jion('LEFT JOIN lj_car on lj_ordcar.carnum=lj_car.carnum')->where(array('ordernum'=>$dh))->select();
-
+		$da=array('dh'=>$rs['ordernum'],'name'=>$rs['uname'],'tel'=>$rs['utel'],'time'=>date('Y-m-d',$v['stime']),'sdr'=>$v['sdr']);
+		$jg=1;
+		foreach ($rs2 as $k => $v) {
+			if(!$k){
+				$carnum=$v['carnum'];$name=$v['driver']."电话：".$v['tel'];
+			}else{
+				$name=$name.",车牌号：".$v['carnum']."姓名：".$v['driver']."电话：".$v['tel'];
+			}
+			$js=$send->sendMsg($v['tel'],mobanid,$da);
+			$jg=$js&&$jg;
+		}
+		$kh=array('name'=>$rs['uname'],'ordernum'=>$v['ordernum'],'carnum'=>$carnum,'siji'=>$name);
+		$jg2=$send->sendMsg($rs['utel'],mobanid,$kh);
+		if($jg&&$jg2){
+			$this->success('短信发送成功',U('Orders/index'));
+		}else{
+			$this->error('短信发送失败');
+		}
 	}
 
 	public function xianx (){

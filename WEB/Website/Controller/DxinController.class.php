@@ -45,7 +45,7 @@ class DxinController extends CommonController {
     $acsResponse = $acsClient->getAcsResponse($request);
     //返回请求结果
     $result = json_decode(json_encode($acsResponse), true);
-    if($result){$this->ajaxReturn("短信已发送");}else{$this->ajaxReturn("发送失败请重试");}
+    if($result){return true;}else{return false;}
 	}
 	
 }
