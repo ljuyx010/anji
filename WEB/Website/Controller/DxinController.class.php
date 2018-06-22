@@ -34,7 +34,7 @@ class DxinController extends CommonController {
     // 初始化SendSmsRequest实例用于设置发送短信的参数
     $request = new SendSmsRequest();
     // 必填，设置短信接收号码
-    $request->setPhoneNumbers($mobile);    //$moblie是我前台传入的电话
+    $request->setPhoneNumbers($tel);    //$moblie是我前台传入的电话
     // 必填，设置签名名称
     $request->setSignName($data['qm']);      //此处需要填写你在阿里上创建的签名
     // 必填，设置模板CODE

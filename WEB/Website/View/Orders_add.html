@@ -11,6 +11,7 @@
     <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
     <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+    <link href="__PUBLIC__/css/plugins/toastr/toastr.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cRIblrzawnZeT319eL3dLssL"></script>
 </head>
 
@@ -169,7 +170,7 @@
                                 </div>
                                 <if condition="$orders['zt'] eq 1">
                                 <div class="col-sm-4">
-                                    <a href="{:U('Orders/sendmaill',array('dh'=>$orders.ordernum))}" class="btn btn-warning">下发短信通知</a>
+                                    <input type="button" onclick="send()" class="btn btn-warning" value="下发短信通知"></input>
                                 </div>
                                 </if>
                             </div>
@@ -185,9 +186,45 @@
 	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
     <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
     <script src="__ROOT__/public/js/map.js"></script>
+    <script src="__PUBLIC__/js/plugins/toastr/toastr.min.js"></script>
+    <script>
+    $(function(){
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "progressBar": true,
+          "positionClass": "toast-top-center",
+          "onclick": null,
+          "showDuration": "400",
+          "hideDuration": "1000",
+          "timeOut": "7000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
+    });    
+    function send(){
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "{:U('Orders/sendmail',array('dh'=>$orders['ordernum']))}" ,//url
+            data: "",
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.code == 200){
+                   toastr.success(result.str);
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }</script>
     <script>
     laydate({elem:"#stime",event:"focus"});
-    laydate({elem:"#dtime",event:"focus"});
+    laydate({elem:"#dtime",event:"focus"});  
     </script>
 </body>
 </html>

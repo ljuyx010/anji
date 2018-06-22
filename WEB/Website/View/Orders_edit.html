@@ -11,6 +11,7 @@
     <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
     <link href="__PUBLIC__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 	<link rel="stylesheet" href="__PUBLIC__/css/diy.css" />
+    <link href="__PUBLIC__/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 </head>
 
 <body class="gray-bg">
@@ -93,12 +94,13 @@
                                 <div class="col-sm-4">
                                     <p class="form-control-static">
                                     <switch name="orders.zt">
-                                        <case value="-2">已退款，付款时间：{$paytime|date='Y-m-d H:i',###},退款时间：{$backtime|date='Y-m-d H:i',###}</case>
-                                        <case value="-1">申请退款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="-2">已退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},退款时间：{$backtime|date='Y-m-d H:i',###}</case>
+                                        <case value="-1">申请退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},申请时间：{$orders.paytime|date='Y-m-d H:i',###}</case>
                                         <case value="0">待付款</case>
-                                        <case value="1">已付款，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
-                                        <case value="3">已完成，付款时间：{$paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="1">已付款，付款时间：{$orders.paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="3">已完成，付款时间：{$orders.paytime|date='Y-m-d H:i',###}</case>
                                     </switch>
+                                    <if condition="$orders['refund_no']">退款单号：{$orders.refund_no}</if>
                                     </p>
                                 </div>
                             </div>
@@ -144,12 +146,15 @@
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <input type="hidden" class="form-control" name="id" value="{$orders.id}">
                                     <button class="btn btn-primary" type="submit">保存</button>
-                                </div>
-                                <if condition="$orders['zt'] eq 1">
+                                </div>                                
                                 <div class="col-sm-4">
-                                    <a href="{:U('Orders/sendmaill',array('dh'=>$orders.ordernum))}" class="btn btn-warning">下发短信通知</a>
-                                </div>
+                                <if condition="$orders['zt'] eq 1">
+                                    <input type="button" onclick="send()" class="btn btn-warning" value="下发短信通知"></input>
                                 </if>
+                                <if condition="!$orders['refund_no'] && $orders['zt'] eq -1">
+                                    <a href="{:U('Orders/tk',array('dh'=>$orders['ordernum']))}" class="btn btn-warning" >同意退款</a>
+                                </if>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -161,5 +166,42 @@
     <script src="__PUBLIC__/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="__PUBLIC__/js/plugins/iCheck/icheck.min.js"></script>
 	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
+    <script src="__PUBLIC__/js/plugins/toastr/toastr.min.js"></script>
+    <script>
+    $(function(){
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "progressBar": true,
+          "positionClass": "toast-top-center",
+          "onclick": null,
+          "showDuration": "400",
+          "hideDuration": "1000",
+          "timeOut": "7000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
+    });    
+    function send(){
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "{:U('Orders/sendmail',array('dh'=>$orders['ordernum']))}" ,//url
+            data: "",
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.code == 200){
+                   toastr.success(result.str);
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }
+    </script>
 </body>
 </html>

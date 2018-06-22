@@ -26,7 +26,8 @@
 				<p><strong>合计：{$v.money}元</strong>				
 				<a class="qx" href="{:U('Weixinpay/del',array('id'=>$v['id']))}">取消订单</a>
 				<a class="zf" href="{:U('Weixinpay/index',array('id'=>$v['id']))}">去支付</a>
-				</p>				
+				</p>
+				<p class="clear"></p>				
 				</div>
 			</foreach>
 			</ul>
@@ -39,12 +40,12 @@
 				<p>目的地：{$y.edr}</p>
 				<p><strong>合计：{$y.money}元</strong>
 				<if condition="$y['zt'] eq -1">
-				<a class="qx" href="javascript:;">取消申请中</a>
+				<a class="qx" href="javascript:;">申请退款中</a>
 				<a class="zf" href="{:U('Weixinpay/qxsq',array('id'=>$y['id']))}">取消申请</a>
 				<else />
-				<a class="qx" href="{:U('Weixinpay/sq',array('id'=>$y['id']))}">取消订单</a>
+				<a class="qx" <if condition="($y['stime']-time()) elt 86400*2">onclick="return confirm('离出发日期少于2天，需扣除10%手续费，确定继续退款？')"</if> href="{:U('Weixinpay/sq',array('id'=>$y['id']))}">取消订单</a>
 				</if>
-				</p>				
+				</p><p class="clear"></p>				
 				</div>
 			</foreach>
 			</ul>
@@ -56,7 +57,7 @@
 				<p><span>车程类型：<if condition="$c[ora] eq 1">单程<else />双程</if></span>下单时间：{$c.ordtime|date='Y-m-d H:i',###}</p>
 				<p>目的地：{$c.edr}</p>
 				<p><strong>合计：{$c.money}元</strong><a class="qx" href="javascript:;"><if condition="$c['zt'] eq 3">已完成<else />已退款</if></a>
-				</p>				
+				</p><p class="clear"></p>				
 				</div>
 			</foreach>
 			</ul>

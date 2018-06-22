@@ -191,6 +191,85 @@ class Weixinpay {
 		return $data; 
     }
 
+    public function refund($dh) {  
+        $config=$this->config;
+        $dingd=M('orders')->where(array('ordernum'=>$dh))->find();
+        if($dingd['stime']-$dingd['backtime']<=86400*2){
+            $money=$dingd['money']*0.9*100;
+        }else{
+            $money=$dingd['money']*100;
+        }
+        $date = date("YmdHis");  
+        $appid = $config['APPID'];  
+        $mch_id = $config['MCHID'];  
+        $out_trade_no = $dh;  
+        $op_user_id = "";  
+        $out_refund_no = $date;  
+        $total_fee = $dingd['money']*100;  
+        $refund_fee = $money;  
+        //$transaction_id = "4009542001201706206596667604";  
+        $key = "";  
+        $nonce_str = nonceStr();  
+      
+        $ref = strtoupper(md5("appid=$appid&mch_id=$mch_id&nonce_str=$nonce_str&op_user_id=$op_user_id"  
+                        . "&out_refund_no=$out_refund_no&out_trade_no=$out_trade_no&refund_fee=$refund_fee&total_fee=$total_fee"  
+                        . "&key=$key")); //sign加密MD5  
+      
+        $refund = array(  
+        'appid' =>$config['APPID'], //应用ID，固定  
+        'mch_id' => $config['MCHID'], //商户号，固定  
+        'nonce_str' => $nonce_str, //随机字符串  
+        'op_user_id' => $op_user_id, //操作员  
+        'out_refund_no' => $out_refund_no, //商户内部唯一退款单号  
+        'out_trade_no' => $out_trade_no, //商户订单号,pay_sn码 1.1二选一,微信生成的订单号，在支付通知中有返回  
+        //'transaction_id'=>'1',//微信订单号 1.2二选一,商户侧传给微信的订单号  
+        'refund_fee' => $refund_fee, //退款金额  
+        'total_fee' => $total_fee, //总金额  
+        'sign' => $ref//签名  
+        );  
+      
+        $url = "https://api.mch.weixin.qq.com/secapi/pay/refund";  
+        ; //微信退款地址，post请求  
+        $xml = toXml($refund);  
+        $ch = curl_init();  
+        curl_setopt($ch, CURLOPT_URL, $url);  
+        curl_setopt($ch, CURLOPT_HEADER, 1);  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1); //证书检查  
+        if ($useCert == true) {  
+            // 设置证书  
+            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
+            curl_setopt($ch, CURLOPT_SSLCERT, dirname(__FILE__) . '/cert/apiclient_cert.pem');  
+            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
+            curl_setopt($ch, CURLOPT_SSLKEY, dirname(__FILE__) . '/cert/apiclient_key.pem');  
+            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
+            curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cert/rootca.pem');  
+        }  
+        curl_setopt($ch, CURLOPT_POST, 1);  
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);  
+      
+        $xml = curl_exec($ch);
+      
+        // 返回结果0的时候能只能表明程序是正常返回不一定说明退款成功而已  
+        if ($xml) {  
+            curl_close($ch);  
+            // 把xml转化成数组  
+            libxml_disable_entity_loader(true);  
+            $xmlstring = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);  
+            //var_dump($xmlstring);  
+            $result['errNum'] = 0;  
+            $result['info'] = object_to_array($xmlstring);  
+            //var_dump($result);  
+            return $result;  
+        } else {  
+            $error = curl_errno($ch);  
+            curl_close($ch);  
+            // 错误的时候返回错误码。  
+            $result['errNum'] = $error;  
+            return $result;  
+        }  
+    }
+
     /**
      * 生成支付二维码
      * @param  array $order 订单 必须包含支付所需要的参数 body(产品描述)、total_fee(订单金额)、out_trade_no(订单号)、product_id(产品id)、trade_type(类型：JSAPI，NATIVE，APP)
@@ -218,7 +297,31 @@ class Weixinpay {
         return $r;
     }
 
+    function object_to_array($obj) {  
+        $obj = (array) $obj;  
+        foreach ($obj as $k => $v) {  
+            if (gettype($v) == 'resource') {  
+                return;  
+            }  
+            if (gettype($v) == 'object' || gettype($v) == 'array') {  
+                $obj[$k] = (array) object_to_array($v);  
+            }  
+        }  
+      
+      
+        return $obj;  
+    }
 
+    function nonceStr() {  
+        $chars = "abcdefghijklmnopqrstuvwxyz0123456789";  
+        $str = "";  
+        $length = 32;  
+        for ($i = 0; $i < $length; $i++) {  
+            $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);  
+        }  
+        // 随机字符串    
+        return $str;  
+    }  
 
 
 }

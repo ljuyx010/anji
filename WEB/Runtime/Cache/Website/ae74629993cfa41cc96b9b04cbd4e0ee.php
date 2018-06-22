@@ -194,7 +194,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
                             <?php if(is_array($dd)): foreach($dd as $key=>$v): ?><li>
-                                    <a href="mailbox.html">
+                                    <a class="J_menuItem" href="<?php echo U('Orders/edit',array('id'=>$v['id']));?>">
                                         <div>
                                             <i class="fa fa-tags fa-fw"></i> <?php echo ($v["ordernum"]); ?>
                                             <span class="pull-right text-muted small"><?php echo (date('m-d H:i',$v["ordtime"])); ?></span>
@@ -203,7 +203,7 @@
                                 </li>
                                 <li class="divider"></li><?php endforeach; endif; ?>
                             <?php if(is_array($shen)): foreach($shen as $key=>$s): ?><li>
-                                    <a href="profile.html">
+                                    <a class="J_menuItem" href="<?php echo U('After/nianshen');?>">
                                         <div>
                                             <i class="fa fa-warning fa-fw"></i> <?php echo ($s["carnum"]); ?> | <?php if($s['type'] == 1): ?>营运证<?php elseif($s['type'] == 2): ?>行车证<?php else: ?>保险<?php endif; ?>
                                             <span class="pull-right text-muted small">过期：<?php echo (date('Y-m-d',$s["dtime"])); ?></span>

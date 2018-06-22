@@ -11,6 +11,7 @@
     <link href="/WEB/Website/public/css/animate.min.css" rel="stylesheet">
     <link href="/WEB/Website/public/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 	<link rel="stylesheet" href="/WEB/Website/public/css/diy.css" />
+    <link href="/WEB/Website/public/css/plugins/toastr/toastr.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cRIblrzawnZeT319eL3dLssL"></script>
 </head>
 
@@ -105,11 +106,11 @@
                                 <label class="col-sm-2 control-label">订单状态</label>
                                 <div class="col-sm-4">
                                     <label class="checkbox-inline">
-                                        <input type="radio" <?php if($orders['zt'] == 1): ?>checked=""<?php endif; ?> value="1" name="zt">待支付</label>
+                                        <input type="radio" <?php if($orders['zt'] == 0): ?>checked=""<?php endif; ?> value="0" name="zt">待支付</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <?php if($orders['zt'] == 2): ?>checked=""<?php endif; ?> value="2" name="zt">已支付</label>
+                                        <input type="radio" <?php if($orders['zt'] == 1): ?>checked=""<?php endif; ?> value="1" name="zt">已支付</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <?php if(!$orders['zt']): ?>checked=""<?php endif; ?> value="0" name="zt">已完成</label>
+                                        <input type="radio" <?php if(!$orders['zt'] == 3): ?>checked=""<?php endif; ?> value="3" name="zt">已完成</label>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -157,8 +158,8 @@
                                     <input type="hidden" class="form-control" name="id" value="<?php echo ($orders["id"]); ?>">
                                     <button class="btn btn-primary" type="submit">保存</button>
                                 </div>
-                                <?php if($orders['zt'] == 2): ?><div class="col-sm-4">
-                                    <a href="<?php echo U('Orders/sendmaill',array('dh'=>$orders.ordernum));?>" class="btn btn-warning">下发短信通知</a>
+                                <?php if($orders['zt'] == 1): ?><div class="col-sm-4">
+                                    <input type="button" onclick="send()" class="btn btn-warning" value="下发短信通知"></input>
                                 </div><?php endif; ?>
                             </div>
                         </form>
@@ -173,9 +174,45 @@
 	<script src="/WEB/Website/public/js/content.min.js?v=1.0.0"></script>
     <script src="/WEB/Website/public/js/plugins/layer/laydate/laydate.js"></script>
     <script src="/public/js/map.js"></script>
+    <script src="/WEB/Website/public/js/plugins/toastr/toastr.min.js"></script>
+    <script>
+    $(function(){
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "progressBar": true,
+          "positionClass": "toast-top-center",
+          "onclick": null,
+          "showDuration": "400",
+          "hideDuration": "1000",
+          "timeOut": "7000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
+    });    
+    function send(){
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "<?php echo U('Orders/sendmail',array('dh'=>$orders['ordernum']));?>" ,//url
+            data: "",
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.code == 200){
+                   toastr.success(result.str);
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }</script>
     <script>
     laydate({elem:"#stime",event:"focus"});
-    laydate({elem:"#dtime",event:"focus"});
+    laydate({elem:"#dtime",event:"focus"});  
     </script>
 </body>
 </html>

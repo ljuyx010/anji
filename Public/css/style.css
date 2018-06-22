@@ -120,16 +120,16 @@ footer .bottom3 .hover{color: #DE0808;}
 .udline{line-height: 26px; border-bottom: #eee 1px solid;}
 .udline b{font-size:15px; font-weight: 600; color: #DE0808;}
 
-.slideTxtBox{ height:220px; overflow:hidden;  padding:10px 0; background:#fff;  text-align:left;  }
+/*用户订单列表*/
+.slideTxtBox{ min-height:220px; overflow:hidden;  padding:10px 0; background:#fff;  text-align:left;  }
 .slideTxtBox .hd{ height:28px; line-height:28px; padding:0 15px; border-bottom:2px solid #DE0808; font-size:14px; }
 .slideTxtBox .hd ul{ overflow:hidden; zoom:1;  }
-.slideTxtBox .hd ul li{ float:left; }
-.slideTxtBox .hd ul li a{ display:block; padding:0 15px;  }
-.slideTxtBox .hd ul li a:hover{ text-decoration:none;  }
-.slideTxtBox .hd ul li.on a{ background:#DE0808; color:#fff; font-weight:bold;  }
-.slideTxtBox .bd{ padding:10px;  }
-.slideTxtBox .bd li{ height:24px; line-height:24px;   }
-.slideTxtBox .bd li .date{ float:right; color:#999;  }
+.slideTxtBox .hd ul .dd{padding: 5px 0 ; width: 97%; margin: 5px auto 10px; border-bottom: #eee 1px dashed;}
+.slideTxtBox .hd ul .dd strong{font-size: 16px; margin-right: 20px;}
+.slideTxtBox .hd ul .dd span{margin-right: 20px;}
+.slideTxtBox .hd ul .dd a{float: right; margin-left: 10px; padding: 3px 10px; border-radius: 3px; color: #fff;}
+.slideTxtBox .hd ul .dd .zf{background: #7DCC4A}
+.slideTxtBox .hd ul .dd .qx{background: #999}
 /*inner end*/
 .bottom3 .sy{width:50%;color: #3A3A3A}
 .xd{width:50%;height:70px;display: flex; justify-content: center; align-items: center; font-size: 16px; font-weight: 500; color: #fff; background: #EE451E;}

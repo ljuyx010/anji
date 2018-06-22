@@ -49,6 +49,25 @@ class WeixinpayController extends CommonController{
 			$this->error('订单取消失败');
 		}
 	}
+
+	public function sq(){
+		$id=I('id','',intval);
+		$data=array('zt'=>-1,'backtime'=>time());
+		if(M('orders')->where(array('id'=>$id,'uid'=>session('stuID')))->save($data)){
+			$this->success('已申请取消订单',U('User/index'));
+		}else{
+			$this->error('申请失败请联系管理员');
+		}
+	}
+
+	public function qxsq(){
+		$id=I('id','',intval);
+		if(M('orders')->where(array('id'=>$id,'uid'=>session('stuID')))->setField('zt',1)){
+			$this->success('已取消申请',U('User/index'));
+		}else{
+			$this->error('取消申请失败');
+		}
+	}
 	
 	/**
 	 * notify_url接收页面
@@ -62,12 +81,13 @@ class WeixinpayController extends CommonController{
 			$dh=$result['out_trade_no'];
 			$jj=array(
 			'paytime'=>time(),
+			'out_refund_no'=>$result['transaction_id'],
 			'zt'=>1,
 			);
-			$c=M('orders')->where(array('order'=>$dh,'zt'=>0))->save($jj);			
+			$c=M('orders')->where(array('ordernum'=>$dh,'zt'=>0))->save($jj);			
 		}
 		if($c){	 
-			$or=M('orders')->where(array('order'=>$dh))->find();
+			$or=M('orders')->where(array('ordernum'=>$dh))->find();
 			M('user')->where(array('id'=>$or['uid']))->save(array('name'=>$or['uname'],'tel'=>$or['utel']));
 			$openid=M('user')->where(array('id'=>$or['uid']))->getField('openid');
 			$data=array(  

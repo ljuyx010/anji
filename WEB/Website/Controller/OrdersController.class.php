@@ -58,25 +58,45 @@ class OrdersController extends CommonController{
 	public function sendmail (){
 		$dh = I('dh');
 		$send=A('Dxin');
-		$rs=M('orders')->field('ordernum,uname,utel,stime,sdr')->where(array('ordernum'=>$dh))->find();
-		$rs2=M('ordcar')->field('lj_ordcar.carnum,driver,tel')->jion('LEFT JOIN lj_car on lj_ordcar.carnum=lj_car.carnum')->where(array('ordernum'=>$dh))->select();
-		$da=array('dh'=>$rs['ordernum'],'name'=>$rs['uname'],'tel'=>$rs['utel'],'time'=>date('Y-m-d',$v['stime']),'sdr'=>$v['sdr']);
-		$jg=1;
+		$rs=M('orders')->field('ordernum,uname,utel,stime,sdr,dtime,edr')->where(array('ordernum'=>$dh))->find();
+		$rs2=M('ordcar')->join('LEFT JOIN lj_car on lj_ordcar.carnum=lj_car.carnum')->field('lj_ordcar.carnum,driver,tel')->where(array('ordernum'=>$dh))->select();
+
+		$da=array('dh'=>$rs['ordernum'],'name'=>$rs['uname'],'tel'=>$rs['utel'],'stime'=>date('Y-m-d',$v['stime']),'sdr'=>$v['sdr'],'dtime'=>date('Y-m-d',$v['dtime']),'edr'=>$v['edr']);
+		$str="";
 		foreach ($rs2 as $k => $v) {
 			if(!$k){
-				$carnum=$v['carnum'];$name=$v['driver']."电话：".$v['tel'];
+				$carnum=$v['carnum'];$name=$v['driver'].",电话：".$v['tel'];
 			}else{
 				$name=$name.",车牌号：".$v['carnum']."姓名：".$v['driver']."电话：".$v['tel'];
 			}
-			$js=$send->sendMsg($v['tel'],mobanid,$da);
-			$jg=$js&&$jg;
+			$js=$send->sendMsg($v['tel'],'SMS_137673377',$da);
+			if($js){
+				$str=$str."<br>司机：".$v['driver']."短信发送成功";
+			}else{
+				$str=$str."<br>司机：".$v['driver']."短信发送失败";
+			}
 		}
-		$kh=array('name'=>$rs['uname'],'ordernum'=>$v['ordernum'],'carnum'=>$carnum,'siji'=>$name);
-		$jg2=$send->sendMsg($rs['utel'],mobanid,$kh);
-		if($jg&&$jg2){
-			$this->success('短信发送成功',U('Orders/index'));
+		$kh=array('name'=>$rs['uname'],'dh'=>$rs['ordernum'],'carnum'=>$carnum,'siji'=>$name);				
+		$jg2=$send->sendMsg($rs['utel'],'SMS_137672888',$kh);
+		if($jg2){
+			$str=$str."<br>用户：".$rs['uname']."短信发送失败";
+			M('orders')->where('ordernum='.$rs['ordernum'])->setField('zt',2);
 		}else{
-			$this->error('短信发送失败');
+			$str=$str."<br>用户：".$rs['uname']."短信发送失败";
+		}
+		$this->ajaxReturn(array('code'=>200,'str'=>$str));
+	}
+
+	public function tk(){
+		$dh=I('dh');
+		Vendor('Weixinpay.Weixinpay');
+		$wxpay=new \Weixinpay();		
+		$data=$wxpay->refund($dh);
+		if($data['result_code']=="SUCCESS"){
+			M('orders')->where('ordernum='.$dh)->save(array('refund_no'=>$data['refund_id'],'zt'=>-2,'backtime'=>time()));
+			$this->success('退款已成功提交',U('Orders/index'));
+		}else{
+			$this->error('退款提交失败');
 		}
 	}
 
