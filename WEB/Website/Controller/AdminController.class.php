@@ -69,7 +69,7 @@ Class AdminController extends CommonController{
 	public function deleteu(){
 		$id=I('id');
 		if(M('admin')->where(array('id'=>$id))->delete()){
-			M('auth_group_access')->where('uid='.$_POST['id'])->delete();
+			M('auth_group_access')->where('uid='.$id)->delete();
 			$this->success('删除成功！',U('Admin/rule'));
 		}else{
 			$this->error('删除失败！');
@@ -197,15 +197,14 @@ Class AdminController extends CommonController{
 	}
 
 	public function modify (){
-		if($_POST['pic']){
-			$data['pic']=$_POST['pic'];
-		}else if($_POST['password'] && $_POST['password']==$_POST['password2']){
-			$data['password']=I('password','',md5);
-		}else if($_POST['password']!=$_POST['password2']){
-			$this->error('两次密码不一致');
+		if($_POST['pic'] || $_POST['password']){
+			if($_POST['pic']){$data['pic']=$_POST['pic'];}
+			if($_POST['password'] && $_POST['password']==$_POST['password2']){$data['password']=I('password','',md5);}
+			if($_POST['password']!=$_POST['password2']){$this->error('两次密码不一致');}
 		}else{
 			$this->error('数据不能为空');
 		}
+		
 		$rs=M('admin')->where('id='.session('user.id'))->save($data);
 		if($rs){$this->success('保存成功',U('Admin/account'));}else{$this->error('保存失败');}
 	}

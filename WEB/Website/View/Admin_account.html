@@ -53,14 +53,15 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-4">
-                                    <input type="password" class="form-control" name="password" value="">
+                                    <input type="password" class="form-control" name="password" value=""/>
+                                    <span class="help-block m-b-none">不修改则留空</span>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">确认密码</label>
                                 <div class="col-sm-4">
-                                    <input type="password" class="form-control" name="password2" value="">
+                                    <input type="password" class="form-control" name="password2" value=""/>
                                     <input type="hidden" name="id" value="{$Think.session.user.id}"></input>
                                 </div>
                             </div>                                        
@@ -82,6 +83,7 @@
 	<script src="__PUBLIC__/kindeditor/kindeditor-all.js"></script>
 	<script src="__PUBLIC__/kindeditor/lang/zh-CN.js"></script>
     <script src="__PUBLIC__/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript">var app="__ROOT__";</script>
     <script src="__PUBLIC__/plupload/upload.js"></script>
 	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
 </body>
