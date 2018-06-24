@@ -57,6 +57,8 @@ class IndexController extends CommonController {
         $this->display();
     }
 	
-	
+	public function close(){
+		$this->display();
+	}
     
 }

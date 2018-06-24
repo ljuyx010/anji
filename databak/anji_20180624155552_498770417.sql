@@ -1,4 +1,4 @@
-/* This file is created by MySQLReback 2018-06-23 11:54:34 */
+/* This file is created by MySQLReback 2018-06-24 15:55:52 */
  /* 创建表结构 `lj_admin` */
  DROP TABLE IF EXISTS `lj_admin`;/* MySQLReback Separation */ CREATE TABLE `lj_admin` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -7,10 +7,11 @@
   `name` varchar(20) NOT NULL COMMENT '名称',
   `logintime` int(10) DEFAULT NULL,
   `pic` varchar(50) DEFAULT NULL,
+  `csr` int(1) DEFAULT '0' COMMENT '创始人不鉴权',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_admin` */
- INSERT INTO `lj_admin` VALUES ('1','dpwl_lj','b2c07ad92393f08b7b5acc539bd9e03b','李俊','1529723667','/Upload/image/2018-06-23/5b2da3622873f.jpg');/* MySQLReback Separation */
+ INSERT INTO `lj_admin` VALUES ('1','dpwl_lj','b2c07ad92393f08b7b5acc539bd9e03b','李俊','1529826881','/Upload/image/2018-06-23/5b2da3622873f.jpg','1'),('3','anjilvyou','e10adc3949ba59abbe56e057f20f883e','安吉旅游','1529826904','','0');/* MySQLReback Separation */
  /* 创建表结构 `lj_article` */
  DROP TABLE IF EXISTS `lj_article`;/* MySQLReback Separation */ CREATE TABLE `lj_article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -33,12 +34,12 @@
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `title` char(100) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `rules` varchar(255) NOT NULL DEFAULT '' COMMENT '规则id',
+  `rules` varchar(2550) NOT NULL DEFAULT '' COMMENT '规则id',
   `describe` char(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_auth_group` */
- INSERT INTO `lj_auth_group` VALUES ('1','超级管理员','1','1,2,10,11,12,13,14,15,18,19,20,22,16,17,21,69,23,24,25,26,27,28,29,30,43,44,3,4,5,31,32,33,34,35,36,37,38,39,40,41,42,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,6,7,8,9,60,61,62,63,64,65,66,67,68,70,71,72,73,74,75,76,77,78,87,79,80,81,82,83,84,85,86',''),('2','办公室','1','1,2,31,32,33,34,35,36,37,38,46,47,48,49','');/* MySQLReback Separation */
+ INSERT INTO `lj_auth_group` VALUES ('1','超级管理员','1','1,2,88,89,90,91,92,93,10,11,12,13,14,15,18,19,20,22,16,17,21,69,23,24,25,26,27,28,29,30,43,44,3,4,5,31,32,33,34,35,36,37,38,39,40,41,42,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,6,7,8,9,60,61,62,63,64,65,66,67,68,70,71,72,73,74,75,76,77,78,87,79,80,81,82,83,84,85,86',''),('2','办公室','1','1,2,31,32,33,34,35,36,37,38,46,47,48,49','');/* MySQLReback Separation */
  /* 创建表结构 `lj_auth_group_access` */
  DROP TABLE IF EXISTS `lj_auth_group_access`;/* MySQLReback Separation */ CREATE TABLE `lj_auth_group_access` (
   `uid` mediumint(8) unsigned NOT NULL,
@@ -48,7 +49,7 @@
   KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_auth_group_access` */
- INSERT INTO `lj_auth_group_access` VALUES ('1','1');/* MySQLReback Separation */
+ INSERT INTO `lj_auth_group_access` VALUES ('1','1'),('3','1');/* MySQLReback Separation */
  /* 创建表结构 `lj_auth_rule` */
  DROP TABLE IF EXISTS `lj_auth_rule`;/* MySQLReback Separation */ CREATE TABLE `lj_auth_rule` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
@@ -60,9 +61,13 @@
   `sort` varchar(30) NOT NULL DEFAULT '0' COMMENT '排序规则',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
+) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_auth_rule` */
- INSERT INTO `lj_auth_rule` VALUES ('1','Index/index','后台首页','1','1','','0'),('2','Index/welcom','欢迎页','2','1','','0,1'),('3','User/index','会员管理','1','1','','0'),('4','User/edit','查看会员信息','2','1','','0,3'),('5','User/runUpdata','修改会员信息','2','1','','0,3'),('6','Car/classtype','车型管理','1','1','','0'),('7','Car/addtype','添加车型','2','1','','0,6'),('8','Car/edit','修改车型','2','1','','0,6'),('9','Car/delete','删除车型','2','1','','0,6'),('10','Car/index','车辆管理','1','1','','0'),('11','Car/addcar','添加车辆','2','1','','0,10'),('12','Car/editcar','修改车辆','2','1','','0,10'),('13','Car/delcar','删除车辆','2','1','','0,10'),('14','Orders/index','订单管理','1','1','','0'),('15','Orders/xianx','业务登记','2','1','','0,14'),('16','Orders/edit','查看订单详情','2','1','','0,14'),('17','Orders/runedit','修改线上订单','2','1','','0,14'),('18','Orders/add','添加线下订单','3','1','','0,14,15'),('19','Orders/editx','修改线下订单','3','1','','0,14,15'),('20','Orders/del','删除线下订单','3','1','','0,14,15'),('21','Orders/sendmail','发送短信通知','2','1','','0,14'),('22','Orders/tk','同意退款','3','1','','0,14,15'),('23','Hr/people','员工管理','1','1','','0'),('24','Hr/add','添加员工','2','1','','0,23'),('25','Hr/updata','修改员工信息','2','1','','0,23'),('26','Hr/delete','删除员工','2','1','','0,23'),('27','Hr/gongzi','员工工资管理','1','1','','0'),('28','Hr/addg','添加工资记录','2','1','','0,27'),('29','Hr/updatag','修改工资记录','2','1','','0,27'),('30','Hr/deleteg','删除工资记录','2','1','','0,27'),('31','Hr/xiaofei','消费审批管理','1','1','','0'),('32','Hr/addx','添加消费审批','2','1','','0,31'),('33','Hr/updatax','修改消费审批','2','1','','0,31'),('34','Hr/deletex','删除消费审批','2','1','','0,31'),('35','Jobs/index','招聘信息','1','1','','0'),('36','Jobs/add','添加招聘信息','2','1','','0,35'),('37','Jobs/edit','修改招聘信息','2','1','','0,35'),('38','Jobs/delete','删除招聘信息','2','1','','0,35'),('39','Finacal/etc','ETC充值管理','1','1','','0'),('40','Finacal/add','添加充值记录','2','1','','0,39'),('41','Finacal/updata','修改充值记录','2','1','','0,39'),('42','Finacal/delete','删除充值记录','2','1','','0,39'),('43','Finacal/gz','司机月提成统计','2','1','','0,27'),('44','Finacal/gzxq','提成详情','3','1','','0,27,43'),('45','Finacal/index','财务统计','1','1','','0'),('46','Article/index','文章管理','1','1','','0'),('47','Article/add','添加文章','2','1','','0,46'),('48','Article/edit','修改文章','2','1','','0,46'),('49','Article/delete','删除文章','2','1','','0,46'),('50','Admin/user','系统用户管理','1','1','','0'),('51','Admin/runaddu','添加修改系统用户','2','1','','0,50'),('52','Admin/deleteu','删除系统用户','2','1','','0,50'),('53','Admin/group','用户组管理','1','1','','0'),('54','Admin/runaddg','添加修改用户组','2','1','','0,53'),('55','Admin/setaccess','分配权限','2','1','','0,53'),('56','Admin/deleteg','删除用户组','2','1','','0,53'),('57','Admin/rule','权限列表','1','1','','0'),('58','Admin/runadd','添加修改权限','2','1','','0,57'),('59','Admin/delete','删除权限','2','1','','0,57'),('60','Bak/index','备份数据','1','1','','0'),('61','Outfit/index','设备管理','1','1','','0'),('62','Outfit/add','添加设备','2','1','','0,61'),('63','Outfit/updata','修改设备','2','1','','0,61'),('64','Outfit/delete','删除设备','2','1','','0,61'),('65','Outfit/car','随车设备','2','1','','0,61'),('66','Outfit/updatas','管理随车设备','2','1','','0,61'),('67','Outfit/deletes','删除随车设备','3','1','','0,61,66'),('68','Outfit/adds','添加设备/遗失设备','3','1','','0,61,66'),('69','After/dingd','完成订单','2','1','','0,14'),('70','After/finish','车辆返回里程油料登记','1','1','','0'),('71','After/weixiu','车辆维修保养管理','1','1','','0'),('72','After/addw','添加维修保养','2','1','','0,71'),('73','After/updataw','修改维修保养记录','2','1','','0,71'),('74','After/deletew','删除维修保养记录','2','1','','0,71'),('75','After/tousu','投诉/违章管理','1','1','','0'),('76','After/addt','添加投诉违章','2','1','','0,75'),('77','After/updatat','修改投诉违章','2','1','','0,75'),('78','After/deletet','删除投诉违章','2','1','','0,75'),('79','After/nianshen','车辆年审保险管理','1','1','','0'),('80','After/addn','添加年审保险','2','1','','0,79'),('81','After/updatan','修改年审保险','2','1','','0,79'),('82','After/deleten','删除年审保险','2','1','','0,79'),('83','After/safe','事故管理','1','1','','0'),('84','After/adds','添加事故','2','1','','0,83'),('85','After/updatas','修改事件记录','2','1','','0,83'),('86','After/deletes','删除事故记录','2','1','','0,83'),('87','After/tongj','违章投诉统计','2','1','','0,75');/* MySQLReback Separation */
+ INSERT INTO `lj_auth_rule` VALUES ('1','Index/index','后台首页','1','1','','0'),('2','Index/welcom','欢迎页','2','1','','0,1'),('3','User/index','会员管理','1','1','','0'),('4','User/edit','查看会员信息','2','1','','0,3'),('5','User/runUpdata','修改会员信息','2','1','','0,3'),('6','Car/classtype','车型管理','1','1','','0'),('7','Car/addtype','添加车型','2','1','','0,6'),('8','Car/edit','修改车型','2','1','','0,6'),('9','Car/delete','删除车型','2','1','','0,6'),('10','Car/index','车辆管理','1','1','','0'),('11','Car/addcar','添加车辆','2','1','','0,10'),('12','Car/editcar','修改车辆','2','1','','0,10'),('13','Car/delcar','删除车辆','2','1','','0,10'),('14','Orders/index','订单管理','1','1','','0'),('15','Orders/xianx','业务登记','2','1','','0,14'),('16','Orders/edit','查看订单详情','2','1','','0,14'),('17','Orders/runedit','修改线上订单','2','1','','0,14'),('18','Orders/add','添加线下订单','3','1','','0,14,15'),('19','Orders/editx','修改线下订单','3','1','','0,14,15'),('20','Orders/del','删除线下订单','3','1','','0,14,15'),('21','Orders/sendmail','发送短信通知','2','1','','0,14'),('22','Orders/tk','同意退款','3','1','','0,14,15'),('23','Hr/people','员工管理','1','1','','0'),('24','Hr/add','添加员工','2','1','','0,23'),('25','Hr/updata','修改员工信息','2','1','','0,23'),('26','Hr/delete','删除员工','2','1','','0,23'),('27','Hr/gongzi','员工工资管理','1','1','','0'),('28','Hr/addg','添加工资记录','2','1','','0,27'),('29','Hr/updatag','修改工资记录','2','1','','0,27'),('30','Hr/deleteg','删除工资记录','2','1','','0,27'),('31','Hr/xiaofei','消费审批管理','1','1','','0'),('32','Hr/addx','添加消费审批','2','1','','0,31'),('33','Hr/updatax','修改消费审批','2','1','','0,31'),('34','Hr/deletex','删除消费审批','2','1','','0,31'),('35','Jobs/index','招聘信息','1','1','','0'),('36','Jobs/add','添加招聘信息','2','1','','0,35'),('37','Jobs/edit','修改招聘信息','2','1','','0,35'),('38','Jobs/delete','删除招聘信息','2','1','','0,35'),('39','Finacal/etc','ETC充值管理','1','1','','0'),('40','Finacal/add','添加充值记录','2','1','','0,39'),('41','Finacal/updata','修改充值记录','2','1','','0,39'),('42','Finacal/delete','删除充值记录','2','1','','0,39'),('43','Finacal/gz','司机月提成统计','2','1','','0,27'),('44','Finacal/gzxq','提成详情','3','1','','0,27,43'),('45','Finacal/index','财务统计','1','1','','0'),('46','Article/index','文章管理','1','1','','0'),('47','Article/add','添加文章','2','1','','0,46'),('48','Article/edit','修改文章','2','1','','0,46'),('49','Article/delete','删除文章','2','1','','0,46'),('50','Admin/user','系统用户管理','1','1','','0'),('51','Admin/runaddu','添加修改系统用户','2','1','','0,50'),('52','Admin/deleteu','删除系统用户','2','1','','0,50'),('53','Admin/group','用户组管理','1','1','','0'),('54','Admin/runaddg','添加修改用户组','2','1','','0,53'),('55','Admin/setaccess','分配权限','2','1','','0,53'),('56','Admin/deleteg','删除用户组','2','1','','0,53'),('57','Admin/rule','权限列表','1','1','','0'),('58','Admin/runadd','添加修改权限','2','1','','0,57'),('59','Admin/delete','删除权限','2','1','','0,57'),('60','Bak/index','备份数据','1','1','','0'),('61','Outfit/index','设备管理','1','1','','0'),('62','Outfit/add','添加设备','2','1','','0,61'),('63','Outfit/updata','修改设备','2','1','','0,61'),('64','Outfit/delete','删除设备','2','1','','0,61'),('65','Outfit/car','随车设备','2','1','','0,61'),('66','Outfit/updatas','管理随车设备','2','1','','0,61'),('67','Outfit/deletes','删除随车设备','3','1','','0,61,66'),('68','Outfit/adds','添加设备/遗失设备','3','1','','0,61,66'),('69','After/dingd','完成订单','2','1','','0,14'),('70','After/finish','车辆返回里程油料登记','1','1','','0'),('71','After/weixiu','车辆维修保养管理','1','1','','0'),('72','After/addw','添加维修保养','2','1','','0,71'),('73','After/updataw','修改维修保养记录','2','1','','0,71'),('74','After/deletew','删除维修保养记录','2','1','','0,71'),('75','After/tousu','投诉/违章管理','1','1','','0'),('76','After/addt','添加投诉违章','2','1','','0,75'),('77','After/updatat','修改投诉违章','2','1','','0,75'),('78','After/deletet','删除投诉违章','2','1','','0,75'),('79','After/nianshen','车辆年审保险管理','1','1','','0'),('80','After/addn','添加年审保险','2','1','','0,79'),('81','After/updatan','修改年审保险','2','1','','0,79'),('82','After/deleten','删除年审保险','2','1','','0,79'),('83','After/safe','事故管理','1','1','','0'),('84','After/adds','添加事故','2','1','','0,83'),('85','After/updatas','修改事件记录','2','1','','0,83'),('86','After/deletes','删除事故记录','2','1','','0,83'),('87','After/tongj','违章投诉统计','2','1','','0,75'),('88','System/index','基础设置','2','1','','0,1'),('89','System/extend','扩展设置','2','1','','0,1'),('90','System/banner','轮播管理','2','1','','0,1');/* MySQLReback Separation */
+ /* 插入数据 `lj_auth_rule` */
+ INSERT INTO `lj_auth_rule` VALUES ('91','System/add','添加轮播图','3','1','','0,1,90');/* MySQLReback Separation */
+ /* 插入数据 `lj_auth_rule` */
+ INSERT INTO `lj_auth_rule` VALUES ('92','System/edit','修改轮播','3','1','','0,1,90'),('93','System/delete','删除轮播','3','1','','0,1,90');/* MySQLReback Separation */
  /* 创建表结构 `lj_bad` */
  DROP TABLE IF EXISTS `lj_bad`;/* MySQLReback Separation */ CREATE TABLE `lj_bad` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -148,6 +153,21 @@
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_jobs` */
  INSERT INTO `lj_jobs` VALUES ('1','高薪招聘java高级开发工程师','工程师','武汉','5','8000-10000','1528128000','0','1','<span style=\"color:#333333;font-family:arial, &quot;Hiragino Sans GB&quot;, &quot;Microsoft Yahei&quot;, Î¢ÈíÑÅºÚ, ËÎÌå, Tahoma, Arial, Helvetica, STHeiti;font-size:14px;background-color:#FFFFFF;\">1.本科以上学历，计算机相关专业，5年以上B/S架构、基于Java技术的业务系统或网站的分析、设计、开发经验，有过大数据量、大并发的系统的设计和开发经验者优先，对人工智能感兴趣者优先；2.具备较强的需求分析、架构搭建、产品设计、团队管理等能力3.男女不限，23岁以上，35岁以下，性格开朗，有责任感，具有创业期艰苦奋斗的精神4.精通javascript,css,html,ajax,springMVC等前端技术；5.精通JAVA,J2EE体系，熟练运用Struts2、Spring、Hibernate等主流开源框架；6.精通Mysql数据库系统，能进行数据库安装、性能分析和调优；7.精通Unix/Linux操作系统等技术者优先；8.熟练运用常用集成开发环境（如：Eclipse，精通版本管理工具，如：vss，cvs，svn等；9.熟悉多种应用服务器如：Tomcat、BEA Weblogic等。10.喜欢钻研各种开发技术、喜欢研究开源代码，有良好的沟通、团队协作能力，责任心强，性格稳定，能够承受一定的工作压力。岗位职责：1、参与系统开发、部署和集成，负责设计和搭建软件开发项目系统架构（平台、数据库、接口和应用框架等），解决开发中各种系统构架问题，保证技术领先性，稳定性；2、参与系统概要设计，详细升级的编制，根据公司技术文档规范要求编写相应的技术文档等；3、负责组织技术架构，解决方案的评审。待遇：面议。据个人工作能力而定。福利待遇：五险，生日奖金，过节费，工作满一年以上的员工，可享受带薪婚假，产假，陪产假等等。升职空间：技术主管、技术总监，升职另有岗位津贴</span>');/* MySQLReback Separation */
+ /* 创建表结构 `lj_jsuan` */
+ DROP TABLE IF EXISTS `lj_jsuan`;/* MySQLReback Separation */ CREATE TABLE `lj_jsuan` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `ordid` int(10) NOT NULL COMMENT '订单id',
+  `ordernum` varchar(20) NOT NULL COMMENT '订单编号',
+  `payment` decimal(10,2) DEFAULT NULL COMMENT '尾款',
+  `mileage` float(10,1) DEFAULT NULL COMMENT '总里程',
+  `wage` decimal(10,2) DEFAULT NULL COMMENT '司机提成',
+  `park` decimal(4,2) DEFAULT NULL COMMENT '停车费',
+  `zhusu` decimal(4,2) DEFAULT NULL COMMENT '住宿费',
+  `meals` decimal(5,2) DEFAULT NULL COMMENT '餐费',
+  `oil` decimal(5,2) DEFAULT NULL COMMENT '油费',
+  `oilm` float(5,1) DEFAULT NULL COMMENT '加油量',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 创建表结构 `lj_ordcar` */
  DROP TABLE IF EXISTS `lj_ordcar`;/* MySQLReback Separation */ CREATE TABLE `lj_ordcar` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -160,7 +180,7 @@
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_ordcar` */
- INSERT INTO `lj_ordcar` VALUES ('1','201806198055','鄂k8541zx','','','','');/* MySQLReback Separation */
+ INSERT INTO `lj_ordcar` VALUES ('1','201806198055','鄂k8541zx','0.0','0.00','0.0','0.00');/* MySQLReback Separation */
  /* 创建表结构 `lj_orders` */
  DROP TABLE IF EXISTS `lj_orders`;/* MySQLReback Separation */ CREATE TABLE `lj_orders` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -191,7 +211,7 @@
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_orders` */
- INSERT INTO `lj_orders` VALUES ('1','','201806198055','李俊','15871295812','宜昌市夷陵区三峡大坝旅游景区','孝感市孝南区乾坤购物','1529636154','1529337600','1529337600','0','1995.14','测试订单号','0','1','0','宇通35座','舒适豪华旅游大巴','1','1','','2','','','');/* MySQLReback Separation */
+ INSERT INTO `lj_orders` VALUES ('1','0','201806198055','李俊','15871295812','宜昌市夷陵区三峡大坝旅游景区','孝感市孝南区乾坤购物','1529636154','1529337600','1529337600','0','1995.14','测试订单号','0','1','0','宇通35座','舒适豪华旅游大巴','1','1','0','2','0','','');/* MySQLReback Separation */
  /* 创建表结构 `lj_people` */
  DROP TABLE IF EXISTS `lj_people`;/* MySQLReback Separation */ CREATE TABLE `lj_people` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -239,7 +259,7 @@
   UNIQUE KEY `session_id` (`session_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;/* MySQLReback Separation */
  /* 插入数据 `lj_session` */
- INSERT INTO `lj_session` VALUES ('q2p6fivujhujkc8rbvs05o2ea4','1529733271','user|a:7:{s:2:\"id\";s:1:\"1\";s:7:\"account\";s:7:\"dpwl_lj\";s:8:\"password\";s:32:\"b2c07ad92393f08b7b5acc539bd9e03b\";s:4:\"name\";s:6:\"李俊\";s:9:\"logintime\";s:10:\"1529718365\";s:3:\"pic\";s:42:\"/Upload/image/2018-06-23/5b2da3622873f.jpg\";s:5:\"group\";s:15:\"超级管理员\";}'),('f3ld7hrepfeqm4hcd5evr044r3','1529730756','user|a:7:{s:2:\"id\";s:1:\"1\";s:7:\"account\";s:7:\"dpwl_lj\";s:8:\"password\";s:32:\"b2c07ad92393f08b7b5acc539bd9e03b\";s:4:\"name\";s:6:\"李俊\";s:9:\"logintime\";s:10:\"1529717780\";s:3:\"pic\";s:42:\"/Upload/image/2018-06-23/5b2da3622873f.jpg\";s:5:\"group\";s:15:\"超级管理员\";}');/* MySQLReback Separation */
+ INSERT INTO `lj_session` VALUES ('n5bust05avkm7jkqbqhmfmjcf3','1529834129','user|a:8:{s:2:\"id\";s:1:\"1\";s:7:\"account\";s:7:\"dpwl_lj\";s:8:\"password\";s:32:\"b2c07ad92393f08b7b5acc539bd9e03b\";s:4:\"name\";s:6:\"李俊\";s:9:\"logintime\";s:10:\"1529808359\";s:3:\"pic\";s:42:\"/Upload/image/2018-06-23/5b2da3622873f.jpg\";s:3:\"csr\";s:1:\"1\";s:5:\"group\";s:15:\"超级管理员\";}');/* MySQLReback Separation */
  /* 创建表结构 `lj_shen` */
  DROP TABLE IF EXISTS `lj_shen`;/* MySQLReback Separation */ CREATE TABLE `lj_shen` (
   `id` int(10) NOT NULL AUTO_INCREMENT,

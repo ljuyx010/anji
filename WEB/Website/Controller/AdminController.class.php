@@ -6,7 +6,7 @@ Class AdminController extends CommonController{
 	
 	public function user()
 	{
-		$this->user=D('admin')->relation(true)->field('password',true)->where('id >1')->select();
+		$this->user=D('admin')->relation(true)->field('password',true)->where('csr=0')->select();
 		$this->groupname=M('auth_group')->field('id,title')->select();
 		$this->display();
 	}

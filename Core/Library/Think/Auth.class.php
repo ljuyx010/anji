@@ -101,8 +101,7 @@ class Auth{
     public function check($name, $uid, $type=1, $mode='url', $relation='or') {
         if (!$this->_config['AUTH_ON'])
             return true;
-        $authList = $this->getAuthList($uid,$type); //获取用户需要验证的所有有效规则列表
-        $allauthList = $this->allAuthList(); //获取所有有效规则列表
+        $authList = $this->getAuthList($uid,$type); //获取用户需要验证的所有有效规则列表        
         if (is_string($name)) {
             $name = strtolower($name);
             if (strpos($name, ',') !== false) {
@@ -128,9 +127,7 @@ class Auth{
                 $list[] = $auth ;
             }
         }
-        if(!array_intersect($name,$allauthList)){
-            return true;
-        }
+        
         if ($relation == 'or' and !empty($list)) {
             return true;
         }
@@ -160,15 +157,7 @@ class Auth{
         $groups[$uid]=$user_groups?:array();
         return $groups[$uid];
     }
-
-    //读取数据库中所有的权限列表
-    protected function allAuthList(){
-        $rules = M()->table($this->_config['AUTH_RULE'])->field('condition,name')->select();
-        foreach($rules as $rule){
-            $authList[] = strtolower($rule['name']);
-        }
-        return array_unique($authList);
-    }
+    
 
     /**
      * 获得权限列表
