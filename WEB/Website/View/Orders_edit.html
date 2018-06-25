@@ -94,8 +94,8 @@
                                 <div class="col-sm-4">
                                     <p class="form-control-static">
                                     <switch name="orders.zt">
-                                        <case value="-2">已退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},退款时间：{$backtime|date='Y-m-d H:i',###}</case>
-                                        <case value="-1">申请退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},申请时间：{$orders.paytime|date='Y-m-d H:i',###}</case>
+                                        <case value="-2">已退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},退款时间：{$orders.backtime|date='Y-m-d H:i',###}</case>
+                                        <case value="-1">申请退款，付款时间：{$orders.paytime|date='Y-m-d H:i',###},申请退款时间：{$orders.backtime|date='Y-m-d H:i',###}</case>
                                         <case value="0">待付款</case>
                                         <case value="1">已付款，付款时间：{$orders.paytime|date='Y-m-d H:i',###}</case>
                                         <case value="3">已完成，付款时间：{$orders.paytime|date='Y-m-d H:i',###}</case>

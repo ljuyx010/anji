@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="__ROOT__/public/jump/sweetalert.css" />
 
 </head>
-<body   style="margin:auto;width:20%;margin-top:20%;border:1px solid red;background:#F9F9F9">
+<body   style="margin:auto;width:20%;margin-top:20%;background:#F9F9F9">
     <div class="system-message">
       <!-- 成功提示 -->
         <?php if(isset($message)) {?>
@@ -37,7 +37,7 @@
               <div class="sa-placeholder"></div>
               <div class="sa-fix"></div>
             </div><div class="sa-icon sa-custom" style="display: none; width: 80px; height: 80px; background-image: url(__ROOT__/public/jump/thumbs-up.jpg);"></div><h2><?php echo(strip_tags($message));?></h2>
-            <p style="display: block;">正在跳转，等待时间： <b id="wait"><?php echo($waitSecond);?></b></p>
+            <p style="display: none;">正在跳转，等待时间： <b id="wait"><?php echo($waitSecond);?></b></p>
             <fieldset>
               <input type="text" tabindex="3" placeholder="">
               <div class="sa-input-error"></div>
@@ -67,7 +67,7 @@
           <div class="sa-placeholder"></div>
           <div class="sa-fix"></div>
         </div><div class="sa-icon sa-custom" style="display: none;"></div><h2><?php echo(strip_tags($error));?>!</h2>
-        <p style="display: block;">正在跳转，等待时间： <b id="wait"><?php echo($waitSecond);?></b></p>
+        <p style="display: none;">正在跳转，等待时间： <b id="wait"><?php echo($waitSecond);?></b></p>
         <fieldset>
           <input type="text" tabindex="3" placeholder="">
           <div class="sa-input-error"></div>
@@ -80,7 +80,7 @@
         </div></div>
         <?php } ?>
         <p class="detail"></p>
-        <p class="jump">
+        <p class="jump" style="display: none;">
             页面自动 <a id="href" href="<?php echo($jumpUrl);?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond);?></b>
         </p>
     </div>

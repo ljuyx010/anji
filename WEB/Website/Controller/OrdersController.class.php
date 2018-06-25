@@ -32,7 +32,7 @@ class OrdersController extends CommonController{
 
 	public function edit() {
 		$id = I('id','',intval);
-		$orders = M('orders')->jion('LEFT JOIN lj_user on lj_orders.uid==lj_user.id')->field('lj_orders.*,lj_user.nickname,lj_user.photo')->where(array('id'=>$id))->find();
+		$orders = M('orders')->join('LEFT JOIN lj_user on lj_orders.uid=lj_user.id')->field('lj_orders.*,lj_user.nickname,lj_user.photo')->where(array('lj_orders.id'=>$id))->find();
 		$this->carnum=M('ordcar')->field('id,carnum')->where(array('ordernum'=>$orders['ordernum']))->select();
 		$this->orders = $orders;
 		$this->display();		
@@ -127,7 +127,7 @@ class OrdersController extends CommonController{
 		
 		$gs=M('class')->field('classname,title,oilj,oilh,glf,lr')->where('id='.$cx)->find();
 		if(!$id){
-			$where="zt>1 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
+			$where="zt>0 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
 			$rs=$db->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('carnum,stime,dtime')->where($where)->select();
 			if($rs){
 				$str="(";
@@ -141,7 +141,7 @@ class OrdersController extends CommonController{
 				}
 				$where1=" and carnum not in".$str;
 			}
-			$where2="type=".$cx.$where1." and ((xtime>".$start." and ktime >".$start.") or (xtime<".$start." and ktime <".$start."))";
+			$where2="type=".$cx.$where1." and ((xtime>=".$start." and ktime >=".$start.") or (xtime<=".$start." and ktime <=".$start."))";
 			$rs2=M('car')->field('carnum')->where($where2)->order('RAND()')->limit($num)->select();
 			$cn=count($rs2);
 			if($cn<$num){$this->error('该车型仅有'.$cn.'辆空闲，请选择'.$cn.'辆再搭配其他车型');}

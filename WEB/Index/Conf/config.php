@@ -64,7 +64,7 @@ return array(
     'MCHID'              => $meter['mhid'], // 微信支付MCHID 商户收款账号
     'KEY'                => $meter['apikey'], // 微信支付KEY
     'APPSECRET'          => $meter['AppSecret'], // 公众帐号secert (公众号支付专用)
-    'NOTIFY_URL'         => _URL_.'/index.php/Index/weixinpay/notify', // 接收支付状态的连接
+    'NOTIFY_URL'         => _URL_.'/index.php/Index/Weixin/notify', // 接收支付状态的连接
     ),
 	//支付宝配置参数
 	'alipay_config'=>array(

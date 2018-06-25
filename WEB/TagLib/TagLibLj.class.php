@@ -21,7 +21,8 @@ class TagLibLj extends TagLib{
 		$str=<<<str
 <?php
 		\$data = M('site')->field('value')->where(array('name'=>"basic"))->find();
-		echo unserialize(\$data['value'])['$name'];
+		\$value = unserialize(\$data['value']);
+		echo \$value['$name'];
 ?>
 str;
      return $str;

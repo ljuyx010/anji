@@ -54,7 +54,7 @@
                 <h4 class="modal-title">汽车租赁订单</h4>
                 <small class="font-bold">车型：{$data.classname}</small>
             </div>
-            <form method="post" action="{:U('Goods/reser')}"></form>
+            <form method="post" action="{:U('Goods/reser')}">
             <div class="modal-body">	
             	<div id="l-map"></div>
                 <div class="form-group">
@@ -62,8 +62,8 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                         <input type="text" class="form-control" name="username" value="">
-                        <input type="text" class="form-control" name="title" value="{$data.classname}">
-                        <input type="text" class="form-control" name="des" value="{$data.title}">
+                        <input type="hidden" class="form-control" name="title" value="{$data.classname}">
+                        <input type="hidden" class="form-control" name="des" value="{$data.title}">
                     </div>
                 </div>
 
@@ -122,9 +122,9 @@
                     <label class="font-noraml">接车地点</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
-                        <input type="text" class="form-control" id="suggestId" name="sdr" value="">	
-                        <span class="help-block m-b-none">根据输入提示,从下拉框中选择所需要的地址</span>					
+                        <input type="text" class="form-control" id="suggestId" name="sdr" value="">				
                     </div>
+                    <span class="help-block m-b-none">根据输入提示,从下拉框中选择所需要的地址</span>
                     <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                 </div>
 
@@ -155,6 +155,7 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">提交订单</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

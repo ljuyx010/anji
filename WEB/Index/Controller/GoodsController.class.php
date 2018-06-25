@@ -48,8 +48,8 @@ class GoodsController extends CommonController{
 	     array('gl','require','请正确选择接车地点和目的地')
 		);
 
-		$gs=M('class')->field('oilj,oilh,glf,lr')->where('id='.$cx)->find();
-		$where="zt>1 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
+		$gs=M('class')->field('oilj,oilh,glf,lr')->where(array('id'=>$cx))->find();
+		$where="zt>0 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
 		$rs=$db->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('carnum,stime,dtime')->where($where)->select();
 		if($rs){
 			$str="(";
@@ -63,16 +63,17 @@ class GoodsController extends CommonController{
 			}
 			$where1=" and carnum not in".$str;
 		}
-		$where2="type=".$cx.$where1." and ((xtime>".$start." and ktime >".$start.") or (xtime<".$start." and ktime <".$start."))";
+		$where2="type=".$cx.$where1." and ((xtime>=".$start." and ktime >=".$start.") or (xtime<=".$start." and ktime <=".$start."))";
 		$rs2=M('car')->field('carnum')->where($where2)->order('RAND()')->limit($num)->select();
 		$cn=count($rs2);
 		if($cn<$num){$this->error('该车型仅有'.$cn.'辆空闲，请选择'.$cn.'辆再搭配其他车型');}
 		
 		if($end-$start){$d=round(($end-$start)/3600/24);}else{$d=1;}
 		$money=(($gs['oilj']*$gs['oilh']+$gs['glf'])+$num*0.43)*$lc*$ora+$gs['lr']*$d;
-		$money=round($money/100)*100;	
+		$money=round($money/100)*100;
+		$orderSn="Y".time().rand(100,999);
 		$data = array(
-			'ordernum' => 'zwf',
+			'ordernum' => $orderSn,
 			'uname' => I('username'),
 			'utel' => I('tel'),
 			'gl' => $lc,
@@ -104,7 +105,7 @@ class GoodsController extends CommonController{
 		$jg2=M('ordcar')->addAll($rs2);
 
 		if($jg&&$jg2){
-			$this->success('下单成功',U('Weixinpay/index',array('id'=>$jg)));
+			$this->success('下单成功',U('Weixinpay/index',array('id'=>$orderSn)));
 		}else{
 			$this->error('下单失败，请稍后再试');
 		}

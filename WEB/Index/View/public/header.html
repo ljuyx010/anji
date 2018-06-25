@@ -31,8 +31,8 @@
     wx.ready(function(){  
         var options = {  
             title: '{$title}', // 分享标题  
-            link: 'http://{$_SERVER['SERVER_NAME']}__SELF__', // 分享链接，记得使用绝对路径，不能用document.URL
-            imgUrl: 'http://{$_SERVER['SERVER_NAME']}__PUBLIC__/images/logo.jpg', // 分享图标，记得使用绝对路径  
+            link: '{:_URL_}__SELF__', // 分享链接，记得使用绝对路径，不能用document.URL
+            imgUrl: '{:_URL_}__PUBLIC__/images/logo.jpg', // 分享图标，记得使用绝对路径  
             desc: '{$description}', // 分享描述  
             success: function () {  
                 console.info('分享成功！');  

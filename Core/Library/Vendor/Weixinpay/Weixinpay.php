@@ -13,7 +13,7 @@ class Weixinpay {
         'MCHID'              => '', // 微信支付MCHID 商户收款账号
         'KEY'                => '', // 微信支付KEY
         'APPSECRET'          => '',  //公众帐号secert
-        'NOTIFY_URL'         => _URL_.'/index.php/Index/Weixinpay/notify', // 接收支付状态的连接  改成自己的域名
+        'NOTIFY_URL'         => '/index.php/Index/Weixinpay/notify', // 接收支付状态的连接  改成自己的域名
         );
 
     // 构造函数
@@ -33,7 +33,7 @@ class Weixinpay {
         $config=array(
             'appid'=>$weixinpay_config['APPID'],
             'mch_id'=>$weixinpay_config['MCHID'],
-            'nonce_str'=>'yunguanjia',
+            'nonce_str'=>'anjilvyou',
             'spbill_create_ip'=> get_client_ip(),
             'notify_url'=>$weixinpay_config['NOTIFY_URL']
             );
@@ -77,7 +77,7 @@ class Weixinpay {
         // 获取xml
         $xml=file_get_contents('php://input', 'r'); 
         // 转成php数组
-        $data=$this->toArray($xml);
+        $data=$this->toArray($xml);        
         // 保存原sign
         $data_sign=$data['sign'];
         // sign不参与签名
@@ -172,7 +172,6 @@ class Weixinpay {
 			'trade_type'=>'JSAPI',// JSAPI公众号支付
 			'openid'=>$openid// 获取到的openid
 		);
-		
 		// 统一下单 获取prepay_id
 		$unified_order=$this->unifiedOrder($order);
 		// 获取当前时间戳
@@ -194,11 +193,12 @@ class Weixinpay {
     public function refund($dh) {  
         $config=$this->config;
         $dingd=M('orders')->where(array('ordernum'=>$dh))->find();
-        if($dingd['stime']-$dingd['backtime']<=86400*2){
-            $money=$dingd['money']*0.9*100;
-        }else{
-            $money=$dingd['money']*100;
-        }
+        // if($dingd['stime']-$dingd['backtime']<=86400*2){
+        //     $money=$dingd['money']*0.9*100;
+        // }else{
+        //     $money=$dingd['money']*100;
+        // }
+        $money=$dingd['money']*100;
         $date = date("YmdHis");  
         $appid = $config['APPID'];  
         $mch_id = $config['MCHID'];  
@@ -209,7 +209,7 @@ class Weixinpay {
         $refund_fee = $money;  
         //$transaction_id = "4009542001201706206596667604";  
         $key = "";  
-        $nonce_str = nonceStr();  
+        $nonce_str = $this->nonceStr();  
       
         $ref = strtoupper(md5("appid=$appid&mch_id=$mch_id&nonce_str=$nonce_str&op_user_id=$op_user_id"  
                         . "&out_refund_no=$out_refund_no&out_trade_no=$out_trade_no&refund_fee=$refund_fee&total_fee=$total_fee"  
@@ -230,7 +230,7 @@ class Weixinpay {
       
         $url = "https://api.mch.weixin.qq.com/secapi/pay/refund";  
         ; //微信退款地址，post请求  
-        $xml = toXml($refund);  
+        $xml = $this->toXml($refund);  
         $ch = curl_init();  
         curl_setopt($ch, CURLOPT_URL, $url);  
         curl_setopt($ch, CURLOPT_HEADER, 1);  
@@ -258,7 +258,7 @@ class Weixinpay {
             $xmlstring = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);  
             //var_dump($xmlstring);  
             $result['errNum'] = 0;  
-            $result['info'] = object_to_array($xmlstring);  
+            $result['info'] = $this->object_to_array($xmlstring);  
             //var_dump($result);  
             return $result;  
         } else {  

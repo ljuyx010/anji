@@ -1,6 +1,6 @@
 <include file="public/header" />
 <div class="userbox">
-	<div class="userimg"><img src="{$Think.session.userHeadimgurl}" /><p><img src="__PUBLIC__/images/icon-user-level.png"><if condition="session('name')">Vip用户<else />普通用户</if></p>
+	<div class="userimg"><img class="photo" src="{$Think.session.userHeadimgurl}" /><p><img src="__PUBLIC__/images/icon-user-level.png"><if condition="session('name')">Vip用户<else />普通用户</if></p>
 	<h3>{$Think.session.userNickname}</h3>
 	</div>
 </div>
@@ -23,9 +23,13 @@
 				<p>车型描述：{$v.des}</p>
 				<p><span>车程类型：<if condition="$v[ora] eq 1">单程<else />双程</if></span>下单时间：{$v.ordtime|date='Y-m-d H:i',###}</p>
 				<p>目的地：{$v.edr}</p>
-				<p><strong>合计：{$v.money}元</strong>				
+				<p><strong>合计：{$v.money}元</strong>
 				<a class="qx" href="{:U('Weixinpay/del',array('id'=>$v['id']))}">取消订单</a>
-				<a class="zf" href="{:U('Weixinpay/index',array('id'=>$v['id']))}">去支付</a>
+				<if condition="time()-$v['ordtime'] gt 4*60*60">
+				<a class="zf" href="javascript:;">订单已超时</a>
+				<else />
+				<a class="zf" href="{:U('Weixinpay/index',array('id'=>$v['ordernum']))}">去支付</a>
+				</if>
 				</p>
 				<p class="clear"></p>				
 				</div>
