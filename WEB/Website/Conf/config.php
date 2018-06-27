@@ -1,4 +1,6 @@
 <?php
+$conf = M('site')->field('value')->where(array('name' => "extend"))->find();
+$meter=unserialize($conf['value']);
 return array(
 	//定义模板中__public__路径
 	'TMPL_PARSE_STRING'	=> array(
@@ -9,7 +11,14 @@ return array(
 	//设置修改模板路径
 	'TMPL_FILE_DEPR' => '_',
 	'HTTP_CACHE_CONTROL' =>  'no-cache',  // 网页缓存控制private有缓存
-
+	//微信支付配置参数
+	'WEIXINPAY_CONFIG' => array(
+    'APPID'              => $meter['AppId'], // 微信支付APPID
+    'MCHID'              => $meter['mhid'], // 微信支付MCHID 商户收款账号
+    'KEY'                => $meter['apikey'], // 微信支付KEY
+    'APPSECRET'          => $meter['AppSecret'], // 公众帐号secert (公众号支付专用)
+    'NOTIFY_URL'         => _URL_.'/index.php/Index/Weixin/notify', // 接收支付状态的连接
+    ),
 	'AUTH_CONFIG'=>array(
         'AUTH_ON' => true, //认证开关
         'AUTH_TYPE' => 2, // 认证方式，1为时时认证；2为登录认证。

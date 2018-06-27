@@ -193,27 +193,24 @@ class Weixinpay {
     public function refund($dh) {  
         $config=$this->config;
         $dingd=M('orders')->where(array('ordernum'=>$dh))->find();
-        // if($dingd['stime']-$dingd['backtime']<=86400*2){
-        //     $money=$dingd['money']*0.9*100;
-        // }else{
-        //     $money=$dingd['money']*100;
-        // }
-        $money=$dingd['money']*100;
-        $date = date("YmdHis");  
+        if($dingd['stime']-$dingd['backtime']<=86400*2){
+            $money=$dingd['money']*0.9*100;
+        }else{
+            $money=$dingd['money']*100;
+        }
+        $time = date("YmdHis");  
         $appid = $config['APPID'];  
         $mch_id = $config['MCHID'];  
-        $out_trade_no = $dh;  
-        $op_user_id = "";  
-        $out_refund_no = $date;  
+        $out_trade_no = $dingd['ordernum'];  //订单号
+        $op_user_id = $config['MCHID'];  //操作员id默认是商户号
+        $out_refund_no = $time;  
         $total_fee = $dingd['money']*100;  
         $refund_fee = $money;  
-        //$transaction_id = "4009542001201706206596667604";  
-        $key = "";  
+        //$transaction_id = "4009542001201706206596667604";  //微信支付流水号
+        $key = $config['KEY'];  //安全密匙
         $nonce_str = $this->nonceStr();  
-      
-        $ref = strtoupper(md5("appid=$appid&mch_id=$mch_id&nonce_str=$nonce_str&op_user_id=$op_user_id"  
-                        . "&out_refund_no=$out_refund_no&out_trade_no=$out_trade_no&refund_fee=$refund_fee&total_fee=$total_fee"  
-                        . "&key=$key")); //sign加密MD5  
+        $sign="appid=".$appid."&mch_id=".$mch_id."&nonce_str=".$nonce_str."&op_user_id=".$op_user_id."&out_refund_no=".$out_refund_no."&out_trade_no=".$out_trade_no."&refund_fee=".$refund_fee."&total_fee=".$total_fee."&key=".$key;
+        $ref = strtoupper(md5($sign)); //sign加密MD5  
       
         $refund = array(  
         'appid' =>$config['APPID'], //应用ID，固定  
@@ -227,35 +224,33 @@ class Weixinpay {
         'total_fee' => $total_fee, //总金额  
         'sign' => $ref//签名  
         );  
+        
+        $url = "https://api.mch.weixin.qq.com/secapi/pay/refund"; //微信退款地址，post请求  
+        $xml = $this->arrayToXml($refund);  
+
+        $ch=curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);//证书检查
+        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,FALSE);//严格校验
+        curl_setopt($ch,CURLOPT_HEADER,FALSE);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,TRUE);        
+        curl_setopt($ch,CURLOPT_SSLCERTTYPE,'pem');
+        curl_setopt($ch,CURLOPT_SSLCERT,dirname(__FILE__).'/cert/apiclient_cert.pem');
+        curl_setopt($ch,CURLOPT_SSLCERTTYPE,'pem');
+        curl_setopt($ch,CURLOPT_SSLKEY,dirname(__FILE__).'/cert/apiclient_key.pem');
+        curl_setopt($ch,CURLOPT_SSLCERTTYPE,'pem');
+        curl_setopt($ch,CURLOPT_CAINFO,dirname(__FILE__).'/cert/rootca.pem');
+        curl_setopt($ch,CURLOPT_POST,1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$xml);
       
-        $url = "https://api.mch.weixin.qq.com/secapi/pay/refund";  
-        ; //微信退款地址，post请求  
-        $xml = $this->toXml($refund);  
-        $ch = curl_init();  
-        curl_setopt($ch, CURLOPT_URL, $url);  
-        curl_setopt($ch, CURLOPT_HEADER, 1);  
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1); //证书检查  
-        if ($useCert == true) {  
-            // 设置证书  
-            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
-            curl_setopt($ch, CURLOPT_SSLCERT, dirname(__FILE__) . '/cert/apiclient_cert.pem');  
-            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
-            curl_setopt($ch, CURLOPT_SSLKEY, dirname(__FILE__) . '/cert/apiclient_key.pem');  
-            curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'pem');  
-            curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cert/rootca.pem');  
-        }  
-        curl_setopt($ch, CURLOPT_POST, 1);  
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);  
-      
-        $xml = curl_exec($ch);
+        $data = curl_exec($ch);
       
         // 返回结果0的时候能只能表明程序是正常返回不一定说明退款成功而已  
-        if ($xml) {  
-            curl_close($ch);  
+        if ($data) {  
+            curl_close($ch); 
             // 把xml转化成数组  
             libxml_disable_entity_loader(true);  
-            $xmlstring = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);  
+            $xmlstring = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA);  
             //var_dump($xmlstring);  
             $result['errNum'] = 0;  
             $result['info'] = $this->object_to_array($xmlstring);  
@@ -263,10 +258,10 @@ class Weixinpay {
             return $result;  
         } else {  
             $error = curl_errno($ch);  
-            curl_close($ch);  
-            // 错误的时候返回错误码。  
-            $result['errNum'] = $error;  
-            return $result;  
+            echo "curl出错，错误代码：$error"."<br/>";
+            echo "<a href='http://curl.haxx.se/libcurl/c/libcurs.html'>;错误原因查询</a><br/>";
+            curl_close($ch);
+            echo false;  
         }  
     }
 
@@ -297,7 +292,20 @@ class Weixinpay {
         return $r;
     }
 
-    function object_to_array($obj) {  
+    public function arrayToXml($arr){
+       $xml = "<root>";
+       foreach ($arr as $key=>$val){
+          if(is_array($val)){
+             $xml.="<".$key.">".arrayToXml($val)."</".$key.">";
+          }else{
+             $xml.="<".$key.">".$val."</".$key.">";
+          }
+       }
+       $xml.="</root>";
+       return $xml ;
+    }
+
+    public function object_to_array($obj) {  
         $obj = (array) $obj;  
         foreach ($obj as $k => $v) {  
             if (gettype($v) == 'resource') {  
@@ -312,7 +320,7 @@ class Weixinpay {
         return $obj;  
     }
 
-    function nonceStr() {  
+    public function nonceStr() {  
         $chars = "abcdefghijklmnopqrstuvwxyz0123456789";  
         $str = "";  
         $length = 32;  

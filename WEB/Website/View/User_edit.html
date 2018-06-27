@@ -25,13 +25,13 @@
                         </div> 
                     </div>
                     <div>
-                        <div class="ibox-content no-padding border-left-right">
-                            <img alt="image" class="img-responsive" style="margin:0 auto;" src="{$v.photo}">
+                        <div class="ibox-content no-padding border-left-right" style="text-align: center;">
+                            <img alt="image" class="img-circle" style="margin:20px auto 10px;" src="{$v.photo}">
                         </div>
                         <div class="ibox-content profile-content">
                             <h4><strong>{$v.nickname}</strong></h4>
                             <p><i class="fa fa-user-secret"></i> {$v.openid}</p>
-                            <p><i class="fa fa-intersex"></i> <if condition="$v['sex']">男<else />女</if></p>
+                            <p><i class="fa fa-intersex"></i> <if condition="$v['sex'] eq 1">男<else />女</if></p>
                             <h5>真实姓名：{$v.name}</h5>
                             <p><i class="fa fa-phone"></i> {$v.tel}</p>
                             <div class="row m-t-lg">

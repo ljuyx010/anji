@@ -79,6 +79,9 @@ if (!function_exists('wx_share_init')) {
 			//获取用户数据
 			$json=file_get_contents($getUserInfoUrl);
 			$userInfo=json_decode($json,true);
+			//默认设置头像是132*132的
+			// $userInfo['headimgurl']=substr($userInfo['headimgurl'],0,strlen($userInfo['headimgurl'])-1);
+			// $userInfo['headimgurl']=$userInfo['headimgurl'].'132';
 			return	$userInfo;
 			session("status",null);
 		}

@@ -92,11 +92,17 @@ class OrdersController extends CommonController{
 		Vendor('Weixinpay.Weixinpay');
 		$wxpay=new \Weixinpay();		
 		$data=$wxpay->refund($dh);
-		if($data['result_code']=="SUCCESS"){
+
+		if($data['info']['result_code']=="SUCCESS"){
 			M('orders')->where('ordernum='.$dh)->save(array('refund_no'=>$data['refund_id'],'zt'=>-2,'backtime'=>time()));
 			$this->success('退款已成功提交',U('Orders/index'));
 		}else{
-			$this->error('退款提交失败');
+			if($data['info']['err_code_des']){
+				$msg=$data['info']['err_code_des'];
+			}else{
+				$msg=$data['info']['return_msg'];
+			}			
+			$this->error($msg);
 		}
 	}
 
