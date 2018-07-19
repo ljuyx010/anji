@@ -1,0 +1,819 @@
+[ 2018-07-19T09:33:05+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001341s ]
+ERR: SQLSTATE[HY000] [2002] ����Ŀ�����������ܾ����޷����ӡ�
+
+
+[ 2018-07-19T09:33:43+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0388s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0074s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008809s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008913s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0346s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600  [ RunTime:0.0103s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0096s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1534642423  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1534642423 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000792s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000878s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.122908s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.122987s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011500s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011573s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001354s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001453s ]
+
+[ 2018-07-19T09:33:45+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000553s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0056s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000787s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000865s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0078s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531929600  [ RunTime:0.0040s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0529s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531929600 LIMIT 1   [ RunTime:0.0023s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531929600 LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0047s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019790s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019876s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000444s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000941s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-07-19T09:34:00+08:00 ] 127.0.0.1 /index.php/Website/Orders/tongji
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000902s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0055s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000806s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000886s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+
+[ 2018-07-19T09:44:53+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000748s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0093s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001016s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0067s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600  [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0072s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1534643093  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1534643093 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000231s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000310s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051288s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051365s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000692s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001273s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001347s ]
+
+[ 2018-07-19T09:44:56+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0073s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001906s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001989s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0071s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531929600  [ RunTime:0.0008s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531929600 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531929600 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016154s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016242s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001232s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001313s ]
+
+[ 2018-07-19T09:44:59+08:00 ] 127.0.0.1 /index.php/Website/Orders/tongji
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001125s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0070s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000943s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001028s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000176s ]
+NOTIC: [8] Undefined variable: s D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: d D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: orders D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030280s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030372s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000753s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000821s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000998s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2018-07-19T09:45:04+08:00 ] 127.0.0.1 /index.php/Website/Orders/xianx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000892s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0075s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000960s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036242s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036457s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000994s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001422s ]
+
+[ 2018-07-19T09:45:07+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage?sEcho=1&iColumns=11&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=uname&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=zt&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=false&mDataProp_9=wk&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=true&mDataProp_10=id&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531964705133
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000726s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0059s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001562s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0073s ]
+SQL: SELECT `id`,`title`,`uname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk` FROM `lj_orders` WHERE `uid` is null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0127s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is null LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-07-19T09:45:10+08:00 ] 127.0.0.1 /index.php/Website/Orders/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000702s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0068s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000988s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001077s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013969s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014051s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000961s ]
+
+[ 2018-07-19T09:45:12+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage/id/1?sEcho=1&iColumns=10&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=uname&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=zt&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=false&mDataProp_9=id&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531964710272
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000808s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0054s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0015s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001287s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0066s ]
+SQL: SELECT `id`,`title`,`uname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk` FROM `lj_orders` WHERE `uid` is not null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0008s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is not null LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-07-19T10:18:47+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001352s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0078s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001059s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001242s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0084s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600  [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0093s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1534645127  [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1534645127 LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000207s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000280s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051798s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051881s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000923s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000986s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001204s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001274s ]
+
+[ 2018-07-19T10:18:50+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0063s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000776s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000854s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0074s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531929600  [ RunTime:0.0007s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0076s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531929600 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531929600 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016591s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016685s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001185s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001257s ]
+
+[ 2018-07-19T10:18:54+08:00 ] 127.0.0.1 /index.php/Website/Orders/xianx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000650s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0065s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014297s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014400s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000559s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000618s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000866s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000925s ]
+
+[ 2018-07-19T10:18:57+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage?sEcho=1&iColumns=11&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=uname&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=zt&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=false&mDataProp_9=wk&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=true&mDataProp_10=id&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531966735071
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000908s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0069s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001161s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001249s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0075s ]
+SQL: SELECT `id`,`title`,`uname`,`gname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk`,`isf` FROM `lj_orders` WHERE `uid` is null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is null LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-07-19T10:19:02+08:00 ] 127.0.0.1 /index.php/Website/Orders/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0053s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000867s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013808s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013888s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000489s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000546s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000890s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000954s ]
+
+[ 2018-07-19T10:19:05+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage/id/1?sEcho=1&iColumns=12&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=uname&sSearch_1=&bRegex_1=false&bSearchable_1=true&bSortable_1=false&mDataProp_2=function&sSearch_2=&bRegex_2=false&bSearchable_2=false&bSortable_2=true&mDataProp_3=edr&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=title&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=num&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=false&mDataProp_6=money&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=times&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=timec&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=true&mDataProp_9=isf&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=true&mDataProp_10=zt&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&mDataProp_11=id&sSearch_11=&bRegex_11=false&bSearchable_11=true&bSortable_11=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531966743051
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0043s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000760s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000822s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0065s ]
+SQL: SELECT `id`,`title`,`uname`,`gname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk`,`isf` FROM `lj_orders` WHERE `uid` is not null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is not null LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-07-19T10:19:46+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000625s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0061s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001085s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600  [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0076s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1534645185  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1534645185 LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000222s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000303s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029412s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000723s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000789s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001320s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001407s ]
+
+[ 2018-07-19T10:19:48+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0058s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000933s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0059s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531929600  [ RunTime:0.0007s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0089s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531929600 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531929600 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014642s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014842s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000672s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000828s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000888s ]
+
+[ 2018-07-19T10:19:53+08:00 ] 127.0.0.1 /index.php/Website/Orders/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0063s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001112s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001203s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000181s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014029s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014118s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000701s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000990s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001064s ]
+
+[ 2018-07-19T10:19:56+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage/id/1?sEcho=1&iColumns=11&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=function&sSearch_1=&bRegex_1=false&bSearchable_1=false&bSortable_1=true&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=isf&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=true&mDataProp_9=zt&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=false&mDataProp_10=id&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531966794098
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000790s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0074s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0012s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`title`,`uname`,`gname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk`,`isf` FROM `lj_orders` WHERE `uid` is not null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is not null LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-07-19T10:21:11+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000831s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0067s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001052s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001144s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531929600 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0063s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1534645271  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1534645271 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000225s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000306s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030802s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000880s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001452s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001552s ]
+
+[ 2018-07-19T10:21:13+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000627s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0060s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001182s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0062s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531929600  [ RunTime:0.0005s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531929600 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531929600 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000090s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016021s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000905s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2018-07-19T10:21:18+08:00 ] 127.0.0.1 /index.php/Website/Orders/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002340s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0060s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013688s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013790s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000669s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000969s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001042s ]
+
+[ 2018-07-19T10:21:21+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage/id/1?sEcho=1&iColumns=11&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=function&sSearch_1=&bRegex_1=false&bSearchable_1=false&bSortable_1=true&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=isf&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=true&mDataProp_9=zt&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=false&mDataProp_10=id&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531966878870
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003727s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0074s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000892s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000971s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0074s ]
+SQL: SELECT `id`,`title`,`uname`,`gname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk`,`isf` FROM `lj_orders` WHERE `uid` is not null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is not null LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2018-07-19T10:28:57+08:00 ] 127.0.0.1 /index.php/Website/Orders/edit/id/8
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0071s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001124s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001227s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0081s ]
+SQL: SELECT lj_orders.*,lj_user.nickname,lj_user.photo FROM `lj_orders` LEFT JOIN lj_user on lj_orders.uid=lj_user.id  WHERE lj_orders.id = 8 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `lj_ordcar` [ RunTime:0.0339s ]
+SQL: SELECT `id`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_ordcar` WHERE `ordernum` = 'H62586184381093'  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000218s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000310s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053515s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053635s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000811s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000900s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001653s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001730s ]
+
+[ 2018-07-19T10:34:54+08:00 ] 127.0.0.1 /index.php/Website/Orders/xianx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001043s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0093s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000948s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001032s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014026s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000688s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000968s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001037s ]
+
+[ 2018-07-19T10:34:57+08:00 ] 127.0.0.1 /index.php/Website/Orders/fpage?sEcho=1&iColumns=11&sColumns=%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C&iDisplayStart=0&iDisplayLength=20&mDataProp_0=ordernum&sSearch_0=&bRegex_0=false&bSearchable_0=true&bSortable_0=true&mDataProp_1=function&sSearch_1=&bRegex_1=false&bSearchable_1=false&bSortable_1=true&mDataProp_2=edr&sSearch_2=&bRegex_2=false&bSearchable_2=true&bSortable_2=false&mDataProp_3=title&sSearch_3=&bRegex_3=false&bSearchable_3=true&bSortable_3=false&mDataProp_4=num&sSearch_4=&bRegex_4=false&bSearchable_4=true&bSortable_4=false&mDataProp_5=money&sSearch_5=&bRegex_5=false&bSearchable_5=true&bSortable_5=true&mDataProp_6=times&sSearch_6=&bRegex_6=false&bSearchable_6=true&bSortable_6=true&mDataProp_7=timec&sSearch_7=&bRegex_7=false&bSearchable_7=true&bSortable_7=true&mDataProp_8=zt&sSearch_8=&bRegex_8=false&bSearchable_8=true&bSortable_8=false&mDataProp_9=wk&sSearch_9=&bRegex_9=false&bSearchable_9=true&bSortable_9=true&mDataProp_10=id&sSearch_10=&bRegex_10=false&bSearchable_10=true&bSortable_10=false&iSortCol_0=0&sSortDir_0=desc&sSearch=&bRegex=false&iSortingCols=1&_=1531967695061
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000788s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0071s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001047s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0085s ]
+SQL: SELECT `id`,`title`,`uname`,`gname`,`edr`,`ordernum`,`num`,`money`,`zt`,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,`wk`,`isf` FROM `lj_orders` WHERE `uid` is null ORDER BY ordernum desc LIMIT 0,20   [ RunTime:0.0009s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `uid` is null LIMIT 1   [ RunTime:0.0011s ]
+
+[ 2018-07-19T10:35:02+08:00 ] 127.0.0.1 /index.php/Website/Orders/editx/id/12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0060s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000952s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001086s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [8] Use of undefined constant intval - assumed 'intval' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 245 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `lj_orders` WHERE `id` = 12 LIMIT 1   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `lj_class` [ RunTime:0.0285s ]
+SQL: SELECT `id`,`classname` FROM `lj_class`  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `lj_ordcar` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_ordcar` WHERE `ordernum` = '201807182830'  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant add - assumed 'add' D:\WWW\anji\WEB\Website\Controller\OrdersController.class.php 第 251 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000271s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.057603s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057683s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000614s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001382s ]
+
+[ 2018-07-19T10:43:57+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001578s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0060s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000968s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050146s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050241s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000700s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000765s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000988s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001049s ]
+
+[ 2018-07-19T10:44:03+08:00 ] 127.0.0.1 /index.php/Website/Bak/index/Action/backup
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0058s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000792s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000868s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 20 行.
+NOTIC: [8192] Function mysql_list_tables() is deprecated D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 125 行.
+NOTIC: [8] Undefined variable: return D:\WWW\anji\WEB\Lib\MySQLReback.class.php 第 153 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015639s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015715s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000859s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000920s ]
+
+[ 2018-07-19T10:44:05+08:00 ] 127.0.0.1 /index.php/Website/Bak/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0059s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001149s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001248s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+NOTIC: [2] mkdir(): File exists D:\WWW\anji\WEB\Website\Controller\BakController.class.php 第 9 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016345s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016438s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000650s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000721s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001224s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001380s ]
+
+[ 2018-07-19T10:44:19+08:00 ] 127.0.0.1 /index.php/Website/Login/loginout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0064s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001014s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023237s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023349s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000879s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2018-07-19T10:44:23+08:00 ] 127.0.0.1 /index.php/Website/Login/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0063s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000908s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000166s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013342s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013451s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000553s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000614s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001167s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001240s ]
+
+[ 2018-07-19T10:44:25+08:00 ] 127.0.0.1 /index.php/Website/Login/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0070s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001087s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001187s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001161s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001454s ]
+

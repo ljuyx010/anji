@@ -6,18 +6,18 @@ use Think\Authli;
 class CommonController extends Controller {
 	 //这是自动运行程序
    public function _initialize (){
-   	if (!isset($_SESSION['user'])){
-      $this->error('未登录或登录超时，请重新登录', U('Login/index'));
-    }
-    $auth=new \Think\Authli();
-    //session存在时，不需要验证的权限  
-    $rule_name=CONTROLLER_NAME.'/'.ACTION_NAME;
-    //当前操作的请求                 模块名/方法名
+   	// if (!isset($_SESSION['user'])){
+    //   $this->error('未登录或登录超时，请重新登录', U('Login/index'));
+    // }
+    // $auth=new \Think\Authli();
+    // //session存在时，不需要验证的权限  
+    // $rule_name=CONTROLLER_NAME.'/'.ACTION_NAME;
+    // //当前操作的请求                 模块名/方法名
     
-    $result=$auth->check($rule_name,$_SESSION['user']['id']);
-    if(!$result){
-      $this->error('您没有访问权限',U('Index/close'));
-    }
+    // $result=$auth->check($rule_name,$_SESSION['user']['id']);
+    // if(!$result){
+    //   $this->error('您没有访问权限',U('Index/close'));
+    // }
     
    }
 

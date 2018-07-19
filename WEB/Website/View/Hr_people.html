@@ -48,6 +48,7 @@
                                     <th>姓名</th>
                                     <th>部门</th>
                                     <th>电话</th>
+                                    <th>合同日期</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -96,6 +97,7 @@
               }
             },
             {"mData": "tel","bSortable": false},
+            {"mData": "htimes","bSortable": true},
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url1+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 编辑 </a> <a onclick='return confirm(`确定要删除吗？`)' href='"+url2+"/id/"+ data +"' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i> 删除</a>";
                 }

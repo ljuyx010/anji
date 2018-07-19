@@ -40,12 +40,16 @@
                             </if>                            
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户姓名</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input type="text" class="form-control" name="uname" value="{$orders.uname}">
                                     <input type="hidden" class="form-control" name="ordernum" value="{$orders.ordernum}">
                                 </div>
+                                <label class="col-sm-2 control-label">公司名称</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="gname" value="{$orders.gname}">
+                                </div>
                                 <label class="col-sm-2 control-label">联系电话</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <input type="text" class="form-control" name="utel" value="{$orders.utel}">
                                 </div>
                             </div>                            
@@ -77,8 +81,8 @@
                                 <input type="text" class="form-control" name="sdr" value="{$orders.sdr}">
                                 <else />
                                 <input type="text" class="form-control" id="suggestId" name="sdr" >
+                                <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </if>                                    
-                                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </div>
                                 <label class="col-sm-2 control-label">目的地</label>
                                 <div class="col-sm-4">
@@ -86,20 +90,19 @@
                                 <input type="text" class="form-control" name="edr" value="{$orders.edr}">
                                 <else />
                                 <input type="text" class="form-control" id="suggestId2" name="edr" value="">
+                                <div id="searchResultPanel2" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </if>
-                                    
-                                    <div id="searchResultPanel2" style="border:1px solid #C0C0C0;width:100%;display: none;"></div>
                                 </div>                                
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">启程日期</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="stime" id="stime" value="{$orders.stime|default=time()|date='Y-m-d',###}">
+                                    <input type="text" class="form-control" name="stime" id="stime" value="{$orders.stime|default=time()|date='Y-m-d H:i:s',###}">
                                 </div>
                                 <label class="col-sm-2 control-label">返程日期</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="dtime" id="dtime" value="{$orders.dtime|default=time()|date='Y-m-d',###}">
+                                    <input type="text" class="form-control" name="dtime" id="dtime" value="{$orders.dtime|default=time()|date='Y-m-d H:i:s',###}">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -118,45 +121,81 @@
                                     <label class="checkbox-inline">
                                         <input type="radio" <if condition="$orders['zt'] eq 1">checked=""</if> value="1" name="zt">已支付</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="!$orders['zt'] eq 3">checked=""</if> value="3" name="zt">已完成</label>
+                                        <input type="radio" <if condition="$orders['zt'] eq 3">checked=""</if> value="3" name="zt">已完成</label>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">订购数量</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <div class="input-group">
                                     <input type="text" class="form-control" name="num" value="{$orders.num}">
                                     <span class="input-group-addon">辆</span>
                                     </div>
                                 </div>                                
                                 <label class="col-sm-2 control-label">订单金额</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <div class="input-group">
                                     <input type="text" class="form-control" name="money" value="{$orders.money}">
                                     <span class="input-group-addon">元</span>
                                     </div>
                                     <span class="help-block m-b-none">留空系统自动计算</span>                                    
                                 </div>
+                                <label class="col-sm-2 control-label">尾款</label>
+                                <div class="col-sm-2">
+                                    <div class="input-group">
+                                    <input type="text" class="form-control" name="wk" value="{$orders.wk}">
+                                    <span class="input-group-addon">元</span>
+                                    </div>
+                                    <span class="help-block m-b-none">有尾款未收,则填写</span>                                    
+                                </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">车程类型</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="$orders['ora'] eq 1">checked=""</if> value="1" name="ora">单程</label>
+                                        <input type="radio" <if condition="$orders['ora'] eq 1">checked=""</if> value="1" name="ora">单送</label>
                                     <label class="checkbox-inline">
-                                        <input type="radio" <if condition="$orders['ora'] eq 2">checked=""</if> value="2" name="ora">双程</label>
+                                        <input type="radio" <if condition="$orders['ora'] eq 2">checked=""</if> value="2" name="ora">往返</label>
                                 </div>
                                 <label class="col-sm-2 control-label">车辆配置</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
+                                    <div class="row">                                                                    
                                     <foreach name="carnum" item="v">
-                                    <input type="text" class="form-control" name="car[{$v.id}]" value="{$v.carnum}">
+                                    <div class="form-group" id="s{$v.id}">                                    
+                                    <div class="col-sm-3">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['carnum']" value="{$v.carnum}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['driver']" value="{$v.driver}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['tel']" value="{$v.tel}">
+                                    </div>
+                                    <if condition="$orders['zt'] eq 0 || $orders['zt'] eq 1">
+                                    <div class="col-sm-2 btn btn-info" id="b{$v.id}" onclick="fuzhu({$v.id})">添加辅助司机</div>
+                                    </if>
+                                    </div>
+                                    <if condition="$v['fuzhu']">
+                                    <div class='form-group' id='f{$v.id}'>
+                                    <div class='col-sm-2'><p class='form-control-static'>辅助司机:</p></div>
+                                    <div class='col-sm-3'><input type='text' id="fuzhu{$v.id}" class='form-control' name="car[{$v.id}]['fuzhu']" value="{$v.fuzhu}"></div>
+                                    <div class='col-sm-3'><input id="ftel{$v.id}" type='text' class='form-control' name="car[{$v.id}]['ftel']" value="{$v.ftel}"></div>
+                                    <div class='col-sm-1 btn btn-info' onclick='qingk({$v.id})'>删除</div>
+                                    </div>
+                                    </if>
                                     </foreach>
+                                    </div> 
+                                    <span class="help-block m-b-none">系统默认无辅助司机，添加辅助司机需手动修改价格</span>                          
                                 </div>                                
-                            </div>                                                 
+                            </div> 
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">                                
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">发票信息</label>
+                                <div class="col-sm-4">
+                                    <textarea class="textarea" name="fap">{$orders.fap}</textarea>                                   
+                                </div>
                                 <label class="col-sm-2 control-label">备注信息</label>
                                 <div class="col-sm-4">
                                     <textarea class="textarea" name="mark">{$orders.mark}</textarea>                                   
@@ -221,10 +260,24 @@
                 alert("异常！");
             }
         });
-    }</script>
+    }
+    function fuzhu(id){
+        var html="<div class='form-group' id='f"+id+"'><div class='col-sm-2'><p class='form-control-static'>辅助司机:</p></div><div class='col-sm-3'><input type='text' class='form-control' name='car["+id+"]['fuzhu']'></div><div class='col-sm-3'><input type='text' class='form-control' name='car["+id+"]['ftel']'></div><div class='col-sm-1 btn btn-info' onclick='del("+id+")'>删除</div></div>";
+        $("#s"+id).after(html);
+        $("#b"+id).remove();
+    }
+    function del(id){
+        $("#f"+id).remove();
+    }
+    function qingk(id){
+        $("#fuzhu"+id).val("");      
+        $("#ftel"+id).val(""); 
+        $("#f"+id).css('display','none');
+    }
+    </script>
     <script>
-    laydate({elem:"#stime",event:"focus"});
-    laydate({elem:"#dtime",event:"focus"});  
+    laydate({elem:"#stime",event:"focus",format:"YYYY-MM-DD hh:mm:ss",istime: true});
+    laydate({elem:"#dtime",event:"focus",format:"YYYY-MM-DD hh:mm:ss",istime: true});  
     </script>
 </body>
 </html>

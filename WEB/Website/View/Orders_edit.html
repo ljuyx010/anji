@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户头像</label>
                                 <div class="col-sm-4">
-                                    <img class="img-circle" src="{$orders.photo}" />
+                                    <img width="60" class="img-circle" src="{$orders.photo}" />
                                 </div>
                                 <label class="col-sm-2 control-label">用户昵称</label>
                                 <div class="col-sm-4">
@@ -51,12 +51,18 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">客户类型</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-1">
                                     <p class="form-control-static"><if condition="$orders['utype'] eq 1">团体<elseif condition="$orders['utype'] eq 2" />旅行社<else />个人</if></p>
                                 </div>
+                                <label class="col-sm-2 control-label">公司名称</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" name="gname" value="{$orders.gname}">
+                                </div>                                
                                 <label class="col-sm-2 control-label">订购车型</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <p class="form-control-static">{$orders.title}</p>
+                                    <input type="hidden" name="cid" value="{$orders.cid}"></input>
+                                    <input type="hidden" name="zt" value="{$orders.zt}"></input>
                                 </div>
                             </div>                         
                             <div class="hr-line-dashed"></div>
@@ -67,7 +73,7 @@
                                 </div>
                                 <label class="col-sm-2 control-label">出发日期</label>
                                 <div class="col-sm-4">
-                                    <p class="form-control-static">{$orders.stime|date='Y-m-d',###}</p>
+                                <input class="form-control layer-date" name="stime" id="start" value="{$orders.stime|date='Y-m-d H:i:s',###}">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -78,7 +84,7 @@
                                 </div>
                                 <label class="col-sm-2 control-label">返程日期</label>
                                 <div class="col-sm-4">
-                                    <p class="form-control-static">{$orders.dtime|date='Y-m-d',###}</p>
+                                <input  class="form-control layer-date" name="dtime" id="end" value="{$orders.dtime|date='Y-m-d H:i:s',###}">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -124,18 +130,46 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">车程类型</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static"><if condition="$orders['ora'] eq 1">单程<else />双程</if></p>                                  
+                                <div class="col-sm-2">
+                                    <p class="form-control-static"><if condition="$orders['ora'] eq 1">单送<else />往返</if></p>                                  
                                 </div>
                                 <label class="col-sm-2 control-label">车辆配置</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
+                                    <div class="row">                                                                    
                                     <foreach name="carnum" item="v">
-                                    <input type="text" class="form-control" name="car[{$v.id}]" value="{$v.carnum}">
+                                    <div class="form-group" id="s{$v.id}">                                    
+                                    <div class="col-sm-3">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['carnum']" value="{$v.carnum}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['driver']" value="{$v.driver}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="car[{$v.id}]['tel']" value="{$v.tel}">
+                                    </div>
+                                    <if condition="$orders['zt'] eq 0 || $orders['zt'] eq 1">
+                                    <div class="col-sm-2 btn btn-info" id="b{$v.id}" onclick="fuzhu({$v.id})">添加辅助司机</div>
+                                    </if>
+                                    </div>
+                                    <if condition="$v['fuzhu']">
+                                    <div class='form-group' id='f{$v.id}'>
+                                    <div class='col-sm-2'><p class='form-control-static'>辅助司机:</p></div>
+                                    <div class='col-sm-3'><input type='text' id="fuzhu{$v.id}" class='form-control' name="car[{$v.id}]['fuzhu']" value="{$v.fuzhu}"></div>
+                                    <div class='col-sm-3'><input id="ftel{$v.id}" type='text' class='form-control' name="car[{$v.id}]['ftel']" value="{$v.ftel}"></div>
+                                    <div class='col-sm-1 btn btn-info' onclick='qingk({$v.id})'>删除</div>
+                                    </div>
+                                    </if>
                                     </foreach>
+                                    </div> 
+                                    <span class="help-block m-b-none">系统默认无辅助司机，添加辅助司机需手动修改价格</span>                         
                                 </div>                                
                             </div> 
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">发票信息</label>
+                                <div class="col-sm-4">
+                                    <textarea class="textarea" name="fap">{$orders.fap}</textarea>                                   
+                                </div>
                                 <label class="col-sm-2 control-label">备注信息</label>
                                 <div class="col-sm-4">
                                     <textarea class="textarea" name="mark">{$orders.mark}</textarea>                                   
@@ -167,7 +201,10 @@
     <script src="__PUBLIC__/js/plugins/iCheck/icheck.min.js"></script>
 	<script src="__PUBLIC__/js/content.min.js?v=1.0.0"></script>
     <script src="__PUBLIC__/js/plugins/toastr/toastr.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
     <script>
+    laydate({elem:"#start",event:"focus",format:"YYYY-MM-DD hh:mm:ss",istime: true});
+    laydate({elem:"#end",event:"focus",format:"YYYY-MM-DD hh:mm:ss",istime: true}); 
     $(function(){
         toastr.options = {
           "closeButton": true,
@@ -201,6 +238,19 @@
                 alert("异常！");
             }
         });
+    }
+    function fuzhu(id){
+        var html="<div class='form-group' id='f"+id+"'><div class='col-sm-2'><p class='form-control-static'>辅助司机:</p></div><div class='col-sm-3'><input type='text' class='form-control' name='car["+id+"]['fuzhu']'></div><div class='col-sm-3'><input type='text' class='form-control' name='car["+id+"]['ftel']'></div><div class='col-sm-1 btn btn-info' onclick='del("+id+")'>删除</div></div>";
+        $("#s"+id).after(html);
+        $("#b"+id).remove();
+    }
+    function del(id){
+        $("#f"+id).remove();
+    }
+    function qingk(id){
+        $("#fuzhu"+id).val("");      
+        $("#ftel"+id).val(""); 
+        $("#f"+id).css('display','none');
     }
     </script>
 </body>

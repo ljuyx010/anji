@@ -56,19 +56,19 @@ class GoodsController extends CommonController{
 			$last=count($rs)-1;
 			foreach ($rs as $k => $v) {
 				if($k==$last){
-					$str=$str.$v['carnum'].")";
+					$str=$str."'".$v['carnum']."')";
 				}else{
-					$str=$str.$v['carnum'].",";
+					$str=$str."'".$v['carnum']."',";
 				}			
 			}
 			$where1=" and carnum not in".$str;
 		}
 		$where2="type=".$cx.$where1." and ((xtime>=".$start." and ktime >=".$start.") or (xtime<=".$start." and ktime <=".$start."))";
-		$rs2=M('car')->field('carnum')->where($where2)->order('RAND()')->limit($num)->select();
+		$rs2=M('car')->field('carnum,driver,tel')->where($where2)->order('RAND()')->limit($num)->select();
 		$cn=count($rs2);
 		if($cn<$num){$this->error('该车型仅有'.$cn.'辆空闲，请选择'.$cn.'辆再搭配其他车型');}
 		
-		if($end-$start){$d=round(($end-$start)/3600/24);}else{$d=1;}
+		if(($end-$start)>3600*24){$d=round(($end-$start)/3600/24);}else{$d=1;}
 		$money=(($gs['oilj']*$gs['oilh']+$gs['glf'])+$num*0.43)*$lc*$ora+$gs['lr']*$d;
 		$money=round($money/100)*100;
 		$orderSn="Y".time().rand(100,999);
@@ -91,6 +91,8 @@ class GoodsController extends CommonController{
 			'zt' => 0,
 			'type' => 1,
 			'uid' => session('userID'),
+			'gname' => I('gname'),
+			'isf' => I('isf'),
 			'sdr' => I('sdr')
 		);
 

@@ -93,10 +93,20 @@ class FinacalController extends CommonController{
 		$f=strtotime(date("Y-m-01"));
 		$c=date('Y-m-d',$f);
 		$l=strtotime("$c +1 month -1 day");
-		$where=array('dtime'=>array('between',array($f,$l)),'zt'=>3);
+		$where=array('stime'=>array('between',array($f,$l)),'zt'=>3);
 		$data=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')
-		->join('lj_car on lj_ordcar.carnum=lj_car.carnum')->field('lj_ordcar.carnum,driver,SUM(wage) as tc,Count(lj_ordcar.carnum) as ds')
-		->where($where)->group('lj_ordcar.carnum')->select();
+		->field('driver,SUM(wage) as tc,Count(lj_ordcar.driver) as ds')
+		->where($where)->group('lj_ordcar.driver')->select();
+		$data2=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')
+		->field('fuzhu,SUM(wage) as ftc,Count(lj_ordcar.fuzhu) as fds')
+		->where(array('stime'=>array('between',array($f,$l)),'fuzhu'=>array('exp','is not null'),'zt'=>3))->group('lj_ordcar.fuzhu')->select();
+		foreach ($data as $k => $v) {
+			foreach ($data2 as $ke => $va) {
+				if($v['driver']==$va['fuzhu']){
+					$v=array_merge($v,$va);
+				}
+			}
+		}
 		$this->tc=$data;
 		$this->display();
 	}
@@ -106,7 +116,7 @@ class FinacalController extends CommonController{
 		$f=strtotime(date("Y-m-01"));
 		$c=date('Y-m-d',$f);
 		$l=strtotime("$c +1 month -1 day");
-		$where=array('dtime'=>array('between',array($f,$l)),'zt'=>3,'lj_ordcar.carnum'=>$id);
+		$where=array('dtime'=>array('between',array($f,$l)),'zt'=>3,'_string'=>"driver='".$id."' OR fuzhu='".$id."'");
 		$xq=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')->field('lj_ordcar.ordernum,edr,type,stime,wage')
 		->where($where)->select();
 		$sum = 0;  
@@ -125,6 +135,41 @@ class FinacalController extends CommonController{
 		$this->ajaxReturn($rs);
 	}
 
+	public function fap(){
+		if(I('f')){
+			$c=$_GET['iDisplayLength'];
+			$s=$_GET['sSearch'];
+			$p=$_GET['iDisplayStart']/$c+1;
+			$px=$_GET['sSortDir_0'];
+			$col=$_GET['iSortCol_0'];
+			switch ($col){ 
+			case 1 : $order="stime ".$px; break; 
+			case 3 : $order="ftype ".$px; break; 
+			} 
+			$where=array('fap'=>array('exp','is not null'));
+			if($s){$where=array_merge($where,array('ordernum'=>$s));}
+			$article = M('orders')->field('id,ordernum,FROM_UNIXTIME(stime,"%Y-%m-%d") as times,ftype,edr')->where($where)->order($order)->page($p,$c)->select();
+			$count = M('orders')->where($where)->count();
+			$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
+	 		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);
+			$this->ajaxReturn($data);
+		}else{
+			$this->display();
+		}	
+		
+	}
 
+	public function fupdata(){
+		$this->v=M('orders')->field('id,ordernum,uname,utel,stime,edr,money,wk,fap,ftype')->where('id='.I('id'))->find();
+		$this->display();
+	}
+
+	public function frun(){
+		if(M('orders')->save($_POST)){
+			$this->success('保存成功！',U('Finacal/fap'));
+		}else{
+			$this->error('保存失败！');
+		}
+	}
 }
 ?>

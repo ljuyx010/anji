@@ -358,24 +358,22 @@ class AfterController extends CommonController{
 		$id=I('id');
 		$cid=I('cid');
 		$d=I('d','',intval);
+		if($d<1){$this->error('天数不能小于1');}
 		$lei = array(//自动验证
-	     array('mileage','require','实际里程必填'), 
-	     array('oil','require','使用油料必填')
+	     array('mileage','require','实际里程必填')
 		);
 		$rs=M('class')->field('kmm')->where('id='.$cid)->find();
 		$rs2=M('ordcar')->field('ordernum')->where('id='.$id)->find();
 		if(I('mileage')>1600){
 			$wage=$d*200;
 		}elseif(I('mileage')<=300){
-			$wage=ceil(I('mileage')/50)*10+$rs['kmm'];
+			$wage=ceil(I('mileage')/50)*10+$rs['kmm']+($d-1)*100;
 		}else{
-			$wage=ceil((I('mileage')-300)/50)*20+6*10+$rs['kmm'];
+			$wage=ceil((I('mileage')-300)/50)*20+6*10+$rs['kmm']+($d-1)*100;
 		}
 		$data=array(
 			'mileage'=>I('mileage'),
-			'wage'=>$wage,
-			'oil'=>I('oil'),
-			'addoil'=>I('addoil')
+			'wage'=>$wage
 		);
 		if (!$db->validate($lei)->create($data)){
 		     // 如果创建失败 表示验证没有通过
@@ -429,7 +427,7 @@ class AfterController extends CommonController{
 
 	public function oil(){
 		$year=strtotime(date('Y-01-01 00:00:00'));
-		$rs=M('ordcar')->join('LEFT JOIN lj_orders on lj_ordcar.ordernum=lj_orders.ordernum')->field('SUM(addoil) as oil,FROM_UNIXTIME(dtime,"%m月") as m')->where(array('dtime'=>array('egt',$year)))->group('m')->order('m ASC')->select();
+		$rs=M('oil')->field('SUM(oil) as oil,FROM_UNIXTIME(time,"%m月") as m')->where(array('time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
 		$this->ajaxReturn($rs);
 	}
 
@@ -462,6 +460,67 @@ class AfterController extends CommonController{
 		$this->ajaxReturn($rs);	
 	}
 
+	public function oilist(){
+		$time=strtotime(date('Y-m-01'));
+		$where=array('time'=>array('EGT',$time));
+		$this->yyl=M('oil')->join('INNER JOIN lj_car on lj_oil.carnum=lj_car.carnum')->field('lj_oil.carnum,Min(lic) as x,Max(lic) as d,Sum(oil) as s')
+		->where($where)->group('lj_oil.carnum')->order('s desc')->select();
+		$this->display();
+	}
+
+	public function addoil(){
+		$db=M('oil');
+		if($_POST){
+			$lei = array(//自动验证
+		     array('lic','require','里程必填'), 
+		     array('carnum','require','车牌号必填'), 
+		     array('time','require','日期必填'), 
+		     array('oil','require','使用油料必填')
+			);
+			$data=array(
+				'carnum'=>$_POST['carnum'],
+				'oil'=>(int)$_POST['oil'],
+				'time'=>strtotime($_POST['time'])
+			);
+			if($_POST['lic']){
+				$data['lic']=$_POST['lic'];
+			}else{
+				$rs=$db->field('lic')->where(array('carnum'=>$_POST['carnum']))->order('lic DESC')->find();
+				$data['lic']=$rs['lic'];
+				$data['type']=1;
+			}
+			
+			if (!$db->validate($lei)->create($data)){
+		     // 如果创建失败 表示验证没有通过
+		     $this->error($db->getError());
+			}
+			if($db->add($data)){
+				$this->success('保存成功',U('After/oilist'));
+			}else{
+				$this->error('保存失败');
+			}
+		}else{
+			$this->display();
+		}		
+	}
+
+	public function xlist(){
+		$id=I('id');
+		$count=M('oil')->where(array('carnum'=>$id))->count();
+		$Page = new \Think\Page($count,20);
+		$Page -> setConfig('header','共%TOTAL_ROW%条');
+		$Page -> setConfig('first','首页');
+		$Page -> setConfig('last','共%TOTAL_PAGE%页');
+		$Page -> setConfig('prev','上一页');
+		$Page -> setConfig('next','下一页');
+		$Page -> setConfig('link','indexpagenumb');//pagenumb 会替换成页码
+		$Page -> setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
+		$show = $Page->show();
+		$this->list = M('oil')->where(array('carnum'=>$id))->order('time DESC,id DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$this->page = $show;
+		$this->carnum=$id;
+		$this->display();
+	}
 
 }
 ?>

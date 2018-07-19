@@ -44,10 +44,14 @@
                             <thead>
                                 <tr>
                                     <th>订单号</th>
-                                    <th>商品名</th>
+                                    <th>订车人</th>
+                                    <th>目的地</th>
+                                    <th>车型</th>
                                     <th>数量</th>
                                     <th>费用</th>
                                     <th>下单日期</th>
+                                    <th>出发日期</th>
+                                    <th>要发票</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -83,10 +87,23 @@
         "sAjaxSource": "{:U('Orders/fpage',array('id'=>1))}",
         "aoColumns": [
             {"mData": "ordernum", "bSortable": true},
+            {"bSearchable": false,"mData": function(obj) {
+                if(obj.gname){
+                    return "<a href='javascript:;' title='"+obj.gname+"'>"+obj.uname+"</a>";
+                }else{
+                    return obj.uname;
+                }
+            }},
+            {"mData": "edr", "bSortable": false},
             {"mData": "title", "bSortable": false},
             {"mData": "num", "bSortable": false},
             {"mData": "money","bSortable": true},
             {"mData": "times","bSortable": true},
+            {"mData": "timec","bSortable": true},
+            {"mData": "isf","bSortable": true,"mRender": function(data) {
+                if(data==0){return "否";}
+                if(data==1){return "是";} 
+            }},
             {"mData": "zt","bSortable": false,"mRender": function(data) {
                 if(data==-2){return "<span class='label label-danger'>退款成功</span>";}
                 if(data==-1){return "<span class='label label-warning'>申请退款</span>";}

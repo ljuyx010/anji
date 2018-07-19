@@ -21,6 +21,7 @@ class CarController extends CommonController {
 		case 0 : $order="id ".$px; break; 
 		case 1 : $order="carnum ".$px; break; 
 		case 4 : $order="type ".$px; break; 
+		case 5 : $order="state ".$px; break; 
 		} 
 		$where=array('lj_car.id'=>array('gt',0));
 		if($s){$where=array_merge($where,array('lj_car.carnum'=>array('like','%'.$s.'%')));}
@@ -50,6 +51,7 @@ class CarController extends CommonController {
 			'carnum' => $_POST['carnum'],
 			'driver' => $_POST['driver'],
 			'type' => I('type','',intval),
+			'state' => I('state','',intval),
 			'tel' => I('tel')
 		 );
 
@@ -159,6 +161,42 @@ class CarController extends CommonController {
 		}else{
 			$this->error('删除失败！');
 		}
+	}
+
+	public function diaodu(){
+		if(I('start')){
+			$time=strtotime(I('start'));
+			$jt=strtotime(I('start')." 23:59:59");
+		}else{
+			$time=strtotime(date('Y-m-d'));
+			$jt=strtotime(date('Y-m-d 23:59:59'));
+		}		
+		$whe="stime<=".$jt." and dtime>=".$time;
+		$rw=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('title,edr,stime,dtime,carnum,driver,tel,fuzhu,ftel')
+		->where($whe)->order('carnum desc')->select();
+		//echo M('orders')->getLastSql();die;
+		$re = array();
+		$in=array(); 
+	    foreach ($rw as $v) {
+	        $tmp_v = $v;
+	        array_push($in,$v['carnum']);
+	        unset($tmp_v['carnum']);
+	        if(isset($re[$v['carnum']])) {
+	            $re[$v['carnum']][] = $tmp_v;
+	        }else{
+	            $re[$v['carnum']] = array($tmp_v);
+	        }
+	         
+	    }
+	    if(empty($in)){
+	    	$where=array('type'=>array('gt',0));
+	    }else{
+	    	$where['carnum']=array('not in',array_unique($in));
+	    }	    
+	    $this->kx=M('car')->join('LEFT JOIN lj_class on lj_car.type=lj_class.id')->field('carnum,xtime,ktime,classname,type,state')->where($where)->order('type asc')->select();
+	    $this->time=$time;
+	    $this->rw=$re;
+		$this->display();
 	}
 
 }

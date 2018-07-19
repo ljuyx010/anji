@@ -45,11 +45,15 @@
                             <thead>
                                 <tr>
                                     <th>订单号</th>
-                                    <th>商品名</th>
+                                    <th>订车人</th>
+                                    <th>目的地</th>
+                                    <th>车型</th>
                                     <th>数量</th>
                                     <th>费用</th>
                                     <th>下单日期</th>
+                                    <th>出发日期</th>
                                     <th>状态</th>
+                                    <th>尾款</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -85,18 +89,28 @@
         "sAjaxSource": "<?php echo U('Orders/fpage');?>",
         "aoColumns": [
             {"mData": "ordernum", "bSortable": true},
+            {"bSearchable": false,"mData": function(obj) {
+                if(obj.gname){
+                    return "<a href='javascript:;' title='"+obj.gname+"'>"+obj.uname+"</a>";
+                }else{
+                    return obj.uname;
+                }
+            }},
+            {"mData": "edr", "bSortable": false},
             {"mData": "title", "bSortable": false},
             {"mData": "num", "bSortable": false},
             {"mData": "money","bSortable": true},
             {"mData": "times","bSortable": true},
+            {"mData": "timec","bSortable": true},            
             {"mData": "zt","bSortable": false,"mRender": function(data) {
-                if(data==-2){return "退款成功";}
-                if(data==-1){return "申请退款";}
-                if(data==0){return "待支付";}
-                if(data==1){return "已支付";}
-                if(data==2){return "任务中";}
-                if(data==3){return "已完成";}
-            }},            
+                if(data==-2){return "<span class='label label-danger'>退款成功</span>";}
+                if(data==-1){return "<span class='label label-warning'>申请退款</span>";}
+                if(data==0){return "<span class='label label-info'>待支付</span>";}
+                if(data==1){return "<span class='label label-success'>已支付</span>";}
+                if(data==2){return "<span class='label label-primary'>任务中</span>";}
+                if(data==3){return "<span class='label'>已完成</span>";}
+            }}, 
+            {"mData": "wk","bSortable": true},           
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a> <a onclick='return confirm(`确定要删除吗？`)' href='"+url1+"/id/"+ data +"' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i> 删除</a>";
                 }

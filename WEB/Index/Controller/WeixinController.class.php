@@ -22,7 +22,7 @@ class WeixinController extends Controller{
 		}
 		if($c){	 
 			$or=M('orders')->where(array('ordernum'=>$dh))->find();
-			M('user')->where(array('id'=>$or['uid']))->save(array('name'=>$or['uname'],'tel'=>$or['utel']));
+			M('user')->where(array('id'=>$or['uid']))->save(array('gname'=>$or['gname'],'name'=>$or['uname'],'tel'=>$or['utel']));
 			$openid=M('user')->where(array('id'=>$or['uid']))->getField('openid');
 			$data=array(  
 			   'first'=>array('value'=>urlencode("尊敬的用户，您已下单成功"),'color'=>"#333"),  

@@ -12,11 +12,12 @@ class IndexController extends CommonController {
 	 */
     public function index (){
     	$day=strtotime(date('Y-m-d 00:00:00'));
+    	$m=strtotime('+1 month');
     	$where=array('type'=>1,'zt'=>array('in','-1,1'),'ordtime'=>array('egt',$day));
     	$this->dd=M('orders')->field('id,ordernum,ordtime')->where($where)->select();
     	$ddm=M('orders')->where($where)->count();
-    	$this->shen=M('shen')->field('carnum,type,dtime')->where(array('dtime'=>array('elt',time())))->select();
-    	$sm=M('shen')->where(array('dtime'=>array('elt',time())))->count();
+    	$this->shen=M('shen')->field('carnum,type,dtime')->where(array('dtime'=>array('elt',$m)))->select();
+    	$sm=M('shen')->where(array('dtime'=>array('elt',$m)))->count();
     	$this->num=$ddm+$sm;
     	$this->ddm=$ddm;
         $this->display();

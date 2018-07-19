@@ -1,0 +1,704 @@
+[ 2018-07-16T14:16:18+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001036s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0308s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0066s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0449s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400  [ RunTime:0.0008s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0094s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1531721777  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1531721777 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000411s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000495s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072272s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072351s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000961s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001461s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001573s ]
+
+[ 2018-07-16T14:16:20+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0057s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0014s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000887s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0066s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531670400  [ RunTime:0.0005s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0444s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531670400 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531670400 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000193s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024514s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024610s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000790s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000847s ]
+
+[ 2018-07-16T14:20:56+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0064s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001043s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001139s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0069s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0086s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1531722056  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1531722056 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000254s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000338s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030569s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030654s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000729s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001492s ]
+
+[ 2018-07-16T14:20:58+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0076s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000956s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0073s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531670400  [ RunTime:0.0007s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531670400 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0009s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531670400 LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000817s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001502s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016937s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017359s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000609s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000675s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000875s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000941s ]
+
+[ 2018-07-16T14:21:01+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000724s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0064s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001005s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
+
+[ 2018-07-16T14:26:36+08:00 ] 127.0.0.1 /index.php/Website/Orders/tongji
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0070s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000973s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000121s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+NOTIC: [8] Undefined variable: s D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: d D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: orders D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039454s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000726s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000797s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000962s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001031s ]
+
+[ 2018-07-16T14:27:38+08:00 ] 127.0.0.1 /index.php/website/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0066s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000969s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`ordernum`,`ordtime` FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_orders` WHERE `type` = 1 AND `zt` IN ('-1','1') AND `ordtime` >= 1531670400 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_shen` [ RunTime:0.0071s ]
+SQL: SELECT `carnum`,`type`,`dtime` FROM `lj_shen` WHERE `dtime` <= 1531722458  [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_shen` WHERE `dtime` <= 1531722458 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000228s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000316s ]
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 33 行.
+NOTIC: [8] Undefined index: user D:\WWW\anji\WEB\Runtime\Cache\Website\ae74629993cfa41cc96b9b04cbd4e0ee.php 第 34 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030457s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030539s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000786s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000856s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001446s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001539s ]
+
+[ 2018-07-16T14:27:40+08:00 ] 127.0.0.1 /index.php/Website/Index/welcom
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0077s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001131s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0067s ]
+SQL: SELECT count(id) as ds,Sum(money) as dq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1531670400  [ RunTime:0.0010s ]
+SQL: SELECT count(id) as ms,Sum(money) as mq FROM `lj_orders` WHERE `zt` > 0 AND `ordtime` >= 1530374400  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lj_user` [ RunTime:0.0063s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1531670400 LIMIT 1   [ RunTime:0.0009s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `regtime` >= 1530374400 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1531670400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` WHERE `logintime` >= 1530374400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lj_user` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017558s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017644s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000742s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000846s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000944s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2018-07-16T14:27:45+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0063s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001215s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+NOTIC: [8] Undefined variable: orders D:\WWW\anji\WEB\Runtime\Cache\Website\f448cd6d8cd614b9aebff8a26ef2ba94.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016779s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016860s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000954s ]
+
+[ 2018-07-16T14:28:02+08:00 ] 127.0.0.1 /index.php/Website/Orders/tongji
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000992s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0069s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001123s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+NOTIC: [8] Undefined variable: s D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: d D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 56 行.
+NOTIC: [8] Undefined variable: orders D:\WWW\anji\WEB\Runtime\Cache\Website\b97deb215e12c52fe8d900970d6309d3.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019245s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019332s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000614s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000843s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000904s ]
+
+[ 2018-07-16T14:44:51+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0084s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001133s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0071s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1531670400 and dtime <=1531670400 ) GROUP BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T14:46:11+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/stime/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000711s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0061s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001112s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0091s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1531670400 and dtime <=1531670400 ) GROUP BY carnum  [ RunTime:0.0016s ]
+
+[ 2018-07-16T14:46:39+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000800s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0066s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0069s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1529856000 and dtime <=1529856000 ) GROUP BY carnum  [ RunTime:0.0135s ]
+
+[ 2018-07-16T14:46:55+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-26
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0061s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001556s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0073s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1529942400 and dtime <=1529942400 ) GROUP BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T14:47:46+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0063s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000974s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0070s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1529856000 and dtime <=1529856000 ) GROUP BY carnum  [ RunTime:0.0010s ]
+
+[ 2018-07-16T17:12:57+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0083s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001366s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0092s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1529856000 and dtime <=1529856000 ) GROUP BY carnum  [ RunTime:0.0024s ]
+
+[ 2018-07-16T17:14:02+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000778s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0065s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000933s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001023s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0071s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime >=1529856000 and dtime <=1529856000 ) GROUP BY carnum  [ RunTime:0.0010s ]
+
+[ 2018-07-16T17:15:41+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001158s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0069s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000981s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001074s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0066s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) GROUP BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T17:22:59+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000623s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0064s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0012s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001032s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0069s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T17:29:19+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0066s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000980s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0075s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: arr D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 174 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 174 行.
+
+[ 2018-07-16T17:30:59+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000626s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0080s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001012s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001099s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0065s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T17:36:01+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000959s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0074s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001126s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001237s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0088s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0030s ]
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+
+[ 2018-07-16T17:38:12+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000769s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0062s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001795s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0102s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0010s ]
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 181 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 178 行.
+NOTIC: [2] Illegal string offset 'carnum' D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+NOTIC: [8] Uninitialized string offset: 0 D:\WWW\anji\WEB\Website\Controller\CarController.class.php 第 179 行.
+
+[ 2018-07-16T17:40:27+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000760s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0064s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0075s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0010s ]
+
+[ 2018-07-16T17:44:48+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000894s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0067s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001187s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001303s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0066s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0011s ]
+
+[ 2018-07-16T17:46:42+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000995s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0060s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001152s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0074s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0009s ]
+
+[ 2018-07-16T17:54:20+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000819s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0062s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001072s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001173s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0071s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `lj_car` [ RunTime:0.0064s ]
+SQL: SELECT `carnum`,`xtime`,`ktime` FROM `lj_car` WHERE `carnum` NOT IN ('K00020','K00036','K00037','K00038','鄂k8541zx') ORDER BY type asc  [ RunTime:0.0141s ]
+
+[ 2018-07-16T17:55:42+08:00 ] 127.0.0.1 /index.php/Website/Car/diaodu/start/2018-06-25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `lj_site` [ RunTime:0.0061s ]
+SQL: SELECT `value` FROM `lj_site` WHERE `name` = 'extend' LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000956s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001042s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\WWW\anji\Core\Library\Think\Session\Driver\Db.class.php 第 95 行.
+SQL: SHOW COLUMNS FROM `lj_orders` [ RunTime:0.0069s ]
+SQL: SELECT `sdr`,`stime`,`dtime`,`carnum`,`driver`,`tel`,`fuzhu`,`ftel` FROM `lj_orders` RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum  WHERE ( stime <=1529856000 and dtime >=1529856000 ) ORDER BY carnum  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `lj_car` [ RunTime:0.0067s ]
+SQL: SELECT `carnum`,`xtime`,`ktime` FROM `lj_car` WHERE `carnum` NOT IN ('K00020','K00036','K00037','K00038','鄂k8541zx') ORDER BY type asc  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+NOTIC: [8] Undefined variable: orders D:\WWW\anji\WEB\Runtime\Cache\Website\f448cd6d8cd614b9aebff8a26ef2ba94.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033745s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001218s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001295s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001098s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001172s ]
+

@@ -21,10 +21,11 @@ class HrController extends CommonController {
 		switch ($col){ 
 		case 0 : $order="id ".$px; break; 
 		case 2 : $order="ks ".$px; break; 
+		case 4 : $order="htime ".$px; break; 
 		} 
 		$where=array('id'=>array('gt',0));
 		if($s){$where=array_merge($where,array('name'=>array('like','%'.$s.'%')));}
-		$article = M('people')->field('id,name,ks,tel')->where($where)->order($order)->page($p,$c)->select();
+		$article = M('people')->field('id,name,ks,tel,FROM_UNIXTIME(htime,"%Y-%m-%d") as htimes')->where($where)->order($order)->page($p,$c)->select();
 		$count = M('people')->where($where)->count();
 		$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
  		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);
@@ -54,7 +55,8 @@ class HrController extends CommonController {
 			'tel' => I('tel'),
 			'adress' => $_POST['adress'],
 			'ks' => $_POST['ks'],
-			'time' => strtotime($_POST['time'])
+			'time' => strtotime($_POST['time']),
+			'htime' => strtotime($_POST['htime'])
 		 );
 
 		if (!$db->validate($lei)->create($data)){

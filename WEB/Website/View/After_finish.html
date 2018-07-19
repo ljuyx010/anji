@@ -36,9 +36,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">车牌号</label>
                                 <div class="col-sm-4" >
-                                    <div class="radio">
-                                        <p class="form-control-static">{$v.carnum}</p>
-                                    </div>
+                                    <p class="form-control-static">{$v.carnum}</p>
                                 </div>
                             </div> 
                             </if>
@@ -67,32 +65,11 @@
                                         <input type="text" class="form-control" name="d" value="">
                                         <span class="input-group-addon">天</span>                                        
                                     </div>
-                                    <span class="help-block m-b-none">实际里程大于1600公里请填写上天数</span>
-                                </div>                                
-                            </div>                           
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">加油登记</label>
-                                <div class="col-sm-4">
-                                   <div class="input-group">
-                                        <input type="text" class="form-control" name="addoil" value="{$v.addoil}">
-                                        <span class="input-group-addon">元</span>                                        
-                                    </div>
-                                    <span class="help-block m-b-none">中途未加油则留空</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">使用油料</label>
-                                <div class="col-sm-4">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="oil" value="{$v.oil}">
-                                        <span class="input-group-addon">升</span>                                        
-                                    </div>
-                                    <input type="hidden" name="id" value="{$v.id}"></input>
+                                    <span class="help-block m-b-none">实际出行天数,不足一天的就按1天算。</span>
+                                     <input type="hidden" name="id" value="{$v.id}"></input>
                                     <input type="hidden" name="cid" value="{$v.cid}"></input>
-                                </div>
-                            </div>                                                            
+                                </div>                                
+                            </div>                                                                              
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
