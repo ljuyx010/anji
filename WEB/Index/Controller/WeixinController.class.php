@@ -33,8 +33,18 @@ class WeixinController extends Controller{
 			   'keyword5'=>array('value'=>urlencode(date('Y-m-d H:i',$or['dtime'])),'color'=>'#333'),     
 			   'remark'=>array('value'=>urlencode("感谢您对安吉旅游的支持！服务热线：0712-2467890")),  
 			);
+			$data1=array(
+				'first'=>array('value'=>urlencode("亲，您有新的已支付订单"),'color'=>"#333"),
+				'keyword1'=>array('value'=>urlencode($or['ordernum']),'color'=>'#ED1B28'),  
+			    'keyword2'=>array('value'=>urlencode(date('Y-m-d H:i',$or['ordtime'])),'color'=>'#333'),     
+			    'keyword3'=>array('value'=>urlencode($or['title']),'color'=>'#333'),     
+			    'keyword4'=>array('value'=>urlencode(date('Y-m-d H:i',$or['stime'])),'color'=>'#333'),     
+			    'keyword5'=>array('value'=>urlencode(date('Y-m-d H:i',$or['dtime'])),'color'=>'#333'),
+				'remark'=>array('value'=>urlencode("请尽快到系统后台处理。")), 
+			);
 			//发送付款成功通知
-			doSend($openid,'xyrjKQgTFBxdcewTu0Z3kc9WVqGoTDyIPwqzKsFyE3Y',_URL_,$data); 						
+			doSend($openid,'xyrjKQgTFBxdcewTu0Z3kc9WVqGoTDyIPwqzKsFyE3Y',_URL_,$data);
+			doSend('ovmP91UWPl4682pCJuJSSET1n22Y','xyrjKQgTFBxdcewTu0Z3kc9WVqGoTDyIPwqzKsFyE3Y','http://www.xgbcw.cn/index.php/Website',$data1);
 		}
 	}
 }

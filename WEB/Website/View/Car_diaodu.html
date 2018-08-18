@@ -59,17 +59,15 @@
                         <foreach name="kx" item="v">
                         <div class="col-sm-3">
                         <if condition="$v['xtime'] ELT $time && $v['ktime'] EGT $time">                            
-                            <div class="btn btn-w100 btn-danger">
-                            <p>维修中</p>
+                            <div class="alert alert-danger">
+                            <p>维修中</p>                            
+                            <p>{$v.carid}  车牌号：{$v.carnum} 车型：{$v.classname}  司机：{$v.driver}</p>  
                             <p>维修时间：{$v.xtime|date='Y/m/d H:i',###}--{$v.ktime|date='Y/m/d H:i',###}</p>
-                            <p>{$v.carnum}</p>  
-                            <p>{$v.classname}</p>  
                             </div>
                         <else />
-                            <div class="btn btn-w100 btn-white">
-                            <a href="{:U('Orders/zhid',array('car'=>$v['carnum']))}">
-                            <p>{$v.carnum}</p>  
-                            <p>{$v.classname}</p>
+                            <div class="alert alert-warning">
+                            <a style="color: #333;" href="{:U('Orders/zhid',array('car'=>$v['carnum']))}">
+                            <p>{$v.carid}  车牌号：{$v.carnum} 车型：{$v.classname}  司机：{$v.driver}</p>
                             <if condition="$v['state']"><p>预占中</p></if>
                             </a>
                             </div>                               
@@ -78,10 +76,10 @@
                         </foreach>
                         <foreach name="rw" item="r" key="k">
                         <div class="col-sm-3">
-                            <div class="btn btn-w100 btn-info">
-                                <p>{$k}&nbsp;&nbsp;&nbsp;&nbsp;{$r[0]['title']}</p>  
+                            <div class="alert alert-success">
+                                <p>{$r[0]['carid']}  车牌号：{$k} 车型：{$r[0]['title']}  原司机：{$r[0]['ysj']}</p> 
                                 <foreach name="r" item="c">
-                                <p>{$c.driver}({$c.tel})<if condition="$c['fuzhu']">|辅助:{$c.fuzhu}({$c.ftel})</if><br/>
+                                <p>单号：{$c.ordernum} |司机：{$c.driver}({$c.tel})<if condition="$c['fuzhu']">|辅助:{$c.fuzhu}({$c.ftel})</if><br/>
                                 {$c.stime|date='Y/m/d H:i',###}至{$c.dtime|date='Y/m/d H:i',###}<br/>
                                 {$c.edr}</p>
                                 </foreach>

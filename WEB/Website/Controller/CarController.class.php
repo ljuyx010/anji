@@ -18,7 +18,7 @@ class CarController extends CommonController {
 		$px=$_GET['sSortDir_0'];
 		$col=$_GET['iSortCol_0'];
 		switch ($col){ 
-		case 0 : $order="id ".$px; break; 
+		case 0 : $order="carid ".$px; break; 
 		case 1 : $order="carnum ".$px; break; 
 		case 4 : $order="type ".$px; break; 
 		case 5 : $order="state ".$px; break; 
@@ -49,6 +49,7 @@ class CarController extends CommonController {
 		$data = array(
 			'id' => $_POST['id'],
 			'carnum' => $_POST['carnum'],
+			'carid' => $_POST['carid'],
 			'driver' => $_POST['driver'],
 			'type' => I('type','',intval),
 			'state' => I('state','',intval),
@@ -61,7 +62,7 @@ class CarController extends CommonController {
 		}
 
 		if($_POST['id']){
-			if($db->save($data)) $this->success('保存成功！',U('Car/index'));
+			if($db->where('id='.$_POST['id'])->save($data)) $this->success('保存成功！',U('Car/index'));
 		}else{
 			if($db->add($data)) $this->success('添加成功！',U('Car/addcar'));
 		}
@@ -172,8 +173,9 @@ class CarController extends CommonController {
 			$jt=strtotime(date('Y-m-d 23:59:59'));
 		}		
 		$whe="stime<=".$jt." and dtime>=".$time;
-		$rw=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('title,edr,stime,dtime,carnum,driver,tel,fuzhu,ftel')
-		->where($whe)->order('carnum desc')->select();
+		$rw=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->join('lj_car on lj_ordcar.carnum=lj_car.carnum')
+		->field('lj_orders.ordernum,title,edr,stime,dtime,lj_ordcar.carnum,lj_ordcar.driver,lj_ordcar.tel,fuzhu,ftel,carid,lj_car.driver as ysj')
+		->where($whe)->order('carid asc')->select();
 		//echo M('orders')->getLastSql();die;
 		$re = array();
 		$in=array(); 
@@ -193,7 +195,7 @@ class CarController extends CommonController {
 	    }else{
 	    	$where['carnum']=array('not in',array_unique($in));
 	    }	    
-	    $this->kx=M('car')->join('LEFT JOIN lj_class on lj_car.type=lj_class.id')->field('carnum,xtime,ktime,classname,type,state')->where($where)->order('type asc')->select();
+	    $this->kx=M('car')->join('LEFT JOIN lj_class on lj_car.type=lj_class.id')->field('carid,driver,carnum,xtime,ktime,classname,type,state')->where($where)->order('carid asc')->select();
 	    $this->time=$time;
 	    $this->rw=$re;
 		$this->display();

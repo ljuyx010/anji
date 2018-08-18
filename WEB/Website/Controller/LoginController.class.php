@@ -61,6 +61,14 @@ class LoginController extends Controller {
      $user['group']=$rs['title'];
      session('user',$user);
 	$this->success ( "登录成功", U("Index/index" ) );
+    $time=strtotime("-1 day");
+    $where=array('type'=>1,'zt'=>0,'ordtime'=>array('lt',$time));
+    $dh=M('orders')->field('ordernum')->where($where)->select();
+    foreach($dh as $k=>$v){
+        $yw[]=$v['ordernum'];
+    }
+    M('orders')->where(array('ordernum'=>array('in',$yw)))->delete();
+    M('ordcar')->where(array('ordernum'=>array('in',$yw)))->delete();
     }
 
     //退出登录

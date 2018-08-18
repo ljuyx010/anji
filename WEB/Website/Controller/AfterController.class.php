@@ -522,5 +522,15 @@ class AfterController extends CommonController{
 		$this->display();
 	}
 
+	public function delx(){
+		$id=I('id');
+		$c=M('oil')->where('id='.$id)->getField('carnum');
+		if(M('oil')->where('id='.$id)->delete()){
+			$this->success('删除成功！',U('After/xlist',array('id'=>$c)));
+		}else{
+			$this->error('删除失败');
+		}
+	}
+
 }
 ?>
