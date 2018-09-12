@@ -194,7 +194,7 @@ class Weixinpay {
         $config=$this->config;
         $dingd=M('orders')->where(array('ordernum'=>$dh))->find();
         if($dingd['stime']-$dingd['backtime']<=86400*2){
-            $money=$dingd['money']*0.9*100;
+            $money=$dingd['money']*90;
         }else{
             $money=$dingd['money']*100;
         }
@@ -305,20 +305,20 @@ class Weixinpay {
        return $xml ;
     }
 
-    public function object_to_array($obj) {  
-        $obj = (array) $obj;  
-        foreach ($obj as $k => $v) {  
-            if (gettype($v) == 'resource') {  
-                return;  
-            }  
-            if (gettype($v) == 'object' || gettype($v) == 'array') {  
-                $obj[$k] = (array) object_to_array($v);  
-            }  
-        }  
-      
-      
-        return $obj;  
-    }
+    public function object_to_array($obj) {
+		$obj = (array)$obj;
+		foreach ($obj as $k => $v) {
+			if (gettype($v) == 'resource') {
+				return;
+			}
+			if (gettype($v) == 'object' || gettype($v) == 'array') {
+				$obj[$k] = (array)$this->object_to_array($v);
+			}
+		}
+	 
+		return $obj;
+	}
+
 
     public function nonceStr() {  
         $chars = "abcdefghijklmnopqrstuvwxyz0123456789";  

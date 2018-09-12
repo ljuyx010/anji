@@ -67,6 +67,7 @@
                                     <th>出发日期</th>
                                     <th>目的地</th>
                                     <th>返程日期</th>
+                                    <th>里程</th>
                                     <th>客户姓名</th>
                                     <th>客户电话</th>
                                     <th>金额</th>
@@ -78,10 +79,11 @@
                                     <td>{$v.ordernum}</td>
                                     <td>{$v.title}</td>
                                     <td>{$v.carnum}</td>
-                                    <td>{$v.siji}</td>
+                                    <td>{$v.driver}<if condition="$v['fuzhu']">,{$v.fuzhu}</if></td>
                                     <td>{$v.stime|date="Y-m-d",###}</td>
                                     <td>{$v.edr}</td>
                                     <td>{$v.dtime|date="Y-m-d",###}</td>
+                                    <td>{$v.gl}</td>
                                     <td>{$v.uname}</td>
                                     <td>{$v.utel}</td>
                                     <td>{$v.money}</td>
