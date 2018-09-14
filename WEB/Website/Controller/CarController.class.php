@@ -55,7 +55,10 @@ class CarController extends CommonController {
 			'state' => I('state','',intval),
 			'tel' => I('tel')
 		 );
-
+		if($_POST['state']){
+			$data['xtime']=strtotime($_POST['st']);
+			$data['ktime']=strtotime($_POST['et']);
+		}
 		if (!$db->validate($gz)->create($data)){
 		     // 如果创建失败 表示验证没有通过 输出错误提示信息
 		     $this->error($db->getError());
@@ -133,7 +136,7 @@ class CarController extends CommonController {
 			'pics' => implode("|",$_POST['pics']),
 			'content' => $_POST['content']
 		 );
-
+		
 		if (!$db->validate($lei)->create($data)){
 		     // 如果创建失败 表示验证没有通过 输出错误提示信息
 		     $this->error($db->getError());

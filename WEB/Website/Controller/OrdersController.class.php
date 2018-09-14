@@ -107,7 +107,8 @@ class OrdersController extends CommonController{
 		$jg2=$send->sendMsg($rs['utel'],'SMS_138078328',$kh);
 		if($jg2){
 			$str=$str."<br>用户：".$rs['uname']."短信发送成功";
-			M('orders')->where('ordernum='.$rs['ordernum'])->save(array('zt'=>2,'tz'=>'tz'+1));
+			$gx=array('zt'=>2,'tz'=>array('exp','tz+1'));
+			M('orders')->where(array('ordernum'=>$rs['ordernum']))->save($gx);
 		}else{
 			$str=$str."<br>用户：".$rs['uname']."短信发送失败";
 		}

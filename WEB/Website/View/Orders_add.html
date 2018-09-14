@@ -207,7 +207,7 @@
                                     <input type="hidden" class="form-control" name="id" value="{$orders.id}">
                                     <button class="btn btn-primary" type="submit">保存</button>
                                 </div>
-                                <if condition="$orders['zt'] eq 1 || $orders['type'] eq 0">
+                                <if condition="$orders['zt'] eq 1 || ($orders['type'] eq 0 and $orders['zt'] egt 0 && $orders['zt'] lt 3)">
                                 <div class="col-sm-4">
                                     <input type="button" onclick="send()" class="btn btn-warning" value="下发短信通知"></input>
                                 </div>

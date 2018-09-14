@@ -58,17 +58,22 @@
                         <div class="row">
                         <foreach name="kx" item="v">
                         <div class="col-sm-3">
-                        <if condition="$v['xtime'] ELT $time && $v['ktime'] EGT $time">                            
+                        <if condition="$v['xtime'] ELT $time && $v['ktime'] EGT $time && $v['state'] eq 0">                            
                             <div class="alert alert-danger">
                             <p>维修中</p>                            
                             <p>{$v.carid}  车牌号：{$v.carnum} 车型：{$v.classname}  司机：{$v.driver}</p>  
                             <p>维修时间：{$v.xtime|date='Y/m/d H:i',###}--{$v.ktime|date='Y/m/d H:i',###}</p>
                             </div>
-                        <else />
+                        <elseif condition="$v['xtime'] ELT $time && $v['ktime'] EGT $time && $v['state'] eq 1"/>
+							<div class="alert alert-info">
+                            <p>预占中</p>                            
+                            <p>{$v.carid}  车牌号：{$v.carnum} 车型：{$v.classname}  司机：{$v.driver}</p>  
+                            <p>预占时间：{$v.xtime|date='Y/m/d H:i',###}--{$v.ktime|date='Y/m/d H:i',###}</p>
+                            </div>
+						<else />
                             <div class="alert alert-warning">
                             <a style="color: #333;" href="{:U('Orders/zhid',array('car'=>$v['carnum']))}">
                             <p>{$v.carid}  车牌号：{$v.carnum} 车型：{$v.classname}  司机：{$v.driver}</p>
-                            <if condition="$v['state']"><p>预占中</p></if>
                             </a>
                             </div>                               
                         </if>                            

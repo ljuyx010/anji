@@ -207,6 +207,7 @@ class AfterController extends CommonController{
 			'type' => $_POST['type'],
 			'money' => I('money'),
 			'mark' => $_POST['mark'],
+			'pics' => implode("|",$_POST['pics']),
 			'dtime' => strtotime($_POST['dtime']),
 			'time' => strtotime($_POST['time'])
 		 );
@@ -228,6 +229,9 @@ class AfterController extends CommonController{
 		$id= I('id');
 		$v=M('shen')->where('id='.$id)->find();
 		$this->v=$v;
+		if($v['pics']){
+		$this->pics=explode('|', $v['pics']);
+		}
 		$this->display(addn);
     }
 
@@ -401,28 +405,17 @@ class AfterController extends CommonController{
 		$year=strtotime(date('Y-01-01 00:00:00'));
 		$rs1=M('bad')->field('Count(id) as num,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>0,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();
 		$new1=array();
-		$new2=array();		
+		$new2=array();
 		foreach($rs1 as $k=>$v){
-			if($v['m']){
 			$new1=array_merge($new1,array($v['m']=>array('ts'=>$v['num'],'m'=>$v['m']."月")));
-			}
-		}		
+		}
 		$rs2=M('bad')->field('Count(id) as wz,FROM_UNIXTIME(time,"%m") as m')->where(array('type'=>1,'time'=>array('egt',$year)))->group('m')->order('m ASC')->select();		
 		foreach($rs2 as $k2=>$v2){
-			if($v2['m']){
-				$k=$v2['m'];
-				if($new1[$k]){
-					$new2[$k] = array_merge(array('wz'=>$v2['wz'],'m'=>$v['m']."月"),$new1[$k]);
-				}else{
-					$new2[$k] = array('wz'=>$v2['wz'],'m'=>$v['m']."月",'ts'=>0);
-				}
-				
-			}
+			$new2= array_merge(array($v2['m']=>array('wz'=>$v2['wz'],'m'=>$v2['m']."月")),$new2);
 		}
-		foreach($new2 as $k3=>$v3){
-			$rs[]=$v3;
-		}		
-		$this->ajaxReturn($rs);
+		$rs=array_merge($new1,$new2);
+		ksort($rs);	
+		$this->ajaxReturn(array_values($rs));
 	}
 
 	public function oil(){
