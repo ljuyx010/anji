@@ -75,11 +75,12 @@
                         </div>    
                         </foreach>
                         <foreach name="rw" item="r" key="k">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3">							
                             <div class="alert alert-success">
                                 <p>{$r[0]['carid']}  车牌号：{$k} 车型：{$r[0]['title']}  原司机：{$r[0]['ysj']}</p> 
                                 <foreach name="r" item="c">
-                                <p>单号：{$c.ordernum} |司机：{$c.driver}({$c.tel})<if condition="$c['fuzhu']">|辅助:{$c.fuzhu}({$c.ftel})</if><br/>
+								<if condition="$c['stime'] lt strtotime(date('Y-m-d',time()))"><p style="color:#f8ac59"><else /><p></if>
+                                单号：{$c.ordernum} |司机：{$c.driver}({$c.tel})<if condition="$c['fuzhu']">|辅助:{$c.fuzhu}({$c.ftel})</if><br/>
                                 {$c.stime|date='Y/m/d H:i',###}至{$c.dtime|date='Y/m/d H:i',###}<br/>
                                 {$c.edr}</p>
                                 </foreach>

@@ -43,8 +43,10 @@
                             <thead>
                                 <tr>
                                     <th>订单号</th>
-                                    <th>出发时间</th>
+									<th>联系人</th>
+                                    <th>出发时间</th>                                    
                                     <th>目的地</th>
+                                    <th>金额</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -80,8 +82,10 @@
         "sAjaxSource": "{:U('Finacal/fap',array('f'=>1))}",
         "aoColumns": [            
             {"mData": "ordernum", "bSortable": false},
+            {"mData": "uname", "bSortable": false},
             {"mData": "times", "bSortable": true},
             {"mData": "edr","bSortable": false},
+            {"mData": "money","bSortable": false},
             {"mData": "ftype","bSortable": true,"mRender": function(data) {
                 if(data==0){return "<span class='label label-danger'>未开</span>";}
                 if(data==1){return "<span class='label label-success'>已开</span>";}

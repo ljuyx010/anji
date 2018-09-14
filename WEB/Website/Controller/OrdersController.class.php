@@ -83,7 +83,7 @@ class OrdersController extends CommonController{
 		$rs=M('orders')->field('ordernum,uname,utel,stime,sdr,dtime,edr,ora,mark')->where(array('ordernum'=>$dh))->find();
 		$rs2=M('ordcar')->field('carnum,driver,tel,fuzhu,ftel')->where(array('ordernum'=>$dh))->select();
 		if($rs['ora']==1){$song="只送";}else{$song="往返";}
-		$da=array('dh'=>$rs['ordernum'],'name'=>$rs['uname'],'tel'=>$rs['utel'],'stime'=>date('Y-m-d',$rs['stime']),'sdr'=>$rs['sdr'].",".$song,'dtime'=>date('Y-m-d',$rs['dtime']),'edr'=>$rs['edr']."备注:".$rs['mark']);
+		$da=array('dh'=>$rs['ordernum'],'name'=>$rs['uname'],'tel'=>$rs['utel'],'stime'=>date('Y-m-d H:i',$rs['stime']),'sdr'=>$rs['sdr'].",".$song,'dtime'=>date('Y-m-d H:i',$rs['dtime']),'edr'=>$rs['edr']."备注:".$rs['mark']);
 		$str="";
 		foreach ($rs2 as $k => $v) {
 			if(!$k){
@@ -225,7 +225,8 @@ class OrdersController extends CommonController{
 		if($id){
 			$jg=$db->where('id='.$id)->save($data);
 			foreach ($_POST['car'] as $ko => $vo) {
-			  M('ordcar')->where('id='.$ko)->save($vo);
+			  $vo['id']=$ko;
+			  M("ordcar")->save($vo);
 			}
 		}else{
 			foreach ($rs2 as $ke => $va) {

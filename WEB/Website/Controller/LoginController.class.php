@@ -38,37 +38,41 @@ class LoginController extends Controller {
      * 登录判断
      */
     public function login(){
-     if (!IS_POST) E('页面不存在！');
-     ob_clean();
-     $verify = new \Think\Verify();
-     if(!$verify->check($_POST['code'],1)){
-     $this->error('验证码错误');
-     }
-     $username = I('account');
-     $password = I('password','',md5);
-     $user = M('admin')->where(array('account' => $username))->find();
-     if (!$user || $user['password'] != $password){
-    	$this->error('账号或密码错误！');
-     }
-     $data = array(
-     	'id' => $user['id'],
-     	'logintime' => time()
-     );
-     M('admin')->save($data);
-     $rs=M('admin')->field("c.title")->alias('a')
-        ->join('LEFT JOIN lj_auth_group_access b ON a.id=b.uid')
-        ->join('LEFT JOIN lj_auth_group c ON b.group_id=c.id')->find();
-     $user['group']=$rs['title'];
-     session('user',$user);
-	$this->success ( "登录成功", U("Index/index" ) );
-    $time=strtotime("-1 day");
-    $where=array('type'=>1,'zt'=>0,'ordtime'=>array('lt',$time));
-    $dh=M('orders')->field('ordernum')->where($where)->select();
-    foreach($dh as $k=>$v){
-        $yw[]=$v['ordernum'];
-    }
-    M('orders')->where(array('ordernum'=>array('in',$yw)))->delete();
-    M('ordcar')->where(array('ordernum'=>array('in',$yw)))->delete();
+		 if (!IS_POST) E('页面不存在！');
+		 ob_clean();
+		 $verify = new \Think\Verify();
+		 if(!$verify->check($_POST['code'],1)){
+		 $this->error('验证码错误');
+		 }
+		 $username = I('account');
+		 $password = I('password','',md5);
+		 $user = M('admin')->where(array('account' => $username))->find();
+		 if (!$user || $user['password'] != $password){
+			$this->error('账号或密码错误！');
+		 }
+		 $data = array(
+			'id' => $user['id'],
+			'logintime' => time()
+		 );
+		 M('admin')->save($data);
+		 $rs=M('admin')->field("c.title")->alias('a')
+			->join('LEFT JOIN lj_auth_group_access b ON a.id=b.uid')
+			->join('LEFT JOIN lj_auth_group c ON b.group_id=c.id')->find();
+		 $user['group']=$rs['title'];
+		 session('user',$user);
+		$time=strtotime("-1 day");
+		$where=array('type'=>1,'zt'=>0,'ordtime'=>array('lt',$time));
+		$dh=M('orders')->field('ordernum')->where($where)->select();
+		//p($dh);
+		//echo M('orders')->getLastSql();die;
+		if($dh){
+			foreach($dh as $k=>$v){
+				$yw[]=$v['ordernum'];
+			}
+			M('orders')->where(array('ordernum'=>array('in',$yw)))->delete();
+			M('ordcar')->where(array('ordernum'=>array('in',$yw)))->delete();
+		}
+		$this->success ( "登录成功", U("Index/index" ) );
     }
 
     //退出登录

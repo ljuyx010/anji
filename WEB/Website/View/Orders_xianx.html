@@ -53,6 +53,7 @@
                                     <th>下单日期</th>
                                     <th>出发日期</th>
                                     <th>状态</th>
+									<th>通知</th>
                                     <th>尾款</th>
                                     <th>操作</th>
                                 </tr>
@@ -110,6 +111,7 @@
                 if(data==2){return "<span class='label label-primary'>任务中</span>";}
                 if(data==3){return "<span class='label'>已完成</span>";}
             }}, 
+			{"mData": "tz", "bSortable": false},
             {"mData": "wk","bSortable": true},           
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a> <a onclick='return confirm(`确定要删除吗？`)' href='"+url1+"/id/"+ data +"' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i> 删除</a>";

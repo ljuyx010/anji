@@ -53,6 +53,7 @@
                                     <th>出发日期</th>
                                     <th>要发票</th>
                                     <th>状态</th>
+									<th>通知</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -111,7 +112,8 @@
                 if(data==1){return "<span class='label label-success'>已支付</span>";}
                 if(data==2){return "<span class='label label-primary'>任务中</span>";}
                 if(data==3){return "<span class='label'>已完成</span>";}
-            }},            
+            }}, 
+			{"mData": "tz","bSortable": false},
             {"mData": "id","bSortable": false,"mRender": function(data) {
                 return "<a href='"+url+"/id/"+ data +"' class='btn btn-info btn-sm'><i class='fa fa-pencil'></i> 详情 </a>";
                 }

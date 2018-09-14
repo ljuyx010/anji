@@ -148,7 +148,7 @@ class FinacalController extends CommonController{
 			} 
 			$where=array('fap'=>array('exp','is not null'));
 			if($s){$where=array_merge($where,array('ordernum'=>$s));}
-			$article = M('orders')->field('id,ordernum,FROM_UNIXTIME(stime,"%Y-%m-%d") as times,ftype,edr')->where($where)->order($order)->page($p,$c)->select();
+			$article = M('orders')->field('id,ordernum,money,uname,FROM_UNIXTIME(stime,"%Y-%m-%d") as times,ftype,edr')->where($where)->order($order)->page($p,$c)->select();
 			$count = M('orders')->where($where)->count();
 			$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
 	 		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);

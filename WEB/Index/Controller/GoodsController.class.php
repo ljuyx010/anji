@@ -49,7 +49,7 @@ class GoodsController extends CommonController{
 		);
 
 		$gs=M('class')->field('oilj,oilh,glf,lr')->where(array('id'=>$cx))->find();
-		$where="zt>0 and (stime >=".$start." or stime <=".$end." or dtime >=".$start." or dtime<=".$end." or (stime<".$start." and dtime>".$end."))";
+		$where="zt>0 and ((stime >=".$start." and stime <=".$end.") or (dtime >=".$start." and dtime<=".$end.") or (stime<".$start." and dtime>".$end."))";
 		$rs=$db->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('carnum,stime,dtime')->where($where)->select();
 		if($rs){
 			$str="(";
