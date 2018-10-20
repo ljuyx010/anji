@@ -290,6 +290,7 @@ class AfterController extends CommonController{
 			'type' => $_POST['type'],
 			'money' => I('money'),
 			'content' => $_POST['content'],
+			'wxxm' => $_POST['wxxm'],
 			'hours' => $_POST['hours'],
 			'time' => strtotime($_POST['time'])
 		 );
@@ -523,6 +524,32 @@ class AfterController extends CommonController{
 		}else{
 			$this->error('删除失败');
 		}
+	}
+	
+	public function daochu(){
+		$this->display();
+	}
+	
+	public function tongji(){
+		$s=strtotime($_POST['start']);
+		$d=strtotime($_POST['end']);
+		$where=array('time'=>array('between',array(I('s'),I('d'))));
+		if($_POST['type']==1){
+			$data=M('oil')->field('carnum,lic,oil,FROM_UNIXTIME(time,"%Y-%m-%d %H:%i") as s,type')->where($where)->order('time desc')->select();
+		$t[0]=array('车牌号','加油时车辆里程','加油量(L)','加油时间','加油地点(0站内,1站外)');
+		$name="加油登记".date('Ymd');
+		}else if($_POST['type']==2){
+			$data=M('xiu')->field('carnum,type,wxxm,hours,money,FROM_UNIXTIME(time,"%Y-%m-%d %H:%i") as s,content')->where($where)->order('time desc')->select();
+		$t[0]=array('车牌号','维修类型(0保养,1小修,2大修)','维修项目','工时','维修费用','维修时间','材料');
+		$name="维修登记".date('Ymd');
+		}else{
+			$data=M('sbei')->field('name,num,jia,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as s,FROM_UNIXTIME(time,"%Y-%m-%d %H:%i") as d')->where($where)->order('time desc')->select();
+		$t[0]=array('设备名','数量','价格','设备过期时间','登记时间');
+		$name="设备购入".date('Ymd');
+		}		
+		$data=array_merge($t,$data);
+		$n=$name.".xls";
+		create_xls($data,$n);
 	}
 
 }
