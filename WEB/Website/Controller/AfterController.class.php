@@ -456,9 +456,16 @@ class AfterController extends CommonController{
 
 	public function oilist(){
 		$time=strtotime(date('Y-m-01'));
-		$where=array('time'=>array('EGT',$time));
-		$this->yyl=M('oil')->join('INNER JOIN lj_car on lj_oil.carnum=lj_car.carnum')->field('lj_oil.carnum,Min(lic) as x,Max(lic) as d,Sum(oil) as s')
+		$rs=M('oil')->where(array('time'=>array('ELT',$time)))->field('max(id) as x')->group('carnum')->select();
+		//p($rs);
+		$ids=array();
+		foreach($rs as $k=>$v){$ids[]=$v['x'];}
+		$where['time']=array('EGT',$time);
+		$where['lj_oil.id']=array('in',$ids);
+		$where['_logic'] = 'OR';
+		$this->yyl=M('oil')->join('INNER JOIN lj_car on lj_oil.carnum=lj_car.carnum')->field('lj_oil.carnum,Min(lic) as x,Max(lic) as d,SUM(oil) as s')
 		->where($where)->group('lj_oil.carnum')->order('s desc')->select();
+		//p($yyl);die;
 		$this->display();
 	}
 

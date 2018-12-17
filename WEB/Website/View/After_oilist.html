@@ -53,7 +53,7 @@
                                    {$v.s}                                   
                                 </td>
                                 <td class="project-completion">
-                                    {$v['s']/($v['d']-$v['x'])}L/公里
+                                    {:round($v['s']/($v['d']-$v['x']),3)}L/公里
                                 </td>
                                 <td>
                                     <a href="{:U('After/xlist',array('id'=>$v['carnum']))}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> 查看</a>
