@@ -209,5 +209,94 @@ function cut_name($user_name){
         imagepng($QR,$filename);
         return $fileurl;
     }
+	
+	/**
+	 * 导入excel文件
+	 * @param  string $file excel文件路径
+	 * @return array        excel文件内容数组
+	 */
+	function import_excel($file){
+		// 判断文件是什么格式
+		$type = pathinfo($file); 
+		$type = strtolower($type["extension"]);
+		if ($type=='xlsx') { 
+			$type='Excel2007'; 
+		}elseif($type=='xls') { 
+			$type = 'Excel5'; 
+		} 
+		ini_set('max_execution_time', '0');
+		Vendor('PHPExcel.PHPExcel');
+		// 判断使用哪种格式
+		$objReader = PHPExcel_IOFactory::createReader($type);
+		$objPHPExcel = $objReader->load($file); 
+		$sheet = $objPHPExcel->getSheet(0); 
+		// 取得总行数 
+		$highestRow = $sheet->getHighestRow();     
+		// 取得总列数      
+		$highestColumn = $sheet->getHighestColumn(); 
+		//总列数转换成数字
+		$numHighestColum = PHPExcel_Cell::columnIndexFromString("$highestColumn");
+		//循环读取excel文件,读取一条,插入一条
+		$data=array();
+		//从第一行开始读取数据
+		for($j=1;$j<=$highestRow;$j++){
+			//从A列读取数据
+			for($k=0;$k<=$numHighestColum;$k++){
+				//数字列转换成字母
+				$columnIndex = PHPExcel_Cell::stringFromColumnIndex($k);
+				// 读取单元格
+				$data[$j][]=$objPHPExcel->getActiveSheet()->getCell("$columnIndex$j")->getValue();
+			} 
+		}  
+		return $data;
+	}
+
+	function excelTime($date, $time = false) {
+	  if(function_exists('GregorianToJD')){
+		  if (is_numeric( $date )) {
+		  $jd = GregorianToJD( 1, 1, 1970 );
+		  $gregorian = JDToGregorian( $jd + intval ( $date ) - 25569 );
+		  $date = explode( '/', $gregorian );
+		  $date_str = str_pad( $date [2], 4, '0', STR_PAD_LEFT )
+		  ."-". str_pad( $date [0], 2, '0', STR_PAD_LEFT )
+		  ."-". str_pad( $date [1], 2, '0', STR_PAD_LEFT )
+		  . ($time ? " 00:00:00" : '');
+		  return $date_str;
+		  }
+	  }else{
+		  $date=$date>25568?$date+1:25569;
+		  /*There was a bug if Converting date before 1-1-1970 (tstamp 0)*/
+		  $ofs=(70 * 365 + 17+2) * 86400;
+		  $date = date("Y-m-d",($date * 86400) - $ofs).($time ? " 00:00:00" : '');
+	  }
+	return $date;
+	}
+	
+	/**
+	 * 循环删除目录和文件
+	 * @param string $dir_name 目录名
+	 * @return bool
+	 */
+	function delete_dir_file($dir_name) {
+		$result = false;
+		if(is_dir($dir_name)){ //检查指定的文件是否是一个目录
+			if ($handle = opendir($dir_name)) {   //打开目录读取内容
+				while (false !== ($item = readdir($handle))) { //读取内容
+					if ($item != '.' && $item != '..') {
+						if (is_dir($dir_name . DS . $item)) {
+							delete_dir_file($dir_name . DS . $item);
+						} else {
+							unlink($dir_name . DS . $item);  //删除文件
+						}
+					}
+				}
+				closedir($handle);  //打开一个目录，读取它的内容，然后关闭
+				if (rmdir($dir_name)) { //删除空白目录
+					$result = true;
+				}
+			}
+		}
+		return $result;
+	}
     
 ?>

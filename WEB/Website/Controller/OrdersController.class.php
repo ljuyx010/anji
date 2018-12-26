@@ -24,7 +24,7 @@ class OrdersController extends CommonController{
 		case 9 : $order="wk ".$px; break; 
 		}
 		if($id){$where = array('uid'=>array('exp','is not null'));}else{$where =array('uid'=>array('exp','is null'));} 		
-		if($s){$where=array_merge($where,array('ordernum'=>array('like','%'.$s.'%')));}
+		if($s){$where=array_merge($where,array('ordernum|gname|uname'=>array('like','%'.$s.'%')));}
 		$article = M('orders')->field('id,title,uname,gname,edr,ordernum,num,money,zt,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as times,FROM_UNIXTIME(stime,"%Y-%m-%d") as timec,wk,isf,tz')->where($where)->order($order)->page($p,$c)->select();
 		//echo M('orders')->getLastSql();
 		$count = M('orders')->where($where)->count();
@@ -254,6 +254,71 @@ class OrdersController extends CommonController{
 		$this->orders = $orders;
 		$this->action="修改";
 		$this->display(add);		
+	}
+	
+	public function upxls(){
+		$this->display();
+	}	
+	
+	//数据导入
+	public function dbrk(){
+		$f=I('url');
+		$data=import_excel('.'.$f);
+		$m=0;
+		foreach ($data as $k=> $v) {
+			if($k>1 && !is_null($v[0])){
+				$rs=M('class')->field('classname,title')->where(array('id'=>$v[0]))->find();
+				$d=array(
+					'cid'=>$v[0],
+					'stime'=>strtotime(excelTime($v[6])),
+					'dtime'=>strtotime(excelTime($v[7])),
+					'sdr'=>$v[8],
+					'edr'=>$v[9],
+					'ora'=>$v[10],
+					'money'=>$v[11],
+					'uname'=>$v[12],
+					'utel'=>$v[13],
+					'gname'=>$v[14],
+					'wk'=>$v[15],
+					'fap'=>$v[16],
+					'isf'=>$v[17],
+					'mark'=>$v[18],
+					'utype'=>$v[19],
+					'ordtime'=>strtotime(excelTime($v[21])),
+					'title'=>$rs['classname'],
+					'des'=>$rs['title']
+				);
+				$s=array(
+					'carnum'=>$v[1],
+					'driver'=>$v[2],
+					'tel'=>$v[3],
+					'fuzhu'=>$v[4],
+					'ftel'=>$v[5]
+				);
+				if($v[20]){
+					$where=array('ordernum'=>$v[20]);
+					$z1=M('orders')->where($where)->save($d);
+					$z2=M('ordcar')->where($where)->save($s);
+					if(!$z1&&!$z2){$m=m+1;}
+				}else{
+					$d['num']=1;
+					$d['gl']=0;
+					$d['zt']=0;
+					$d['type']=0;
+					$s['ordernum']=$d['ordernum']=date('Ymd').(substr(time(), -4)+$k);
+					$z1=M('orders')->add($d);
+					$z2=M('ordcar')->add($s);
+					if(!$z1||!$z2){$m=m+1;}
+				}
+			}
+		}
+		delete_dir_file($f);
+		if($m){
+			$this->error('数据已导入，其中'.$m.'条数据导入失败，请核对订单数据');
+		}else{
+			$this->success('导入成功',U('Orders/xianx'));
+		}
+
 	}
 
 	public function del(){

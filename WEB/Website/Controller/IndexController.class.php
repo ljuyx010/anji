@@ -13,7 +13,7 @@ class IndexController extends CommonController {
     public function index (){
     	$day=strtotime(date('Y-m-d 00:00:00'));
     	$m=strtotime('+1 month');
-    	$where=array('type'=>1,'zt'=>array('in','-1,1'),'ordtime'=>array('egt',$day));
+    	$where=array('zt'=>array('gt',-1),'ordtime'=>array('egt',$day));
     	$this->dd=M('orders')->field('id,ordernum,ordtime')->where($where)->select();
     	$ddm=M('orders')->where($where)->count();
     	$this->shen=M('shen')->field('carnum,type,dtime')->where(array('dtime'=>array('elt',$m)))->select();
@@ -60,6 +60,25 @@ class IndexController extends CommonController {
 	
 	public function close(){
 		$this->display();
+	}
+	
+	public function upload(){
+		$upload = new \Think\Upload();// 实例化上传类
+		$upload->maxSize   =     3145728 ;// 设置附件上传大小
+		$upload->exts      =     array('xls','xlsx');// 设置附件上传类型
+		$upload->rootPath  =     './Upload/'; // 设置附件上传根目录
+		$upload->savePath  =     'file/'; // 设置附件上传（子）目录
+		// 上传文件
+		$info   =   $upload->upload($_FILES);
+		if(!$info) {// 上传错误提示错误信息
+			$error=$upload->getError();
+			echo json_encode(array("error"=>$error));
+		}else{// 上传成功
+			foreach($info as $v){
+				$url='/Upload/'.$v['savepath'].$v['savename'];
+				echo json_encode(array("error"=>"0","pic"=>$url));
+			}
+		}
 	}
     
 }
