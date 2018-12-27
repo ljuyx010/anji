@@ -262,6 +262,7 @@ class OrdersController extends CommonController{
 	
 	//数据导入
 	public function dbrk(){
+		Vendor('PHPExcel.PHPExcel');
 		$f=I('url');
 		$data=import_excel('.'.$f);
 		$m=0;
@@ -270,8 +271,8 @@ class OrdersController extends CommonController{
 				$rs=M('class')->field('classname,title')->where(array('id'=>$v[0]))->find();
 				$d=array(
 					'cid'=>$v[0],
-					'stime'=>strtotime(excelTime($v[6])),
-					'dtime'=>strtotime(excelTime($v[7])),
+					'stime'=>(\PHPExcel_Shared_Date::ExcelToPHP($v[6])-8*3600),
+					'dtime'=>(\PHPExcel_Shared_Date::ExcelToPHP($v[7])-8*3600),
 					'sdr'=>$v[8],
 					'edr'=>$v[9],
 					'ora'=>$v[10],
@@ -284,10 +285,11 @@ class OrdersController extends CommonController{
 					'isf'=>$v[17],
 					'mark'=>$v[18],
 					'utype'=>$v[19],
-					'ordtime'=>strtotime(excelTime($v[21])),
+					'ordtime'=>(\PHPExcel_Shared_Date::ExcelToPHP($v[21])-8*3600),
 					'title'=>$rs['classname'],
 					'des'=>$rs['title']
 				);
+				
 				$s=array(
 					'carnum'=>$v[1],
 					'driver'=>$v[2],
@@ -312,7 +314,7 @@ class OrdersController extends CommonController{
 				}
 			}
 		}
-		delete_dir_file($f);
+		unlink('.'.$f);
 		if($m){
 			$this->error('数据已导入，其中'.$m.'条数据导入失败，请核对订单数据');
 		}else{
@@ -366,9 +368,9 @@ class OrdersController extends CommonController{
 		}
 		$where=array('stime'=>array('between',array(I('s'),I('d'))));
 		$data=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')
-		->field('lj_orders.ordernum,uname,gname,utel,FROM_UNIXTIME(stime,"%Y-%m-%d %H:%i") as s,sdr,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as d,edr,gl,ora,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as o,title,carnum,driver,tel,fuzhu,ftel,money,wk,mark')
+		->field('cid,carnum,driver,tel,fuzhu,ftel,FROM_UNIXTIME(stime,"%Y-%m-%d %H:%i") as s,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as d,sdr,edr,ora,money,uname,utel,gname,wk,fap,isf,mark,lj_orders.ordernum,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as o')
 		->where($where)->order('stime desc')->select();
-		$t[0]=array('订单号','客户姓名','公司名称','客户电话','发车时间','发车地点','返程时间','返程地点','里程','单/往返','下单时间','车型','车牌号','司机姓名','司机电话','辅助司机','辅助司机电话','费用','尾款','备注');
+		$t[0]=array('车型','车牌号','司机姓名','司机电话','副驾司机','副驾电话','发车时间','返程时间','接车地点','目的地','单/双程','费用','客户姓名','客户电话','单位名称','尾款','发票信息','是否开票','备注','用户类型','订单号','下单时间');
 		$data=array_merge($t,$data);
 		$n=date('Ymd').".xls";
 		create_xls($data,$n);
