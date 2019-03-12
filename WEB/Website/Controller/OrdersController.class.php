@@ -351,7 +351,7 @@ class OrdersController extends CommonController{
 		if (IS_POST) {
 			$s=strtotime($_POST['start']);
 			$d=strtotime($_POST['end']);
-			if(($d-$s)>30*24*60*60){$this->error('查询范围不能超过30天');}
+			//if(($d-$s)>31*24*60*60){$this->error('查询范围不能超过31天');}
 			$where=array('stime'=>array('between',array($s,$d)));
 			$data=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->where($where)->order('stime desc')->select();
 			//echo M('orders')->getLastSql();
@@ -368,7 +368,7 @@ class OrdersController extends CommonController{
 		}
 		$where=array('stime'=>array('between',array(I('s'),I('d'))));
 		$data=M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')
-		->field('cid,carnum,driver,tel,fuzhu,ftel,FROM_UNIXTIME(stime,"%Y-%m-%d %H:%i") as s,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as d,sdr,edr,ora,money,uname,utel,gname,wk,fap,isf,mark,lj_orders.ordernum,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as o')
+		->field('cid,carnum,driver,tel,fuzhu,ftel,FROM_UNIXTIME(stime,"%Y-%m-%d %H:%i") as s,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as d,sdr,edr,ora,money,uname,utel,gname,wk,fap,isf,mark,utype,lj_orders.ordernum,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as o')
 		->where($where)->order('stime desc')->select();
 		$t[0]=array('车型','车牌号','司机姓名','司机电话','副驾司机','副驾电话','发车时间','返程时间','接车地点','目的地','单/双程','费用','客户姓名','客户电话','单位名称','尾款','发票信息','是否开票','备注','用户类型','订单号','下单时间');
 		$data=array_merge($t,$data);

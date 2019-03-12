@@ -343,7 +343,7 @@ class AfterController extends CommonController{
 			} 
 			$where=array('zt'=>array('gt',0));
 			if($s){$where['carnum']=array('like','%'.$s.'%');}
-			$article = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,edr,zt,FROM_UNIXTIME(ordtime,"%Y-%m-%d %H:%i") as otime,mileage')->where($where)->order($order)->page($p,$c)->select();
+			$article = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->field('lj_ordcar.id,carnum,lj_ordcar.ordernum,driver,sdr,edr,zt,FROM_UNIXTIME(stime,"%Y-%m-%d %H:%i") as ctime,FROM_UNIXTIME(dtime,"%Y-%m-%d %H:%i") as otime,mileage')->where($where)->order($order)->page($p,$c)->select();
 			$count = M('orders')->join('RIGHT JOIN lj_ordcar on lj_orders.ordernum=lj_ordcar.ordernum')->where($where)->count();
 			$Page = new \Think\Page($count,$c);// 实例化分页类 传入总记录数和每页显示的记录数
 	 		$data=array('iTotalRecords'=>$count,"iTotalDisplayRecords"=>$count,"aaData"=>$article);
@@ -364,9 +364,7 @@ class AfterController extends CommonController{
 		$cid=I('cid');
 		$d=I('d','',intval);
 		if($d<1){$this->error('天数不能小于1');}
-		$lei = array(//自动验证
-	     array('mileage','require','实际里程必填')
-		);
+		if(I('mileage',0,intval)<1){$this->error('公里数不能小于1');}
 		$rs=M('class')->field('kmm')->where('id='.$cid)->find();
 		$rs2=M('ordcar')->field('ordernum')->where('id='.$id)->find();
 		if(I('mileage')>1600){
@@ -380,10 +378,10 @@ class AfterController extends CommonController{
 			'mileage'=>I('mileage'),
 			'wage'=>$wage
 		);
-		if (!$db->validate($lei)->create($data)){
-		     // 如果创建失败 表示验证没有通过
-		     $this->error($db->getError());
-		}
+		//if(!$db->validate($lei)->create($data)){
+		    // 如果创建失败 表示验证没有通过
+		    //$this->error($db->getError());
+		//}
 		if(M('ordcar')->where('id='.$id)->save($data)){
 			M('orders')->where('ordernum='.$rs2['ordernum'])->setField('zt',3);
 			$this->success('保存成功',U('After/dingd'));
@@ -465,6 +463,7 @@ class AfterController extends CommonController{
 		$where['_logic'] = 'OR';
 		$this->yyl=M('oil')->join('INNER JOIN lj_car on lj_oil.carnum=lj_car.carnum')->field('lj_oil.carnum,Min(lic) as x,Max(lic) as d,SUM(oil) as s')
 		->where($where)->group('lj_oil.carnum')->order('s desc')->select();
+		//echo M('oil')->getLastSql();
 		//p($yyl);die;
 		$this->display();
 	}
